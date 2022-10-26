@@ -2,9 +2,13 @@ import React from "react";
 import { ProfileImage } from "../ProfileImage/";
 import { Icon } from "../Icon";
 
-function SidebarMenu({ children }) {
+function SidebarMenu({ sidebarIsOpen }) {
   return (
-    <aside className="fixed left-0 w-full h-screen flex flex-col items-center p-6 space-y-4 bg-[#050c19] md:w-60 lg:w-72">
+    <aside
+      className={`fixed w-full h-screen flex flex-col items-center p-6 space-y-4 bg-[#050c19] transition-all duration-700 ${
+        sidebarIsOpen ? " left-0" : "-left-full"
+      }  z-10 md:w-60  lg:w-72`}
+    >
       <ProfileImage shape="circle" />
       <p className="text-3xl text-gray-100 font-semibold tracking-tight md:text-2xl">
         Diego Reyes
@@ -32,7 +36,7 @@ function SidebarMenu({ children }) {
           <Icon type="linkedin" withBackground={true} />
         </a>
       </div>
-      <div className="pt-8 md:self-start">
+      <nav className="pt-8 md:self-start">
         <ul className="flex flex-col gap-5 text-[#82858c] font-semibold sm:text-xl md:text-lg">
           <li className="flex items-center space-x-4">
             <Icon type="home" />
@@ -51,7 +55,7 @@ function SidebarMenu({ children }) {
             <span>Contact</span>
           </li>
         </ul>
-      </div>
+      </nav>
     </aside>
   );
 }
