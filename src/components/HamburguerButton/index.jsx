@@ -9,7 +9,7 @@ function HamburguerButton({ sidebarIsOpen, setSidebarIsOpen }) {
       <div
         className={`w-[35px] h-1 bg-white rounded-md transition-all duration-1000 ease-in-out ${
           sidebarIsOpen
-            ? "-translate-x-[26px] bg-transparent before:rotate-45 before:translate-x-[25px] before:translate-y-[0] after:rotate-[-45deg] after:translate-x-[25px] after:translate-y-[0] "
+            ? "-translate-x-[26px] bg-transparent before:rotate-45 before:translate-x-[25px] before:translate-y-[0px] after:rotate-[-45deg] after:translate-x-[25px] after:translate-y-[0px] "
             : undefined
         }
            before:content[''] before:absolute before:w-[35px] before:h-1 before:bg-white before:rounded-md before:transition-all before:duration-1000 before:ease-in-out before:-translate-y-3 
