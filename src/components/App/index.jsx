@@ -12,10 +12,17 @@ function App() {
 
   React.useEffect(() => {
     window.addEventListener("resize", (ev) => {
-      ev.target.innerWidth > 768
+      // console.log(ev, ev.target.innerWidth, sidebarIsOpen);
+      ev.target.innerWidth >= 768
         ? setSidebarIsOpen(true)
         : setSidebarIsOpen(false);
+      if (ev.target.innerWidth === 767 || ev.target.innerWidth === 769) {
+        console.log(ev, ev.target.innerWidth, sidebarIsOpen);
+        setTimeout(() => {}, 50);
+      }
     });
+
+    window.addEventListener("click", () => {});
   }, []);
 
   const handleClick = () => {

@@ -10,6 +10,15 @@ module.exports = {
       backgroundImage: {
         "hero-desktop": "url('/img/hero-desktop.webp')",
       },
+      animation: {
+        bounce: "bounce 3s linear infinite",
+        "text-machine": "print 1.5s steps(1) infinite",
+      },
+      keyframes: {
+        print: {
+          "50%": { color: "transparent" },
+        },
+      },
     },
   },
   plugins: [],

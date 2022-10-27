@@ -5,7 +5,7 @@ import { Icon } from "../Icon";
 function SidebarMenu({ sidebarIsOpen }) {
   return (
     <aside
-      className={`fixed w-full h-screen flex flex-col items-center p-6 space-y-4 bg-[#050c19] transition-all duration-700 ${
+      className={`fixed w-full left-0 h-screen flex flex-col items-center p-6 space-y-4 bg-[#050c19] transition-all duration-700 ${
         sidebarIsOpen ? " left-0" : "-left-full"
       }  z-10 md:w-60  lg:w-72`}
     >
