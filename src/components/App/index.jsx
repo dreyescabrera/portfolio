@@ -2,6 +2,7 @@ import React from "react";
 import { ProfileImage } from "../ProfileImage/";
 import { SidebarMenu } from "../SidebarMenu/";
 import { Hero } from "../Hero";
+import { About } from "../About";
 
 function App() {
   const [sidebarIsOpen, setSidebarIsOpen] = React.useState(
@@ -32,11 +33,12 @@ function App() {
   return (
     <React.Fragment>
       <SidebarMenu sidebarIsOpen={sidebarIsOpen} />
-      <div className="transition-all duration-700 md:pl-60 lg:pl-72">
+      <div className="bg-gray-50 transition-all duration-700 md:pl-60 lg:pl-72">
         <Hero
           sidebarIsOpen={sidebarIsOpen}
           setSidebarIsOpen={setSidebarIsOpen}
-        ></Hero>
+        />
+        <About />
       </div>
     </React.Fragment>
   );

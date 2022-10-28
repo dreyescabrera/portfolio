@@ -5,12 +5,12 @@ import { Icon } from "../Icon";
 function SidebarMenu({ sidebarIsOpen }) {
   return (
     <aside
-      className={`fixed w-full left-0 h-screen flex flex-col items-center p-6 space-y-4 bg-[#050c19] transition-all duration-700 ${
+      className={`fixed w-full left-0 h-screen flex flex-col justify-start items-center px-6 pt-10 gap-4 bg-[#050c19] transition-all duration-700 min-[375px]:pt-20 md:pt-8  ${
         sidebarIsOpen ? " left-0" : "-left-full"
       }  z-10 md:w-60  lg:w-72`}
     >
       <ProfileImage shape="circle" />
-      <p className="text-3xl text-gray-100 font-semibold tracking-tight md:text-2xl">
+      <p className="text-3xl text-gray-100 font-semibold tracking-tight md:text-2xl ">
         Diego Reyes
       </p>
       <div className="flex space-x-5">

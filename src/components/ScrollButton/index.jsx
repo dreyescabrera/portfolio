@@ -9,7 +9,7 @@ function ScrollButton() {
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="relative top-[2px] w-10 h-14 "
+        className="relative top-[2px] w-10 h-12 "
       >
         <path
           strokeLinecap="round"

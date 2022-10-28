@@ -22,4 +22,5 @@ module.exports = {
     },
   },
   plugins: [],
+  safelist: ["translate-y-0"],
 };

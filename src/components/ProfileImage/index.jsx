@@ -7,11 +7,16 @@ function ProfileImage({ shape }) {
     return (
       <img
         src={tinyImgUrl}
-        className={`rounded-full aspect-square shadow-[0_0_0_10px_#1d2635]`}
+        className={`rounded-full aspect-square shadow-[0_0_0_10px_#1d2635] `}
       />
     );
   } else if (shape === "square") {
-    return <img src={biggerImgUrl} className={``} />;
+    return (
+      <img
+        src={biggerImgUrl}
+        className={`w-3/4 max-w-xs self-center rounded`}
+      />
+    );
   } else {
     throw new Error("Profile Image Shape needs to be defined.");
   }

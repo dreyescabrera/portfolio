@@ -7,13 +7,14 @@ function HamburguerButton({ sidebarIsOpen, setSidebarIsOpen }) {
       onClick={() => setSidebarIsOpen((prev) => !prev)}
     >
       <div
-        className={`w-[35px] h-1 bg-white rounded-md transition-all duration-1000 ease-in-out ${
-          sidebarIsOpen
-            ? "-translate-x-[26px] bg-transparent before:rotate-45 before:translate-x-[25px] before:translate-y-[0px] after:rotate-[-45deg] after:translate-x-[25px] after:translate-y-[0px] "
-            : undefined
-        }
+        className={`w-[35px] h-1 bg-white rounded-md transition-all duration-1000 ease-in-out 
            before:content[''] before:absolute before:w-[35px] before:h-1 before:bg-white before:rounded-md before:transition-all before:duration-1000 before:ease-in-out before:-translate-y-3 
-           after:content[''] after:absolute after:w-[35px] after:h-1 after:bg-white after:rounded-md after:transition-all after:duration-1000 after:ease-in-out after:translate-y-3`}
+           after:content[''] after:absolute after:w-[35px] after:h-1 after:bg-white after:rounded-md after:transition-all after:duration-1000 after:ease-in-out after:translate-y-3
+           ${
+             sidebarIsOpen
+               ? "-translate-x-[26px] bg-transparent before:rotate-45 before:translate-x-[25px] before:translate-y-[0px] after:rotate-[-45deg] after:translate-x-[25px] after:translate-y-[0px]"
+               : undefined
+           }`}
       ></div>
     </div>
   );
