@@ -19,11 +19,11 @@ function About() {
     </svg>
   );
   return (
-    <section className="p-8 lg:px-12 lg:py-16 xl:px-40">
+    <section className="">
       <h2 className="relative text-[#21396c] text-3xl font-bold tracking-tight after:content[''] after:absolute after:-bottom-4 after:left-0 after:w-1/6 after:h-[3px] after:rounded-full after:bg-[#0e5eb1] lg:after:w-16 xl:tracking-normal">
         Who Am I?
       </h2>
-      <p className="mt-8 lg:text-lg">
+      <p className="mt-10 lg:text-lg">
         Hello, I am Diego Reyes, a 19 years old frontend developer from
         Venezuela, currently located in Atlanta, USA.
       </p>

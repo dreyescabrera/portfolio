@@ -2,7 +2,16 @@ import React from "react";
 
 function ScrollButton() {
   return (
-    <button className="relative row-start-5 col-start-3 place-self-center col-end-5 border-[3px] border-solid rounded-full text-white animate-bounce">
+    <button
+      className="relative row-start-5 col-start-3 place-self-center col-end-5 border-[3px] border-solid rounded-full text-white animate-bounce"
+      onClick={() => {
+        scrollTo({
+          left: 0,
+          top: window.innerHeight,
+          behavior: "smooth",
+        });
+      }}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
