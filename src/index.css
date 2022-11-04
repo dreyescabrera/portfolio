@@ -6,6 +6,10 @@
   font-family: "Outfit";
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .hamburguerButton {
   content: "";
   position: absolute;

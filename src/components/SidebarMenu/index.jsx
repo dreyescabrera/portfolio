@@ -38,21 +38,29 @@ function SidebarMenu({ sidebarIsOpen }) {
       </div>
       <nav className="pt-8 md:self-start">
         <ul className="flex flex-col gap-5 text-[#82858c] font-semibold sm:text-xl md:text-lg">
-          <li className="flex items-center space-x-4">
-            <Icon type="home" />
-            <span>Home</span>
+          <li className="">
+            <a href="#home" className="flex items-center space-x-4">
+              <Icon type="home" navMenu />
+              <span>Home</span>
+            </a>
           </li>
-          <li className="flex items-center space-x-4">
-            <Icon type="profile" />
-            <span>Who am I?</span>
+          <li className="">
+            <a href="#whoami" className="flex items-center space-x-4">
+              <Icon type="profile" navMenu />
+              <span>Who am I?</span>
+            </a>
           </li>
-          <li className="flex items-center space-x-4">
-            <Icon type="bolt" />
-            <span>Projects</span>
+          <li className="">
+            <a href="#projects" className="flex items-center space-x-4">
+              <Icon type="bolt" navMenu />
+              <span>Projects</span>
+            </a>
           </li>
-          <li className="flex items-center space-x-4">
-            <Icon type="mail" />
-            <span>Contact</span>
+          <li className="">
+            <a href="#contact" className="flex items-center space-x-4">
+              <Icon type="mail" navMenu />
+              <span>Contact</span>
+            </a>
           </li>
         </ul>
       </nav>

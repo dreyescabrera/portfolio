@@ -19,7 +19,7 @@ function About() {
     </svg>
   );
   return (
-    <section className="">
+    <section className="" id="whoami">
       <h2 className="relative text-[#21396c] text-3xl font-bold tracking-tight after:content[''] after:absolute after:-bottom-4 after:left-0 after:w-1/6 after:h-[3px] after:rounded-full after:bg-[#0e5eb1] lg:after:w-16 xl:tracking-normal">
         Who Am I?
       </h2>

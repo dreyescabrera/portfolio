@@ -4,6 +4,7 @@ import { SidebarMenu } from "../SidebarMenu/";
 import { Hero } from "../Hero";
 import { About } from "../About";
 import { Skills } from "../Skills";
+import { Projects } from "../Projects";
 
 function App() {
   const [sidebarIsOpen, setSidebarIsOpen] = React.useState(
@@ -39,9 +40,10 @@ function App() {
           sidebarIsOpen={sidebarIsOpen}
           setSidebarIsOpen={setSidebarIsOpen}
         />
-        <div className="p-8 lg:px-12 lg:py-16 xl:px-40">
+        <div className="px-6 py-8 lg:px-12 lg:py-16 xl:px-40">
           <About />
           <Skills />
+          <Projects />
         </div>
       </div>
     </React.Fragment>

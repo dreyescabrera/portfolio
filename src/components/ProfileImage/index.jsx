@@ -6,8 +6,9 @@ function ProfileImage({ shape }) {
   if (shape === "circle") {
     return (
       <img
-        src={tinyImgUrl}
-        className={`rounded-full aspect-square shadow-[0_0_0_10px_#1d2635] `}
+        src={biggerImgUrl}
+        className={`w-[150px] object-cover object-top rounded-full aspect-square shadow-[0_0_0_10px_#1d2635] `}
+        loading="lazy"
       />
     );
   } else if (shape === "square") {
@@ -15,6 +16,7 @@ function ProfileImage({ shape }) {
       <img
         src={biggerImgUrl}
         className={`w-3/4 max-w-xs self-center rounded`}
+        loading="lazy"
       />
     );
   } else {

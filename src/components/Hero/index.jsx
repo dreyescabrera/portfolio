@@ -10,6 +10,7 @@ function Hero({ sidebarIsOpen, setSidebarIsOpen }) {
   return (
     <header
       className={`grid grid-cols-6 grid-rows-5 justify-items-center w-full h-screen bg-hero-desktop bg-cover bg-center text-[#16303b] lg:justify-items-stretch`}
+      id="home"
     >
       <HamburguerButton
         sidebarIsOpen={sidebarIsOpen}
