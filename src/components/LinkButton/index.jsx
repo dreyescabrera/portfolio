@@ -1,14 +1,30 @@
 import React from "react";
+import { Icon } from "../Icon";
 
-function LinkButton({ text, link }) {
-  return (
-    <a
-      href={link}
-      className="px-4 py-2 text-sm bg-[#0e5eb1] text-white rounded-full shadow shadow-blue-200 hover:bg-[#0b4b8d] transition-all duration-300 lg:text-base lg:px-3"
-    >
-      {text}
-    </a>
-  );
+function LinkButton({ content, link, type }) {
+  switch (type) {
+    case "media":
+      return (
+        <li>
+          <a href={link} target="_blank" rel="noreferrer">
+            <Icon type={content} withBackground />
+          </a>
+        </li>
+      );
+    case "project":
+      return (
+        <a
+          href={link}
+          target="_blank"
+          rel="noreferrer"
+          className="px-4 py-2 text-sm bg-terciary text-gray-50 rounded-full shadow shadow-blue-800 hover:bg-quaternary transition-colors duration-300 lg:text-base lg:px-3"
+        >
+          {content}
+        </a>
+      );
+    default:
+      throw new Error("type was not specified");
+  }
 }
 
 export { LinkButton };

@@ -1,25 +1,30 @@
 import React from "react";
+import parse from "html-react-parser";
 import { LinkButton } from "../LinkButton";
 
 function ProjectCard({ project }) {
   return (
-    <div className="bg-gray-50 max-w-xs px-4 py-6 rounded-xl shadow-md lg:shadow">
+    <article className="bg-gray-50 max-w-xs px-4 py-6 rounded-xl shadow-md lg:shadow">
       <img
-        src={project.img}
+        src={project.imgURL}
         alt={project.title}
         className="rounded-md"
         loading="lazy"
       />
-      <p className="my-4 text-xl font-semibold text-[#21396c] underline decoration-[#0e5eb1] underline-offset-8 lg:text-2xl">
+      <h3 className="my-4 text-xl font-semibold text-primary underline decoration-secondary underline-offset-8 lg:text-2xl">
         {project.title}
-      </p>
+      </h3>
 
-      <p className="text-sm lg:text-base">{project.description}</p>
+      <p className="text-sm lg:text-base">{parse(project.description)}</p>
       <div className="mt-6 flex flex-wrap gap-2">
-        <LinkButton text="View Demo" link={project.demo} />
-        <LinkButton text="Source Code" link={project.source} />
+        <LinkButton content="View Demo" link={project.demo} type="project" />
+        <LinkButton
+          content="Source Code"
+          link={project.source}
+          type="project"
+        />
       </div>
-    </div>
+    </article>
   );
 }
 

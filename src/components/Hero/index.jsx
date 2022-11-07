@@ -6,18 +6,17 @@ import { useModifyText } from "./useModifyText";
 
 function Hero({ sidebarIsOpen, setSidebarIsOpen }) {
   const { textValue, answerQuestion, textIsChanging } = useModifyText();
-
   return (
     <header
-      className={`grid grid-cols-6 grid-rows-5 justify-items-center w-full h-screen bg-hero-desktop bg-cover bg-center text-[#16303b] lg:justify-items-stretch`}
+      className={`grid grid-cols-6 grid-rows-5 justify-items-center w-full h-screen bg-hero-mobile bg-cover bg-center text-[#16303b] md:bg-hero-desktop lg:bg-fixed`}
       id="home"
     >
       <HamburguerButton
         sidebarIsOpen={sidebarIsOpen}
         setSidebarIsOpen={setSidebarIsOpen}
       />
-      <div className="col-start-2 row-start-2 col-end-6 tracking-tight space-y-3 antialiased sm:space-y-4">
-        <h1 className="font-bold text-4xl sm:text-5xl lg:text-7xl">
+      <div className="col-start-1 row-start-2 col-end-7 tracking-tight space-y-3 antialiased sm:space-y-4 lg:col-end-6 xl:col-end-5">
+        <h1 className="font-bold text-4xl xs:text-5xl sm:text-6xl lg:text-7xl">
           Diego Reyes
         </h1>
         <p className="pl-[2px] text-2xl font-semibold leading-7 lg:text-4xl">
@@ -33,7 +32,7 @@ function Hero({ sidebarIsOpen, setSidebarIsOpen }) {
           >
             {textValue}
           </span>
-          <div className="mt-2 space-x-4 tracking-tighter text- lg:mt-4">
+          <div className="mt-2 space-x-4 tracking-wider text- lg:mt-4">
             <HeroButtton
               text="Why should I?"
               answerQuestion={answerQuestion}
