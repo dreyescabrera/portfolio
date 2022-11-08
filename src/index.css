@@ -2,14 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  font-family: "Outfit";
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 :target {
   scroll-margin-top: 50px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ddd;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-quintenary;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #112;
 }

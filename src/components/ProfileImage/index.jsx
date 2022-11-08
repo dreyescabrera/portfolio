@@ -8,6 +8,7 @@ function ProfileImage({ shape }) {
       return (
         <img
           src={tinyURL}
+          alt="Profile Image"
           className={`w-[130px] min-[375px]:w-[150px] object-cover object-top rounded-full aspect-square shadow-[0_0_0_10px_#1d2635] `}
           loading="lazy"
         />
@@ -16,6 +17,7 @@ function ProfileImage({ shape }) {
       return (
         <img
           src={URL}
+          alt="Profile Image"
           className={`w-3/4 max-w-xs self-center rounded`}
           loading="lazy"
         />

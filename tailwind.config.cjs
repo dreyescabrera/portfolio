@@ -21,6 +21,10 @@ module.exports = {
         quaternary: "#344B82",
         quintenary: "#071536",
       },
+      fontFamily: {
+        luxury: ["Raleway", "sans-serif"],
+        casual: ["Outfit", "sans-serif"],
+      },
       backgroundImage: {
         "hero-mobile": "url('/img/hero-mobile.webp')",
         "hero-desktop": "url('/img/hero-desktop.webp')",

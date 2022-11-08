@@ -11,7 +11,7 @@ function SidebarMenu({ sidebarIsOpen }) {
       }  z-10 md:w-60  lg:w-72`}
     >
       <ProfileImage shape="circle" />
-      <h2 className="text-3xl text-gray-200 font-semibold tracking-tight md:text-2xl ">
+      <h2 className="text-3xl text-gray-200 font-semibold font-luxury tracking-tight md:text-2xl ">
         Diego Reyes
       </h2>
       <ul className="flex space-x-5">

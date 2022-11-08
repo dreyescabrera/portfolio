@@ -26,7 +26,7 @@ function App() {
           sidebarIsOpen={sidebarIsOpen}
           setSidebarIsOpen={setSidebarIsOpen}
         />
-        <main className="px-6 lg:px-12 xl:px-40">
+        <main className="px-6 font-casual lg:px-12 xl:px-40">
           <About />
           <Skills />
           <Projects />

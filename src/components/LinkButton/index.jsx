@@ -6,7 +6,12 @@ function LinkButton({ content, link, type }) {
     case "media":
       return (
         <li>
-          <a href={link} target="_blank" rel="noreferrer">
+          <a
+            href={link}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`Visit my ${content}`}
+          >
             <Icon type={content} withBackground />
           </a>
         </li>
