@@ -12,7 +12,7 @@ function LinkButton({ content, link, type }) {
             rel="noreferrer"
             aria-label={`Visit my ${content}`}
           >
-            <Icon type={content} withBackground />
+            <Icon type={content} sidebarMedia />
           </a>
         </li>
       );
@@ -22,7 +22,7 @@ function LinkButton({ content, link, type }) {
           href={link}
           target="_blank"
           rel="noreferrer"
-          className="px-4 py-2 text-sm bg-terciary text-gray-50 rounded-full shadow shadow-blue-800 hover:bg-quaternary transition-colors duration-300 lg:text-base lg:px-3"
+          className="px-4 py-2 text-sm bg-secondary text-gray-50 rounded-full hover:bg-primary transition-colors duration-200 lg:text-base lg:px-3"
         >
           {content}
         </a>

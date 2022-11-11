@@ -11,6 +11,7 @@ function Projects() {
         <ProjectCard project={projects.ipTracker} />
         <ProjectCard project={projects.toDoApp} />
         <ProjectCard project={projects.countryQuiz} />
+        <ProjectCard project={projects.portfolio} />
       </section>
     </section>
   );

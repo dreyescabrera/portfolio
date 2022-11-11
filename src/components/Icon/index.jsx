@@ -224,7 +224,7 @@ const iconTypes = {
       height="48"
       x="0"
       y="0"
-      viewBox="0 0 48 48"
+      viewBox="0 0 48 42"
     >
       <linearGradient
         id="iOmQfjoCC4Hw6zVwRjSDha_x7XMNGh2vdqA_gr1"
@@ -301,16 +301,25 @@ const iconTypes = {
   ),
 };
 
-function Icon({ type, withBackground, navMenu }) {
-  if (withBackground) {
+function Icon({ type, sidebarMedia, contactMedia, navMenu }) {
+  if (navMenu) {
+    return iconTypes[type]("w-6 aspect-square");
+  }
+
+  if (sidebarMedia) {
     return (
-      <span className="w-10 bg-[#1d2635] aspect-square flex justify-center items-center rounded-full transition-transform transition-100 hover:scale-105">
-        {iconTypes[type]("w-6 aspect-square inline text-white")}
+      <span className="w-10 bg-[#ccc2] aspect-square flex justify-center items-center rounded-full transition-transform transition-100 hover:scale-105">
+        {iconTypes[type]("w-6 aspect-square text-gray-100")}
       </span>
     );
   }
-  if (navMenu) {
-    return iconTypes[type]("w-6 aspect-square inline text-[#82858c]");
+
+  if (contactMedia) {
+    return (
+      <span className="w-11 bg-[#ccf4] aspect-square flex justify-center items-center rounded-full">
+        {iconTypes[type]("w-6 aspect-square text-secondary")}
+      </span>
+    );
   }
 
   return iconTypes[type];

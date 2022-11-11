@@ -11,8 +11,8 @@ module.exports = {
         xs: "360px",
       },
       margin: {
-        sm: "30px 0",
-        lg: "100px 0",
+        sm: "30px 0 0",
+        lg: "100px 0 0",
       },
       colors: {
         primary: "#0E2A69",

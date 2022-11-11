@@ -4,6 +4,7 @@ import { Hero } from "../Hero";
 import { About } from "../About";
 import { Skills } from "../Skills";
 import { Projects } from "../Projects";
+import { Contact } from "../Contact";
 
 function App() {
   const [sidebarIsOpen, setSidebarIsOpen] = React.useState(
@@ -21,15 +22,16 @@ function App() {
   return (
     <>
       <SidebarMenu sidebarIsOpen={sidebarIsOpen} />
-      <div className="bg-gray-50 transition-all duration-700 md:pl-60 lg:pl-72">
+      <div className="transition-all duration-700 md:pl-60 lg:pl-72">
         <Hero
           sidebarIsOpen={sidebarIsOpen}
           setSidebarIsOpen={setSidebarIsOpen}
         />
-        <main className="px-6 font-casual lg:px-12 xl:px-40">
+        <main className="bg-gray-50 px-6 pb-10 font-casual lg:px-12 xl:px-40">
           <About />
           <Skills />
           <Projects />
+          <Contact />
         </main>
       </div>
     </>
