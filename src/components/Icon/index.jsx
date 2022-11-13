@@ -301,9 +301,13 @@ const iconTypes = {
   ),
 };
 
-function Icon({ type, sidebarMedia, contactMedia, navMenu }) {
+function Icon({ type, sidebarMedia, contactMedia, navMenu, isCurrentSection }) {
   if (navMenu) {
-    return iconTypes[type]("w-6 aspect-square");
+    return iconTypes[type](
+      `w-6 aspect-square transition-colors duration-100 ${
+        isCurrentSection && "text-terciary"
+      }`
+    );
   }
 
   if (sidebarMedia) {

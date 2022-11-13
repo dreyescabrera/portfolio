@@ -7,6 +7,7 @@ const phrases = [
 ];
 
 function useModifyText() {
+  const textSpeed = 60;
   const [isVisible, setIsVisible] = React.useState(
     () => document.visibilityState === "visible"
   );
@@ -26,7 +27,7 @@ function useModifyText() {
         setTextIsChanging(false);
         setIsDeleting(true);
       }
-    }, 75);
+    }, textSpeed);
   };
 
   const onChangeCurrentText = (newText, upcomingText) => {
@@ -47,7 +48,7 @@ function useModifyText() {
         }
         return newText;
       });
-    }, 75);
+    }, textSpeed);
   };
 
   const answerQuestion = (ev) => {
@@ -78,7 +79,7 @@ function useModifyText() {
   }, [isDeleting, isVisible]);
 
   React.useEffect(() => {
-    window.addEventListener("visibilitychange", (ev) => {
+    window.addEventListener("visibilitychange", () => {
       if (document.visibilityState === "visible") {
         setIsVisible(true);
       }

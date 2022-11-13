@@ -4,7 +4,7 @@ import { LinkButton } from "../LinkButton";
 
 function ProjectCard({ project }) {
   return (
-    <article className="bg-gray-50 max-w-xs px-4 py-6 rounded-xl shadow-md lg:shadow">
+    <article className="bg-gray-50 max-w-sm px-4 py-6 rounded-xl shadow-md lg:shadow">
       <img
         src={project.imgURL}
         alt={project.title}

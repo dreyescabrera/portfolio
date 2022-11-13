@@ -4,7 +4,10 @@ function HamburguerButton({ sidebarIsOpen, setSidebarIsOpen }) {
   return (
     <div
       className="relative flex justify-center items-center w-14 h-14 cursor-pointer transition-all duration-500 ease-in-out z-20 row-start-1 col-start-5 col-end-7 justify-self-center self-center sm:col-start-6  md:hidden"
-      onClick={() => setSidebarIsOpen((prev) => !prev)}
+      onClick={() => {
+        setSidebarIsOpen((prev) => !prev);
+        document.documentElement.classList.toggle("preventScroll");
+      }}
     >
       <div
         className={`w-[35px] h-1 bg-white rounded-md transition-all duration-1000 ease-in-out 

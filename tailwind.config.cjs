@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       screens: {
         xs: "360px",
+        "2xl": "1600px",
       },
       margin: {
         sm: "30px 0 0",

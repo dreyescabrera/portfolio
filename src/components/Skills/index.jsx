@@ -1,7 +1,6 @@
 import React from "react";
 import { SectionTitle } from "../SectionTitle";
 import { SkillsItem } from "../SkillsItem";
-import { Icon } from "../Icon";
 
 function Skills() {
   return (

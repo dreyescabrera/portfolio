@@ -15,7 +15,7 @@ function HeroButtton({ text, answerQuestion, questionText }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
-          transition={{ ease: "easeInOut", duration: 1 }}
+          transition={{ ease: "easeInOut", duration: 0.8 }}
         >
           {text}
         </motion.button>

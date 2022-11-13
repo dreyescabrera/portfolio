@@ -2,7 +2,7 @@ import React from "react";
 import { SectionTitle } from "../SectionTitle";
 import { ProfileImage } from "../ProfileImage";
 
-function About() {
+function About({ refference }) {
   const arrowLeft = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +21,7 @@ function About() {
   );
 
   return (
-    <section className="m-sm lg:m-lg" id="whoami?">
+    <section className="m-sm lg:m-lg" id="whoami?" ref={refference}>
       <SectionTitle text="Who Am I?" />
       <p className="mt-8 lg:text-lg">
         Hello, I am Diego Reyes, a 19 years old frontend developer from
@@ -34,7 +34,7 @@ function About() {
         way, and a very clean code within my apps. I love understanding how
         things work from behind, I really like that.
       </p>
-      <section className="flex flex-col items-center gap-8 mt-8 lg:flex-row lg:justify-around lg:text-lg xl:my-16">
+      <section className="flex flex-col items-center gap-10 mt-8 lg:flex-row lg:justify-around lg:text-lg xl:my-16">
         <ProfileImage shape="square" />
         <article className="space-y-4 max-w-lg">
           <h3 className="text-primary font-bold text-2xl text-center tracking-tight md:text-3xl">

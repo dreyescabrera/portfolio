@@ -4,6 +4,11 @@
 
 html {
   scroll-behavior: smooth;
+  @apply bg-gray-50;
+}
+
+.preventScroll {
+  @apply overflow-hidden;
 }
 
 :target {

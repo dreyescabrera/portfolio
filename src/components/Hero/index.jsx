@@ -4,12 +4,13 @@ import { HeroButtton } from "../HeroButton";
 import { ScrollButton } from "../ScrollButton";
 import { useModifyText } from "./useModifyText";
 
-function Hero({ sidebarIsOpen, setSidebarIsOpen }) {
+function Hero({ sidebarIsOpen, setSidebarIsOpen, refference }) {
   const { textValue, answerQuestion, textIsChanging } = useModifyText();
   return (
     <header
       className={`grid grid-cols-6 grid-rows-5 justify-items-center w-full h-screen bg-hero-mobile bg-cover bg-center text-[#16303b] font-luxury md:bg-hero-desktop lg:bg-fixed`}
       id="home"
+      ref={refference}
     >
       <HamburguerButton
         sidebarIsOpen={sidebarIsOpen}
