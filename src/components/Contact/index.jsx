@@ -30,12 +30,14 @@ function Contact({ refference }) {
         </ul>
         <form
           ref={form}
-          className="relative flex flex-col flex-grow p-4 shadow-lg"
+          className="relative flex flex-col flex-grow p-4 shadow-lg rounded-sm"
           id="form"
           onSubmit={sendEmail}
         >
           <FormAlert formAlert={formAlert} />
-          <label htmlFor="user_name">Your Name *</label>
+          <label htmlFor="user_name" className=" xs:text-lg text-gray-700">
+            Your Name{" "}
+          </label>
           <input
             type="text"
             id="user_name"
@@ -44,8 +46,8 @@ function Contact({ refference }) {
             required
             className="m-1 px-2 py-1 rounded-sm outline-1 outline outline-gray-500 text-quintenary focus-within:outline-2 focus-within:outline-terciary"
           />
-          <label htmlFor="user_email" className="mt-3">
-            Your Email *
+          <label htmlFor="user_email" className="mt-3 xs:text-lg text-gray-700">
+            Your Email
           </label>
           <input
             type="email"
@@ -55,8 +57,8 @@ function Contact({ refference }) {
             required
             className="m-1 px-2 py-1 rounded-sm outline-1 outline outline-gray-500 text-quintenary  focus-within:outline-2 focus-within:outline-terciary"
           />
-          <label htmlFor="message" className="mt-3">
-            Message *
+          <label htmlFor="message" className="mt-3 xs:text-lg text-gray-700">
+            Message
           </label>
           <textarea
             name="message"
@@ -69,7 +71,7 @@ function Contact({ refference }) {
           ></textarea>
           <button
             type="submit"
-            className="mx-auto my-5 px-5 py-2 bg-secondary text-gray-100 rounded hover:bg-primary transition-colors duration-200 lg:text-base lg:px-6"
+            className="mx-auto my-5 px-5 py-2 xs:text-lg bg-secondary text-gray-100 rounded hover:bg-primary transition-colors duration-200 lg:text-base lg:px-6"
           >
             Send Email
           </button>

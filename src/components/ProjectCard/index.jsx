@@ -1,6 +1,6 @@
 import React from "react";
 import parse from "html-react-parser";
-import { LinkButton } from "../LinkButton";
+import { ProjectButton } from "../ProjectButton";
 
 function ProjectCard({ project }) {
   return (
@@ -11,18 +11,16 @@ function ProjectCard({ project }) {
         className="rounded-md"
         loading="lazy"
       />
-      <h3 className="my-4 text-xl font-semibold text-primary underline decoration-secondary underline-offset-8 lg:text-2xl">
+      <h3 className="my-4 text-xl xs:text-2xl font-semibold text-primary underline decoration-secondary underline-offset-8 lg:text-2xl">
         {project.title}
       </h3>
 
-      <p className="text-sm lg:text-base">{parse(project.description)}</p>
+      <p className="text-sm xs:text-base lg:text-base">
+        {parse(project.description)}
+      </p>
       <div className="mt-6 flex flex-wrap gap-2">
-        <LinkButton content="View Demo" link={project.demo} type="project" />
-        <LinkButton
-          content="Source Code"
-          link={project.source}
-          type="project"
-        />
+        <ProjectButton text="View Demo" link={project.demo} mainCTO />
+        <ProjectButton text="Source Code" link={project.source} />
       </div>
     </article>
   );

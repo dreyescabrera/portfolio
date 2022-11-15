@@ -1,6 +1,6 @@
 import React from "react";
 import { ProfileImage } from "../ProfileImage/";
-import { LinkButton } from "../LinkButton";
+import { SidebarButton } from "../SidebarButton";
 import { NavItem } from "../NavItem";
 
 function SidebarMenu({ sidebarIsOpen, activeNavItem, setSidebarIsOpen }) {
@@ -15,20 +15,17 @@ function SidebarMenu({ sidebarIsOpen, activeNavItem, setSidebarIsOpen }) {
         Diego Reyes
       </h2>
       <ul className="flex space-x-5">
-        <LinkButton
-          type="media"
+        <SidebarButton
           link="https://www.instagram.com/realdiegor/"
-          content="instagram"
+          socialMedia="instagram"
         />
-        <LinkButton
-          type="media"
+        <SidebarButton
           link="https://github.com/realDiegoR"
-          content="github"
+          socialMedia="github"
         />
-        <LinkButton
-          type="media"
-          link="https://www.linkedin.com/in/diegoalejandroreyescabrera/"
-          content="linkedin"
+        <SidebarButton
+          link="https://www.linkedin.com/in/diegoreyescabrera/"
+          socialMedia="linkedin"
         />
       </ul>
       <nav className="pt-2 md:self-start lg:pt-8">

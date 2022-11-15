@@ -36,7 +36,7 @@ function App() {
           setSidebarIsOpen={setSidebarIsOpen}
           refference={home}
         />
-        <main className="px-6 font-casual lg:px-12 xl:px-40 2xl:px-64">
+        <main className="w-11/12 max-w-5xl m-auto font-casual">
           <About refference={whoami} />
           <Skills />
           <Projects refference={projects} />
