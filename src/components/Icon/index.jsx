@@ -352,7 +352,7 @@ function Icon({ type, sidebarMedia, contactMedia, navMenu, isCurrentSection }) {
 
   if (contactMedia) {
     return (
-      <span className="w-11 bg-[#ccf4] aspect-square flex justify-center items-center rounded-full">
+      <span className="w-11 bg-[#ccf5] aspect-square flex justify-center items-center rounded-full">
         {iconTypes[type]("w-6 aspect-square text-secondary")}
       </span>
     );

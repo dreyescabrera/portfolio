@@ -71,7 +71,7 @@ function Contact({ refference }) {
           ></textarea>
           <button
             type="submit"
-            className="mx-auto my-5 px-5 py-2 xs:text-lg bg-secondary text-gray-100 rounded hover:bg-primary transition-colors duration-200 lg:text-base lg:px-6"
+            className="mx-auto my-5 px-6 py-3 xs:text-lg bg-secondary text-gray-100 rounded hover:bg-primary transition-colors duration-200 lg:text-base lg:px-6"
           >
             Send Email
           </button>
