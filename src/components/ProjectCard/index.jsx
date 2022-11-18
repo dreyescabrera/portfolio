@@ -4,11 +4,12 @@ import { ProjectButton } from "../ProjectButton";
 
 function ProjectCard({ project }) {
   return (
-    <article className="bg-gray-50 max-w-sm px-4 py-6 rounded-xl shadow-md lg:shadow">
+    <article className="bg-gray-50 max-w-sm p-6 rounded-sm shadow-md">
       <img
         src={project.imgURL}
         alt={project.title}
-        className="rounded-md"
+        aria-label={project.title}
+        className="rounded-sm"
         loading="lazy"
       />
       <h3 className="my-4 text-xl xs:text-2xl font-semibold text-primary underline decoration-secondary underline-offset-8 lg:text-2xl">

@@ -30,7 +30,7 @@ function Contact({ refference }) {
         </ul>
         <form
           ref={form}
-          className="relative flex flex-col flex-grow p-4 shadow-lg rounded-sm"
+          className="relative flex flex-col flex-grow p-4 shadow-md rounded-sm"
           id="form"
           onSubmit={sendEmail}
         >

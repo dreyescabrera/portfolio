@@ -2,10 +2,11 @@ import React from "react";
 import { HamburguerButton } from "../HamburguerButton";
 import { HeroButtton } from "../HeroButton";
 import { ScrollButton } from "../ScrollButton";
-import { useModifyText } from "./useModifyText";
+import { useAnimatedText } from "./useAnimatedText";
 
 function Hero({ sidebarIsOpen, setSidebarIsOpen, refference }) {
-  const { textValue, answerQuestion, textIsChanging } = useModifyText();
+  const { textValue, answerQuestion, textIsChanging, chosenAnswer } =
+    useAnimatedText();
   return (
     <header
       className={`grid grid-cols-6 grid-rows-5 justify-items-center w-full h-screen bg-hero-mobile bg-cover bg-center text-[#16303b] font-luxury md:bg-hero-desktop lg:bg-fixed`}
@@ -23,7 +24,7 @@ function Hero({ sidebarIsOpen, setSidebarIsOpen, refference }) {
         <p className="pl-[2px] text-2xl font-semibold leading-7 lg:text-4xl">
           Frontend Developer
         </p>
-        <div className="pt-6  font-medium lg:pt-10">
+        <div className="pt-6 font-medium select-none lg:pt-10">
           <span
             className={`text-xl lg:text-2xl relative after:content-['|'] after:relative after:bottom-[2px] after:left-[3px] after:inline-block   ${
               textIsChanging
@@ -35,14 +36,30 @@ function Hero({ sidebarIsOpen, setSidebarIsOpen, refference }) {
           </span>
           <div className="mt-2 space-x-4 lg:mt-4">
             <HeroButtton
+              type="option"
               text="Why should I?"
               answerQuestion={answerQuestion}
-              questionText={textValue}
+              triggeringText={textValue}
             />
             <HeroButtton
+              type="option"
               text="Of course!"
               answerQuestion={answerQuestion}
-              questionText={textValue}
+              triggeringText={textValue}
+            />
+            <HeroButtton
+              type={"navigation"}
+              text="projects"
+              answerQuestion={answerQuestion}
+              triggeringText={textValue}
+              chosenAnswer={chosenAnswer.current}
+            />
+            <HeroButtton
+              type={"navigation"}
+              text="contact"
+              answerQuestion={answerQuestion}
+              triggeringText={textValue}
+              chosenAnswer={chosenAnswer.current}
             />
           </div>
         </div>
