@@ -9,7 +9,7 @@ function Hero({ sidebarIsOpen, setSidebarIsOpen, refference }) {
     useAnimatedText();
   return (
     <header
-      className={`grid grid-cols-6 grid-rows-5 justify-items-center w-full h-screen bg-hero-mobile bg-cover bg-center text-[#16303b] font-luxury md:bg-hero-desktop lg:bg-fixed`}
+      className={`grid grid-cols-6 grid-rows-5 justify-items-center w-full h-screen bg-hero-littlest bg-cover bg-center text-[#16303b] font-luxury xs:bg-hero-mobile md:bg-hero-desktop lg:bg-fixed`}
       id="home"
       ref={refference}
     >

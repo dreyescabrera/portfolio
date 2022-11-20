@@ -28,6 +28,7 @@ module.exports = {
       },
       backgroundImage: {
         "hero-mobile": "url('/img/hero-mobile.webp')",
+        "hero-littlest": "url('/img/hero-littlest.webp')",
         "hero-desktop": "url('/img/hero-desktop.webp')",
       },
       animation: {

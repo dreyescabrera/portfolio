@@ -1,10 +1,11 @@
 import React from "react";
 
-(async function () {
-  if (!("scrollBehavior" in document.documentElement.style)) {
-    await import("scroll-behavior-polyfill");
-  }
-})();
+// (async function () {
+//   if (!("scrollBehavior" in document.documentElement.style)) {
+//     await import("scroll-behavior-polyfill");
+//   }
+// })();
+import("../../features/scrollBehaviorPolyfill");
 
 import { SidebarMenu } from "../SidebarMenu/";
 import { Hero } from "../Hero";

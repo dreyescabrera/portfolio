@@ -1,6 +1,6 @@
 import React from "react";
-import tinyURL from "/portfolio-pics/tinySmilingMe.jpg";
-import URL from "/portfolio-pics/smilingMe.jpg";
+import tinyURL from "/img/tinySmilingMe.jpg";
+import URL from "/img/smilingMe.jpg";
 
 function ProfileImage({ shape }) {
   switch (shape) {
@@ -18,7 +18,7 @@ function ProfileImage({ shape }) {
         <img
           src={URL}
           alt="Profile Image"
-          className={`w-3/4 max-w-xs self-center rounded`}
+          className={`w-3/4 h-full max-w-xs self-center rounded`}
           loading="lazy"
         />
       );
