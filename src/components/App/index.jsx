@@ -1,9 +1,11 @@
 import React from "react";
+
 (async function () {
   if (!("scrollBehavior" in document.documentElement.style)) {
     await import("scroll-behavior-polyfill");
   }
 })();
+
 import { SidebarMenu } from "../SidebarMenu/";
 import { Hero } from "../Hero";
 import { About } from "../About";
@@ -14,14 +16,12 @@ import { useIntersectionObserver } from "./useIntersectionObserver";
 
 function App() {
   const [sidebarIsOpen, setSidebarIsOpen] = React.useState(
-    () => window.innerWidth >= 768
+    window.innerWidth >= 768
   );
 
   React.useEffect(() => {
     window.addEventListener("resize", (ev) => {
-      ev.target.innerWidth >= 768
-        ? setSidebarIsOpen(true)
-        : setSidebarIsOpen(false);
+      setSidebarIsOpen(ev.target.innerWidth >= 768);
     });
   }, []);
 
@@ -50,7 +50,7 @@ function App() {
             Made with 💙 by{" "}
             <a
               href="https://www.linkedin.com/in/diegoreyescabrera/"
-              className="underline cursor-pointer text-quaternary"
+              className="underline cursor-pointer text-quaternary hover:text-terciary"
               target="_blank"
               rel="noreferrer"
             >
