@@ -1,12 +1,12 @@
 import React from "react";
 
-// (async function () {
-//   if (!("scrollBehavior" in document.documentElement.style)) {
-//     await import("scroll-behavior-polyfill");
-//   }
-// })();
-import("../../features/scrollBehaviorPolyfill");
+(async function () {
+  if (!("scrollBehavior" in document.documentElement.style)) {
+    import("scroll-behavior-polyfill");
+  }
+})();
 
+import { HamburguerButton } from "../HamburguerButton";
 import { SidebarMenu } from "../SidebarMenu/";
 import { Hero } from "../Hero";
 import { About } from "../About";
@@ -26,7 +26,7 @@ function App() {
     });
   }, []);
 
-  const { activeNavItem, home, whoami, projects, contact } =
+  const { activeNavItem, homeRef, whoamiRef, projectsRef, contactRef } =
     useIntersectionObserver();
 
   return (
@@ -36,18 +36,22 @@ function App() {
         setSidebarIsOpen={setSidebarIsOpen}
         activeNavItem={activeNavItem}
       />
+      <HamburguerButton
+        sidebarIsOpen={sidebarIsOpen}
+        setSidebarIsOpen={setSidebarIsOpen}
+      />
       <div className="transition-all duration-700 md:pl-60 lg:pl-72">
         <Hero
           sidebarIsOpen={sidebarIsOpen}
           setSidebarIsOpen={setSidebarIsOpen}
-          refference={home}
+          refference={homeRef}
         />
         <main className="w-11/12 max-w-5xl m-auto font-casual">
-          <About refference={whoami} />
+          <About refference={whoamiRef} />
           <Skills />
-          <Projects refference={projects} />
-          <Contact refference={contact} />
-          <p className="text-center mt-10 mb-5 lg:mt-20 lg:mb-8">
+          <Projects refference={projectsRef} />
+          <Contact refference={contactRef} />
+          <p className="text-center mt-14 mb-5 lg:mt-20 lg:mb-8">
             Made with 💙 by{" "}
             <a
               href="https://www.linkedin.com/in/diegoreyescabrera/"

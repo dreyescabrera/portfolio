@@ -1,6 +1,3 @@
-import scroll from "scroll-behavior-polyfill";
-let exportedScroll;
-if (!("scrollBehavior" in document.documentElement.style)) {
-  exportedScroll = scroll;
-}
-export default exportedScroll;
+import { scroll } from "scroll-behavior-polyfill";
+
+export default scroll;

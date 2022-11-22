@@ -1,8 +1,10 @@
-import React from "react";
-import { FormAlert } from "../FormAlert";
+import React, { lazy, Suspense } from "react";
 import { SectionTitle } from "../SectionTitle";
 import { SocialMediaItem } from "../SocialMediaItem";
 import { useEmailing } from "./useEmailing";
+
+// import { FormAlert } from "../FormAlert";
+const FormAlert = lazy(() => import("../FormAlert"));
 
 function Contact({ refference }) {
   const { form, formAlert, sendEmail } = useEmailing();
@@ -34,7 +36,9 @@ function Contact({ refference }) {
           id="form"
           onSubmit={sendEmail}
         >
-          <FormAlert formAlert={formAlert} />
+          <Suspense fallback="">
+            <FormAlert formAlert={formAlert} />
+          </Suspense>
           <label htmlFor="user_name" className=" xs:text-lg text-gray-700">
             Your Name{" "}
           </label>

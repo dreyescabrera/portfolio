@@ -3,7 +3,7 @@ import React from "react";
 function ScrollButton() {
   return (
     <button
-      className="relative row-start-4 col-start-3 justify-self-center self-end col-end-5 border-[3px] border-solid rounded-full text-white md:row-start-5 md:place-self-center"
+      className="relative row-start-4 col-start-3 justify-self-center self-center col-end-5 border-[3px] border-solid rounded-full text-white md:row-start-5 md:place-self-center"
       type="button"
       name="Scroll Down"
       title="Scroll Down"

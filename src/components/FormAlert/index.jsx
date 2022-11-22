@@ -24,4 +24,4 @@ function FormAlert({ formAlert }) {
   );
 }
 
-export { FormAlert };
+export default FormAlert;

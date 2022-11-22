@@ -1,10 +1,10 @@
 import React from "react";
 
 function useIntersectionObserver() {
-  const home = React.useRef(null);
-  const whoami = React.useRef(null);
-  const projects = React.useRef(null);
-  const contact = React.useRef(null);
+  const homeRef = React.useRef(null);
+  const whoamiRef = React.useRef(null);
+  const projectsRef = React.useRef(null);
+  const contactRef = React.useRef(null);
 
   const [activeNavItem, setActiveNavItem] = React.useState("home");
   const lightUpNavItem = (item) => {
@@ -31,13 +31,13 @@ function useIntersectionObserver() {
     };
 
     const observer = new IntersectionObserver(callback, options);
-    observer.observe(home.current);
-    observer.observe(whoami.current);
-    observer.observe(projects.current);
-    observer.observe(contact.current);
+    observer.observe(homeRef.current);
+    observer.observe(whoamiRef.current);
+    observer.observe(projectsRef.current);
+    observer.observe(contactRef.current);
   }, []);
 
-  return { activeNavItem, home, whoami, projects, contact };
+  return { activeNavItem, homeRef, whoamiRef, projectsRef, contactRef };
 }
 
 export { useIntersectionObserver };

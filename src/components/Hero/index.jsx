@@ -1,10 +1,9 @@
 import React from "react";
-import { HamburguerButton } from "../HamburguerButton";
 import { HeroButtton } from "../HeroButton";
 import { ScrollButton } from "../ScrollButton";
 import { useAnimatedText } from "./useAnimatedText";
 
-function Hero({ sidebarIsOpen, setSidebarIsOpen, refference }) {
+function Hero({ refference }) {
   const { textValue, answerQuestion, textIsChanging, chosenAnswer } =
     useAnimatedText();
   return (
@@ -13,10 +12,6 @@ function Hero({ sidebarIsOpen, setSidebarIsOpen, refference }) {
       id="home"
       ref={refference}
     >
-      <HamburguerButton
-        sidebarIsOpen={sidebarIsOpen}
-        setSidebarIsOpen={setSidebarIsOpen}
-      />
       <div className="col-start-1 row-start-2 col-end-7 tracking-tigh space-y-3 antialiased sm:space-y-4 lg:col-end-6 xl:col-end-5">
         <h1 className="font-bold text-4xl xs:text-5xl sm:text-6xl lg:text-7xl">
           Diego Reyes

@@ -12,7 +12,7 @@ module.exports = {
         "2xl": "1600px",
       },
       margin: {
-        sm: "30px 0 0",
+        sm: "50px 0 0",
         lg: "100px 0 0",
       },
       colors: {
@@ -32,7 +32,7 @@ module.exports = {
         "hero-desktop": "url('/img/hero-desktop.webp')",
       },
       animation: {
-        bounce: "bounce 3s linear infinite",
+        bounce: "bounce 5s linear infinite",
         "text-machine": "print 1.2s steps(1) infinite",
       },
       keyframes: {
