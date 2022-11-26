@@ -2,7 +2,7 @@ import React from "react";
 import emailjs from "@emailjs/browser";
 
 function useEmailing() {
-  const form = React.useRef();
+  const form = React.useRef(null);
   const [formAlert, setFormAlert] = React.useState({
     status: null,
     isVisible: false,
@@ -19,13 +19,11 @@ function useEmailing() {
       )
       .then(() => {
         setFormAlert({ status: "Email Sent!", isVisible: true });
-        setTimeout(() => {
-          form.current.reset();
-          setFormAlert({ ...formAlert, isVisible: false });
-        }, 3000);
       })
       .catch(() => {
         setFormAlert({ status: "Error", isVisible: true });
+      })
+      .finally(() => {
         setTimeout(() => {
           const formElement = document.querySelector("form");
           formElement.reset();

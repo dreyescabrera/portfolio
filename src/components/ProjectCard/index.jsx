@@ -1,5 +1,6 @@
 import React from "react";
 import DOMPurify from "dompurify";
+import { Icon } from "../Icon";
 
 import { ProjectButton } from "../ProjectButton";
 
@@ -23,7 +24,12 @@ function ProjectCard({ project }) {
         }}
         className="text-sm xs:text-base lg:text-base"
       ></p>
-      <div className="mt-6 flex flex-wrap gap-2">
+      <div className="flex my-4">
+        {project.technologies.map((tech) => (
+          <Icon type={tech} key={tech} projectCard />
+        ))}
+      </div>
+      <div className=" flex flex-wrap gap-2">
         <ProjectButton text="View Demo" link={project.demo} mainCTO />
         <ProjectButton text="Source Code" link={project.source} />
       </div>

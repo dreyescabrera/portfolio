@@ -16,9 +16,9 @@ function Hero({ refference }) {
         <h1 className="font-bold text-4xl xs:text-5xl sm:text-6xl lg:text-7xl">
           Diego Reyes
         </h1>
-        <p className="pl-[2px] text-2xl font-semibold leading-7 lg:text-4xl">
+        <span className="pl-[2px] text-2xl font-semibold leading-7 lg:text-4xl">
           Frontend Developer
-        </p>
+        </span>
         <div className="pt-6 font-medium select-none lg:pt-10">
           <span
             className={`text-xl lg:text-2xl relative after:content-['|'] after:relative after:bottom-[2px] after:left-[3px] after:inline-block   ${

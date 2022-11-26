@@ -27,9 +27,9 @@ module.exports = {
         casual: ["Outfit", "sans-serif"],
       },
       backgroundImage: {
-        "hero-mobile": "url('/img/hero-mobile.webp')",
-        "hero-littlest": "url('/img/hero-littlest.webp')",
-        "hero-desktop": "url('/img/hero-desktop.webp')",
+        "hero-mobile": "url('/src/assets/img/hero-mobile.webp')",
+        "hero-littlest": "url('/src/assets/img/hero-littlest.webp')",
+        "hero-desktop": "url('/src/assets/img/hero-desktop.webp')",
       },
       animation: {
         bounce: "bounce 5s linear infinite",
