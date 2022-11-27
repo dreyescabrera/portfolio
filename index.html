@@ -31,7 +31,7 @@
       rel="preload"
       as="image"
       href="/src/assets/img/hero-mobile.webp"
-      media="(max-width: 767px)"
+      media="(min-width: 361px) and (max-width: 767px)"
     />
     <link
       rel="preload"
@@ -45,6 +45,13 @@
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Raleway:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <script defer>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/service-worker.js");
+        });
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
