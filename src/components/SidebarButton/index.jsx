@@ -10,7 +10,9 @@ function SidebarButton({ socialMedia, link }) {
         rel="noreferrer"
         aria-label={`Visit my ${socialMedia}`}
       >
-        <Icon type={socialMedia} sidebarMedia />
+        <span className="w-10 bg-[#ccc2] aspect-square flex justify-center items-center rounded-full transition-transform transition-100 hover:scale-105">
+          <Icon type={socialMedia} styles="w-6 aspect-square text-gray-100" />
+        </span>
       </a>
     </li>
   );

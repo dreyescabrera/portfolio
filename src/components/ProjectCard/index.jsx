@@ -6,7 +6,7 @@ import { ProjectButton } from "../ProjectButton";
 
 function ProjectCard({ project }) {
   return (
-    <article className="bg-gray-50 max-w-sm p-6 rounded-sm shadow-md">
+    <article className="max-w-sm p-6 rounded-sm shadow-md">
       <img
         src={project.imgURL}
         alt={project.title}
@@ -23,13 +23,13 @@ function ProjectCard({ project }) {
           __html: DOMPurify.sanitize(project.description),
         }}
         className="text-sm xs:text-base lg:text-base"
-      ></p>
-      <div className="flex my-4">
+      />
+      <div className="flex my-4 gap-2">
         {project.technologies.map((tech) => (
-          <Icon type={tech} key={tech} projectCard />
+          <Icon type={tech} key={tech} styles="w-10 h-10 lg:w-12 lg:h-12" />
         ))}
       </div>
-      <div className=" flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2">
         <ProjectButton text="View Demo" link={project.demo} mainCTO />
         <ProjectButton text="Source Code" link={project.source} />
       </div>

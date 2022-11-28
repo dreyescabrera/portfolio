@@ -12,7 +12,7 @@ function Skills() {
         a self-taught developer. Every day I develop my own knowledge on these
         and new technologies that captivates me to keep moving forward."
       />
-      <ul className="flex flex-wrap gap-6 m-6 justify-evenly">
+      <ul className="flex flex-wrap gap-6 m-6 justify-evenly lg:gap-10">
         <SkillsItem name="HTML" iconName="html" />
         <SkillsItem name="CSS" iconName="css" />
         <SkillsItem name="SASS" iconName="sass" />

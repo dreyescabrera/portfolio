@@ -1,6 +1,6 @@
 import React from "react";
-import tinyURL from "/src/assets/img/tinySmilingMe.jpg";
-import URL from "/src/assets/img/smilingMe.jpg";
+import tinyURL from "/src/assets/img/mini-profile-picture.webp";
+import URL from "/src/assets/img/profile-picture.webp";
 
 function ProfileImage({ shape }) {
   switch (shape) {

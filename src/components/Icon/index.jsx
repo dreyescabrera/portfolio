@@ -70,7 +70,7 @@ const iconTypes = {
       <path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z" />
     </svg>
   ),
-  html: (
+  html: (styles) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       x="0px"
@@ -79,6 +79,7 @@ const iconTypes = {
       height="48"
       viewBox="0 0 172 172"
       style={{ fill: "#000000" }}
+      className={styles}
     >
       <defs>
         <linearGradient
@@ -141,7 +142,7 @@ const iconTypes = {
       </g>
     </svg>
   ),
-  css: (
+  css: (styles) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="48"
@@ -149,6 +150,7 @@ const iconTypes = {
       x="0"
       y="0"
       viewBox="0 0 48 48"
+      className={styles}
     >
       <linearGradient
         id="TQDriqswrKwPOniLrPT12a_7gdY5qNXaKC0_gr1"
@@ -187,7 +189,7 @@ const iconTypes = {
       ></path>
     </svg>
   ),
-  sass: (
+  sass: (styles) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="48"
@@ -195,6 +197,7 @@ const iconTypes = {
       x="0"
       y="0"
       viewBox="0 0 48 48"
+      className={styles}
     >
       <path
         fill="#f06292"
@@ -202,13 +205,14 @@ const iconTypes = {
       ></path>
     </svg>
   ),
-  react: (
+  react: (styles) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="46"
       height="46"
       preserveAspectRatio="xMidYMid"
       viewBox="0 -14 256 256"
+      className={styles}
     >
       <path
         fill="#00D8FF"
@@ -216,7 +220,7 @@ const iconTypes = {
       ></path>
     </svg>
   ),
-  javascript: (
+  javascript: (styles) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="48"
@@ -224,6 +228,7 @@ const iconTypes = {
       x="0"
       y="0"
       viewBox="0 0 48 48"
+      className={styles}
     >
       <path fill="#ffd600" d="M6 42V6h36v36H6z"></path>
       <path
@@ -232,14 +237,11 @@ const iconTypes = {
       ></path>
     </svg>
   ),
-  tailwind: (
+  tailwind: (styles) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="48"
-      height="48"
-      x="0"
-      y="0"
-      viewBox="0 0 48 42"
+      viewBox="0 0 48 48"
+      className={styles}
     >
       <linearGradient
         id="iOmQfjoCC4Hw6zVwRjSDha_x7XMNGh2vdqA_gr1"
@@ -258,13 +260,14 @@ const iconTypes = {
       ></path>
     </svg>
   ),
-  vite: (
+  vite: (styles) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="46"
       height="46"
       preserveAspectRatio="xMidYMid"
       viewBox="-0.5 0 257 257"
+      className={styles}
     >
       <defs>
         <linearGradient
@@ -299,7 +302,7 @@ const iconTypes = {
       ></path>
     </svg>
   ),
-  git: (
+  git: (styles) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="48"
@@ -307,6 +310,7 @@ const iconTypes = {
       x="0"
       y="0"
       viewBox="0 0 48 48"
+      className={styles}
     >
       <path
         fill="#F4511E"
@@ -314,14 +318,14 @@ const iconTypes = {
       ></path>
     </svg>
   ),
-  externalLink: (
+  externalLink: (styles) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-5 h-5 ml-1.5 inline-block align-text-top"
+      className={styles}
     >
       <path
         strokeLinecap="round"
@@ -330,14 +334,14 @@ const iconTypes = {
       />
     </svg>
   ),
-  arrowLeft: (
+  arrowLeft: (styles) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
       strokeWidth={2}
       stroke="currentColor"
-      className="w-4 h-4 inline-block text-[#21396c] mr-2"
+      className={styles}
     >
       <path
         strokeLinecap="round"
@@ -348,41 +352,8 @@ const iconTypes = {
   ),
 };
 
-function Icon({
-  type,
-  sidebarMedia,
-  contactMedia,
-  navMenu,
-  projectCard,
-  isCurrentSection,
-}) {
-  if (navMenu) {
-    return iconTypes[type](
-      `w-6 aspect-square transition-colors duration-100 ${
-        isCurrentSection && "text-terciary"
-      }`
-    );
-  }
-
-  if (sidebarMedia) {
-    return (
-      <span className="w-10 bg-[#ccc2] aspect-square flex justify-center items-center rounded-full transition-transform transition-100 hover:scale-105">
-        {iconTypes[type]("w-6 aspect-square text-gray-100")}
-      </span>
-    );
-  }
-
-  if (contactMedia) {
-    return (
-      <span className="w-11 bg-[#ccf5] aspect-square flex justify-center items-center rounded-full">
-        {iconTypes[type]("w-6 aspect-square text-secondary")}
-      </span>
-    );
-  }
-
-  if (projectCard) return iconTypes[type];
-
-  return iconTypes[type];
+function Icon({ type, styles = "w-full h-full" }) {
+  return iconTypes[type](styles);
 }
 
 export { Icon };

@@ -2,15 +2,17 @@ import React from "react";
 import { Icon } from "../Icon";
 
 function TextContent({ text, bulleted }) {
-  if (bulleted)
-    return (
-      <p className="xs:text-lg">
-        <Icon type="arrowLeft" />
-        {text}
-      </p>
-    );
-
-  return <p className="xs:text-lg">{text}</p>;
+  return (
+    <p className="xs:text-lg">
+      {bulleted && (
+        <Icon
+          type="arrowLeft"
+          styles="w-4 h-4 inline-block text-[#21396c] mr-2"
+        />
+      )}
+      {text}
+    </p>
+  );
 }
 
 export { TextContent };

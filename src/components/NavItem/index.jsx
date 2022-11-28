@@ -19,7 +19,12 @@ function NavItem({ id, name, iconName, activeNavItem, setSidebarIsOpen }) {
         }`}
         onClick={closeSidebar}
       >
-        <Icon type={iconName} navMenu isCurrentSection={isCurrentSection} />
+        <Icon
+          type={iconName}
+          styles={`w-6 aspect-square transition-colors duration-100 ${
+            isCurrentSection && "text-terciary"
+          }`}
+        />
         <span>{name}</span>
       </a>
     </li>

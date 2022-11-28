@@ -4,7 +4,9 @@ import { Icon } from "../Icon";
 function SocialMediaItem({ name, nickname, link }) {
   return (
     <li className="flex w-full p-4 gap-4 items-center rounded-sm shadow-md">
-      <Icon type={name.toLowerCase()} contactMedia />
+      <span className="w-11 bg-[#ccf5] aspect-square flex justify-center items-center rounded-full">
+        <Icon type={name.toLowerCase()} styles="w-6 h-6 text-secondary" />
+      </span>
       <div>
         <h3 className="font-bold text-xl xs:text-2xl text-quintenary">
           {name}
@@ -17,7 +19,10 @@ function SocialMediaItem({ name, nickname, link }) {
           rel="noreferrer"
         >
           {nickname}
-          <Icon type="externalLink" />
+          <Icon
+            type="externalLink"
+            styles="w-5 h-5 ml-1.5 inline-block align-text-top"
+          />
         </a>
       </div>
     </li>
