@@ -1,5 +1,5 @@
 import React from "react";
-import { Icon } from "../common/Icon";
+import { Icon } from "../../common/Icon";
 
 function SidebarButton({ socialMedia, link }) {
   return (

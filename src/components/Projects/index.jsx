@@ -1,6 +1,6 @@
 import React from "react";
 import { SectionTitle } from "../common/SectionTitle";
-import { ProjectCard } from "../ProjectCard";
+import { ProjectCard } from "./ProjectCard";
 import projects from "./../../data/projectsData";
 
 function Projects({ refference }) {

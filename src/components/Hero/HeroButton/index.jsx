@@ -2,7 +2,7 @@ import React from "react";
 import { LazyMotion, AnimatePresence, m } from "framer-motion";
 
 const loadFeatures = () =>
-  import("../../features/domAnimation").then((res) => res.default);
+  import("../../../features/domAnimation").then((res) => res.default);
 
 function HeroButtton({
   type,

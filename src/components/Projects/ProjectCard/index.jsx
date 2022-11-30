@@ -1,6 +1,6 @@
 import React from "react";
 import DOMPurify from "dompurify";
-import { Icon } from "../common/Icon";
+import { Icon } from "../../common/Icon";
 
 import { ProjectButton } from "../ProjectButton";
 

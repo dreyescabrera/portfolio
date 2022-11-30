@@ -1,5 +1,5 @@
 import React from "react";
-import { HeroButtton } from "../HeroButton";
+import { HeroButtton } from "./HeroButton";
 import { ScrollButton } from "./ScrollButton";
 import { useAnimatedText } from "./useAnimatedText";
 

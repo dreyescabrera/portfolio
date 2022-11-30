@@ -1,7 +1,7 @@
 import React from "react";
 import { SectionTitle } from "../common/SectionTitle";
-import { SocialMediaItem } from "../SocialMediaItem";
-import { Form } from "../Form";
+import { SocialMediaItem } from "./SocialMediaItem";
+import { Form } from "./Form";
 
 function Contact({ refference }) {
   return (

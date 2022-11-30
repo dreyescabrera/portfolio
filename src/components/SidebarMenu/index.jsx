@@ -1,7 +1,7 @@
 import React from "react";
 import { ProfileImage } from "../common/ProfileImage";
-import { SidebarButton } from "../SidebarButton";
-import { NavItem } from "../NavItem";
+import { SidebarButton } from "./SidebarButton";
+import { NavItem } from "./NavItem";
 
 function SidebarMenu({ sidebarIsOpen, activeNavItem, setSidebarIsOpen }) {
   return (
