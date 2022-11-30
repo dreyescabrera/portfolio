@@ -1,5 +1,5 @@
 import React from "react";
-import { SectionTitle } from "../SectionTitle";
+import { SectionTitle } from "../common/SectionTitle";
 import { ProjectCard } from "../ProjectCard";
 import projects from "./../../data/projectsData";
 

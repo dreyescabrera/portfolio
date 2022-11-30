@@ -1,8 +1,8 @@
 import React from "react";
-import { SectionTitle } from "../SectionTitle";
-import { TextContent } from "../TextContent";
-import { BulletedTextContent } from "../BulletedTextContent";
-import { ProfileImage } from "../ProfileImage";
+import { SectionTitle } from "../common/SectionTitle";
+import { TextContent } from "../common/TextContent";
+import { BulletedTextContent } from "./BulletedTextContent";
+import { ProfileImage } from "../common/ProfileImage";
 
 function About({ refference }) {
   return (

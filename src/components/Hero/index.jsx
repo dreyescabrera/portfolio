@@ -1,6 +1,6 @@
 import React from "react";
 import { HeroButtton } from "../HeroButton";
-import { ScrollButton } from "../ScrollButton";
+import { ScrollButton } from "./ScrollButton";
 import { useAnimatedText } from "./useAnimatedText";
 
 function Hero({ refference }) {

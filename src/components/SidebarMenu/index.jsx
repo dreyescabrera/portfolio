@@ -1,12 +1,12 @@
 import React from "react";
-import { ProfileImage } from "../ProfileImage/";
+import { ProfileImage } from "../common/ProfileImage";
 import { SidebarButton } from "../SidebarButton";
 import { NavItem } from "../NavItem";
 
 function SidebarMenu({ sidebarIsOpen, activeNavItem, setSidebarIsOpen }) {
   return (
     <aside
-      className={`fixed w-full left-0 h-screen flex flex-col justify-start items-center px-6 pt-16 gap-5 bg-[#050c19] transition-all duration-700 md:pt-8 z-10 ${
+      className={`fixed w-full left-0 h-screen flex flex-col justify-start items-center px-6 py-8 gap-5 overflow-auto bg-[#050c19] transition-all duration-700 z-10 ${
         sidebarIsOpen ? " left-0" : "-left-full"
       } md:w-60  lg:w-72`}
     >

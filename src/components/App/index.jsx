@@ -6,7 +6,7 @@ import React from "react";
   }
 })();
 
-import { HamburguerButton } from "../HamburguerButton";
+import { HamburguerButton } from "../common/HamburguerButton";
 import { SidebarMenu } from "../SidebarMenu/";
 import { Hero } from "../Hero";
 import { About } from "../About";
