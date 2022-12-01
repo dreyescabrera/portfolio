@@ -15,7 +15,10 @@ function Form() {
       <Suspense fallback="">
         <FormAlert formAlert={formAlert} />
       </Suspense>
-      <label htmlFor="user_name" className=" xs:text-lg text-gray-700">
+      <label
+        htmlFor="user_name"
+        className="xs:text-lg lg:text-xl text-gray-700"
+      >
         Your Name
       </label>
       <input
@@ -24,9 +27,12 @@ function Form() {
         name="user_name"
         placeholder="Dana"
         required
-        className="m-1 px-2 py-1 rounded-sm outline-1 outline outline-gray-500 text-quintenary focus-within:outline-2 focus-within:outline-terciary"
+        className="mt-1 px-2 py-1 rounded-sm outline-1 outline outline-gray-500 xl:text-lg text-quintenary focus-within:outline-2 focus-within:outline-terciary"
       />
-      <label htmlFor="user_email" className="mt-3 xs:text-lg text-gray-700">
+      <label
+        htmlFor="user_email"
+        className="mt-4 xs:text-lg lg:text-xl text-gray-700"
+      >
         Your Email
       </label>
       <input
@@ -35,9 +41,12 @@ function Form() {
         name="user_email"
         placeholder="example@email.com"
         required
-        className="m-1 px-2 py-1 rounded-sm outline-1 outline outline-gray-500 text-quintenary  focus-within:outline-2 focus-within:outline-terciary"
+        className="mt-1 px-2 py-1 rounded-sm outline-1 outline outline-gray-500 xl:text-lg text-quintenary focus-within:outline-2 focus-within:outline-terciary"
       />
-      <label htmlFor="message" className="mt-3 xs:text-lg text-gray-700">
+      <label
+        htmlFor="message"
+        className="mt-4 xs:text-lg lg:text-xl text-gray-700"
+      >
         Message
       </label>
       <textarea
@@ -47,7 +56,7 @@ function Form() {
         rows="5"
         placeholder="Hello!"
         required
-        className="resize-none mt-1 px-2 py-1 rounded-sm outline-1 outline outline-gray-500 text-quintenary focus-within:outline-2 focus-within:outline-terciary"
+        className="resize-none mt-1 px-2 py-1 rounded-sm outline-1 outline outline-gray-500 xl:text-lg text-quintenary focus-within:outline-2 focus-within:outline-terciary"
       ></textarea>
       <button
         type="submit"

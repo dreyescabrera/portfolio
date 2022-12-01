@@ -3,7 +3,7 @@ import { Icon } from "../Icon";
 
 function TextContent({ text, bulleted }) {
   return (
-    <p className="xs:text-lg">
+    <p className="mb-4 xs:text-lg xl:text-xl">
       {bulleted && (
         <Icon
           type="arrowLeft"

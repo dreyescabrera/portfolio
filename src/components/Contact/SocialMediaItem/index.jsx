@@ -13,7 +13,7 @@ function SocialMediaItem({ name, nickname, link }) {
         </h3>
         <a
           href={link}
-          className=" text-gray-500 xs:text-lg lg:hover:text-gray-800 align-bottom transition-colors duration-150"
+          className=" text-gray-500 xs:text-lg xl:text-xl lg:hover:text-gray-800 align-bottom transition-colors duration-150"
           aria-label={`Visit my ${name}`}
           target="_blank"
           rel="noreferrer"
