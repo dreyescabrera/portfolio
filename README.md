@@ -22,13 +22,13 @@ JavaScript |
 ReactJS |
 Tailwind CSS |
 Vite |
-Git |
+Git 
 
 
 ## Optimizations
 This website has a perfect Lighthouse report ✅
  - I managed to apply code splitting to libraries such as framer-motion and emailjs.
- - I also preloaded every critical resource needed above the fold.
+ - I preloaded every critical resource needed above the fold.
 
 ## Tech Stack
 
