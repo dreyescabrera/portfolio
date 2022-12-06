@@ -7,14 +7,6 @@ const phrases = {
   denied: "Let me show you.",
 };
 
-const reducerObject = (state, action) => ({
-  DELETE_TEXT: {
-    ...state,
-  },
-});
-
-const reducer = (state, action) => {};
-
 let questionSentence = {
   currentSentence: phrases.main,
   next: {
@@ -121,7 +113,7 @@ function useAnimatedText() {
       setTimeout(() => {
         const canAutoDelete = !!textToPrint.next;
         onWrite(0, textToPrint.currentSentence, canAutoDelete);
-      }, 500);
+      }, 2000);
       return;
     }
 
