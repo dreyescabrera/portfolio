@@ -35,7 +35,7 @@ const projects = {
     title: "Portfolio",
     imgURL: portfolioImg,
     description:
-      "Personal web page dedicated to show my personal and professional skills and progress. It contains an amazing <strong>text animation</strong> that encourages you to learn more about me, made with JavaScript and the <strong>useReducer Hook</strong>.",
+      "My personal and professional skills and progress. It features an amazing <strong>chat-like animation</strong> made with JavaScript, applying <strong>recursion</strong> on a tree data structure.",
     demo: "https://realdiegor.github.io/portfolio/",
     source: "https://github.com/realDiegoR/portfolio",
     technologies: ["react", "tailwind", "vite"],

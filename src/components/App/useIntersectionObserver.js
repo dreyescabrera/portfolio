@@ -19,7 +19,6 @@ function useIntersectionObserver() {
     const callback = (entries) => {
       const currentSection = entries[0];
       const intersectionRatio = currentSection.intersectionRatio;
-      console.log(currentSection);
       if (intersectionRatio > 0.25 && intersectionRatio < 0.6) {
         lightUpNavItem(currentSection.target.id);
         return;
