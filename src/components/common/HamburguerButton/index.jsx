@@ -3,7 +3,7 @@ import React from "react";
 function HamburguerButton({ sidebarIsOpen, setSidebarIsOpen }) {
   return (
     <div
-      className="fixed bottom-6 right-6 bg-[#050c19] flex justify-center items-center w-14 h-14 rounded-full z-10 cursor-pointer shadow shadow-gray-800 md:hidden"
+      className="fixed bottom-6 right-6 bg-quaternary flex justify-center items-center w-14 h-14 rounded-full z-10 cursor-pointer shadow shadow-primary md:hidden"
       onClick={() => {
         setSidebarIsOpen((prev) => !prev);
         document.documentElement.classList.toggle("preventScroll");

@@ -15,10 +15,7 @@ function Form() {
       <Suspense fallback="">
         <FormAlert formAlert={formAlert} />
       </Suspense>
-      <label
-        htmlFor="user_name"
-        className="xs:text-lg lg:text-xl text-gray-700"
-      >
+      <label htmlFor="user_name" className="xs:text-lg lg:text-xl text-black">
         Your Name
       </label>
       <input
@@ -27,11 +24,11 @@ function Form() {
         name="user_name"
         placeholder="Dana"
         required
-        className="mt-1 px-2 py-1 rounded-sm outline-1 outline outline-gray-500 xl:text-lg text-quintenary focus-within:outline-2 focus-within:outline-terciary"
+        className="mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black focus-within:outline-2 focus-within:outline-terciary"
       />
       <label
         htmlFor="user_email"
-        className="mt-4 xs:text-lg lg:text-xl text-gray-700"
+        className="mt-4 xs:text-lg lg:text-xl text-black"
       >
         Your Email
       </label>
@@ -41,11 +38,11 @@ function Form() {
         name="user_email"
         placeholder="example@email.com"
         required
-        className="mt-1 px-2 py-1 rounded-sm outline-1 outline outline-gray-500 xl:text-lg text-quintenary focus-within:outline-2 focus-within:outline-terciary"
+        className="mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black focus-within:outline-2 focus-within:outline-terciary"
       />
       <label
         htmlFor="message"
-        className="mt-4 xs:text-lg lg:text-xl text-gray-700"
+        className="mt-4 xs:text-lg lg:text-xl text-black"
       >
         Message
       </label>
@@ -56,11 +53,11 @@ function Form() {
         rows="5"
         placeholder="Hello!"
         required
-        className="resize-none mt-1 px-2 py-1 rounded-sm outline-1 outline outline-gray-500 xl:text-lg text-quintenary focus-within:outline-2 focus-within:outline-terciary"
+        className="resize-none mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black focus-within:outline-2 focus-within:outline-terciary"
       ></textarea>
       <button
         type="submit"
-        className="mx-auto my-5 px-6 py-3 xs:text-lg bg-secondary text-gray-100 rounded hover:bg-primary transition-colors duration-200 lg:text-base lg:px-6"
+        className="mx-auto my-5 px-6 py-3 xs:text-lg bg-secondary text-lightGray rounded hover:bg-primary transition-colors duration-200 lg:text-base lg:px-6"
       >
         Send Email
       </button>

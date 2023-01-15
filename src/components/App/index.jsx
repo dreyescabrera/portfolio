@@ -55,7 +55,7 @@ function App() {
             Made with 💙 by{" "}
             <a
               href="https://www.linkedin.com/in/diegoreyescabrera/"
-              className="underline cursor-pointer text-quaternary hover:text-terciary"
+              className="underline cursor-pointer text-primary hover:text-terciary"
               target="_blank"
               rel="noreferrer"
             >

@@ -4,7 +4,7 @@
 
 html {
   scroll-behavior: smooth;
-  @apply bg-gray-50;
+  @apply bg-white;
 }
 
 .preventScroll {
@@ -12,12 +12,12 @@ html {
 }
 
 :target {
-  scroll-margin-top: 50px;
+  scroll-margin-top: 3.125rem;
 }
 
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 0.625rem;
 }
 
 /* Track */
@@ -27,7 +27,7 @@ html {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  @apply bg-quintenary;
+  @apply bg-quaternary;
 }
 
 /* Handle on hover */

@@ -30,7 +30,7 @@ function ProjectCard({ project }) {
         ))}
       </div>
       <div className="flex flex-wrap gap-2">
-        <ProjectButton text="View Demo" link={project.demo} mainCTO />
+        <ProjectButton text="View Demo" link={project.demo} mainCtA />
         <ProjectButton text="Source Code" link={project.source} />
       </div>
     </article>

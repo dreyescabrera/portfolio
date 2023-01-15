@@ -22,7 +22,7 @@ function HeroButtton({
             {buttonMustAppear && (
               <m.button
                 className={`relative p-1 
-            after:content-[''] after:absolute after:w-5/6 after:h-[2px] after:left-[6px] after:bottom-0 after:bg-[#16303b] hover:after:scale-100 after:transition-all after:duration-500
+            after:content-[''] after:absolute after:w-5/6 after:h-[2px] after:left-[6px] after:bottom-0 after:bg-quaternary hover:after:scale-100 after:transition-all after:duration-500
             lg:text-lg lg:after:scale-50`}
                 onClick={answerQuestion}
                 initial={{ opacity: 0, y: 20 }}
@@ -45,8 +45,8 @@ function HeroButtton({
             {buttonMustAppear && (
               <m.a
                 href={`#${text}`}
-                className={`relative inline-block p-1 font- text-lg lg:text-2xl
-              after:content-[''] after:absolute after:w-5/6 after:h-[2px] after:left-[8px] after:-bottom-1 after:bg-[#16303b] hover:after:scale-100 after:transition-all after:duration-500
+                className={`relative inline-block p-1 text-lg lg:text-2xl
+              after:content-[''] after:absolute after:w-5/6 after:h-[2px] after:left-[8px] after:-bottom-1 after:bg-quaternary hover:after:scale-100 after:transition-all after:duration-500
               lg:after:scale-50 lg:after:left-[10px]`}
                 onClick={answerQuestion}
                 initial={{ opacity: 0, x: 20 }}

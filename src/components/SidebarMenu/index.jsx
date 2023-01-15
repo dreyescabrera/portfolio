@@ -1,35 +1,35 @@
 import React from "react";
 import { ProfileImage } from "../common/ProfileImage";
-import { SidebarButton } from "./SidebarButton";
+import { SidebarMediaButton } from "./SidebarMediaButton";
 import { NavItem } from "./NavItem";
 
 function SidebarMenu({ sidebarIsOpen, activeNavItem, setSidebarIsOpen }) {
   return (
     <aside
-      className={`fixed w-full left-0 h-screen flex flex-col justify-start items-center px-6 py-8 gap-5 overflow-auto bg-[#050c19] transition-all duration-700 z-10 ${
+      className={`fixed w-full left-0 h-screen flex flex-col justify-start items-center px-6 py-8 gap-5 overflow-auto bg-black transition-all duration-700 z-10 ${
         sidebarIsOpen ? " left-0" : "-left-full"
       } md:w-60  lg:w-72`}
     >
       <ProfileImage shape="circle" />
-      <h2 className="text-3xl text-gray-200 font-semibold font-luxury tracking-tight md:text-2xl ">
+      <h2 className="text-3xl text-lightGray font-semibold font-luxury md:text-2xl ">
         Diego Reyes
       </h2>
       <ul className="flex space-x-5">
-        <SidebarButton
+        <SidebarMediaButton
           link="https://www.instagram.com/realdiegor/"
           socialMedia="instagram"
         />
-        <SidebarButton
+        <SidebarMediaButton
           link="https://github.com/realDiegoR"
           socialMedia="github"
         />
-        <SidebarButton
+        <SidebarMediaButton
           link="https://www.linkedin.com/in/diegoreyescabrera/"
           socialMedia="linkedin"
         />
       </ul>
       <nav className="pt-2 md:self-start lg:pt-8">
-        <ul className="flex flex-col gap-5 text-[#82858c] font-semibold sm:text-xl md:text-lg">
+        <ul className="flex flex-col gap-5 text-midGray font-semibold sm:text-xl md:text-lg">
           <NavItem
             name="home"
             id="home"

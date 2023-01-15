@@ -15,7 +15,7 @@ function NavItem({ id, name, iconName, activeNavItem, setSidebarIsOpen }) {
       <a
         href={href}
         className={`flex items-center space-x-4 capitalize font-casual transition-colors duration-100 ${
-          isCurrentSection ? "text-gray-100" : null
+          isCurrentSection ? "text-lightGray" : null
         }`}
         onClick={closeSidebar}
       >
