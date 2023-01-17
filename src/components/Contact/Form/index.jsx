@@ -57,7 +57,7 @@ function Form() {
       ></textarea>
       <button
         type="submit"
-        className="mx-auto my-5 px-6 py-3 xs:text-lg bg-secondary text-white rounded hover:bg-primary transition-colors duration-200 lg:text-base lg:px-6"
+        className="mx-auto my-5 px-6 py-3 xs:text-lg bg-secondary text-white rounded-sm hover:bg-primary transition-colors duration-200 lg:text-base lg:px-6"
       >
         Send Email
       </button>

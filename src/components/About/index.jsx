@@ -9,7 +9,7 @@ function About({ refference }) {
     <section className="m-sm lg:m-lg" id="whoami?" ref={refference}>
       <SectionTitle text="Who Am I?" />
 
-      <TextContent text="Hello, I'm Diego! I'm a Web Developer from Venezuela, currently based in Atlanta, USA." />
+      <TextContent text="Hello, I'm Diego! I'm a Web Developer from Venezuela, currently located in Atlanta, USA." />
       <TextContent text="One year ago, I found a passion for developing when I took a course of JavaScript, as I was seeking a purpose that really catches me, facing my ever first algorithms, layouts and so on. Since then, I have been working on mastering my ability of solving user's problems with optimized and clean code within my web apps." />
 
       <section className="flex flex-col items-center gap-10 mt-8 lg:flex-row lg:justify-around xl:my-16">

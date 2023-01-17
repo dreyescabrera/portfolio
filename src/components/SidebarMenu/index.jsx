@@ -29,7 +29,7 @@ function SidebarMenu({ sidebarIsOpen, activeNavItem, setSidebarIsOpen }) {
         />
       </ul>
       <nav className="pt-2 md:self-start lg:pt-8">
-        <ul className="flex flex-col gap-5 text-midGray font-semibold sm:text-xl md:text-lg">
+        <ul className="flex flex-col gap-5 text-midGray font-semibold tracking-wide text-lg md:text-xl md:gap-6">
           <NavItem
             name="home"
             id="home"

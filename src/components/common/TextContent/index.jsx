@@ -7,7 +7,7 @@ function TextContent({ text, bulleted }) {
       {bulleted && (
         <Icon
           type="arrowLeft"
-          styles="w-4 h-4 inline-block text-[#21396c] mr-2"
+          styles="relative -top-0.5 w-4 h-4 inline-block text-[#21396c] mr-2"
         />
       )}
       {text}

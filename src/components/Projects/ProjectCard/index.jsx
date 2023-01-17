@@ -22,7 +22,7 @@ function ProjectCard({ project }) {
         dangerouslySetInnerHTML={{
           __html: DOMPurify.sanitize(project.description),
         }}
-        className="text-gray-800 text-sm xs:text-base lg:text-lg"
+        className="pb-5 text-darkGray text-sm xs:text-base lg:text-lg"
       />
       <div className="flex my-4 gap-2">
         {project.technologies.map((tech) => (
