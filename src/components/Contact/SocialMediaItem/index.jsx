@@ -21,7 +21,7 @@ function SocialMediaItem({ name, nickname, link }) {
           {nickname}
           <Icon
             type="externalLink"
-            styles="w-5 h-5 ml-1.5 inline-block align-text-top"
+            styles="relative top-0.5 w-5 h-5 ml-1.5 inline-block align-text-top"
           />
         </a>
       </div>

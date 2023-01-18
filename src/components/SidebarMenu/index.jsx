@@ -8,10 +8,10 @@ function SidebarMenu({ sidebarIsOpen, activeNavItem, setSidebarIsOpen }) {
     <aside
       className={`fixed w-full left-0 h-screen flex flex-col justify-start items-center px-6 py-8 gap-5 overflow-auto bg-black transition-all duration-700 z-10 ${
         sidebarIsOpen ? " left-0" : "-left-full"
-      } md:w-60  lg:w-72`}
+      } md:w-60  lg:w-72 2xl:w-1/6`}
     >
       <ProfileImage shape="circle" />
-      <h2 className="text-3xl text-lightGray font-semibold font-luxury md:text-2xl ">
+      <h2 className="text-3xl text-lightGray font-semibold font-luxury md:text-2xl 2xl">
         Diego Reyes
       </h2>
       <ul className="flex space-x-5">

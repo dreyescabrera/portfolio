@@ -4,12 +4,12 @@ import { Icon } from "../../common/Icon";
 
 import { ProjectButton } from "../ProjectButton";
 
-function ProjectCard({ project }) {
+function ProjectCard(project) {
   return (
     <article className="max-w-sm p-6 rounded-sm shadow-md">
       <img
-        src={project.imgURL}
-        alt={project.title}
+        src={project.img.src}
+        alt={project.img.alt}
         aria-label={project.title}
         className="w-full aspect-video rounded-sm"
         loading="lazy"
@@ -26,7 +26,11 @@ function ProjectCard({ project }) {
       />
       <div className="flex my-4 gap-2">
         {project.technologies.map((tech) => (
-          <Icon type={tech} key={tech} styles="w-10 h-10 lg:w-12 lg:h-12" />
+          <Icon
+            type={tech.name}
+            key={tech.id}
+            styles="w-10 h-10 lg:w-12 lg:h-12"
+          />
         ))}
       </div>
       <div className="flex flex-wrap gap-2">
