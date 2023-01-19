@@ -24,11 +24,10 @@ function useEmailing() {
         setFormAlert({ status: "Error", isVisible: true });
       })
       .finally(() => {
+        form.current.reset();
         setTimeout(() => {
-          const formElement = document.querySelector("form");
-          formElement.reset();
           setFormAlert({ ...formAlert, isVisible: false });
-        }, 3000);
+        }, 2000);
       });
   };
 

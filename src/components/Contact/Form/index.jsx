@@ -4,7 +4,8 @@ import { useEmailing } from "./useEmailing";
 const FormAlert = lazy(() => import("../FormAlert"));
 
 function Form() {
-  const { form, formAlert, sendEmail } = useEmailing();
+  const { form, formAlert, emailInput, sendEmail } = useEmailing();
+
   return (
     <form
       ref={form}
@@ -38,6 +39,8 @@ function Form() {
         name="user_email"
         placeholder="example@email.com"
         required
+        pattern="^[\w\d]+@[\w\d]+\.[a-z]{2,5}$"
+        ref={emailInput}
         className="mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black focus-within:outline-2 focus-within:outline-terciary"
       />
       <label
@@ -49,11 +52,10 @@ function Form() {
       <textarea
         name="message"
         id="message"
-        cols="30"
         rows="5"
         placeholder="Hello!"
         required
-        className="resize-none mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black focus-within:outline-2 focus-within:outline-terciary"
+        className="resize-y mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black focus-within:outline-2 focus-within:outline-terciary"
       ></textarea>
       <button
         type="submit"
