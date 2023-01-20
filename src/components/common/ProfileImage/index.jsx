@@ -9,7 +9,7 @@ function ProfileImage({ shape }) {
         <img
           src={tinyURL}
           alt="Profile Image"
-          className={`w-[130px] min-[375px]:w-[150px] object-cover object-top rounded-full aspect-square shadow-[0_0_0_10px] shadow-darkGray`}
+          className={`w-[130px] min-[375px]:w-[150px] object-cover object-top rounded-full aspect-square shadow-[0_0_0_10px] shadow-darkGray 3xl:w-52`}
           loading="lazy"
         />
       );

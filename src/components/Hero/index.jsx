@@ -13,15 +13,15 @@ function Hero({ refference }) {
       ref={refference}
     >
       <div className="col-start-1 row-start-2 col-end-7 tracking-tigh space-y-3 antialiased sm:space-y-4 lg:col-end-6 xl:col-end-5">
-        <h1 className="font-bold mb-1 text-4xl xs:text-5xl sm:text-6xl lg:text-7xl lg:mb-3">
+        <h1 className="font-bold mb-1 text-4xl xs:text-5xl sm:text-6xl lg:text-7xl 3xl:text-8xl lg:mb-3 3xl:mb-4">
           Diego Reyes
         </h1>
-        <span className="pl-0.5 text-2xl font-semibold leading-7 lg:text-4xl">
+        <span className="pl-0.5 text-2xl font-semibold leading-7 lg:text-4xl 3xl:text-5xl">
           Frontend Developer
         </span>
         <div className="pt-6 font-medium select-none lg:pt-10 2xl:pt-14">
           <span
-            className={`text-xl lg:text-2xl relative after:content-['|'] after:relative after:bottom-[2px] after:left-[3px] after:inline-block   ${
+            className={`text-xl lg:text-2xl 3xl:text-3xl relative after:content-['|'] after:relative after:bottom-[2px] after:left-[3px] after:inline-block   ${
               textIsChanging
                 ? undefined
                 : "after:motion-safe:animate-text-machine"

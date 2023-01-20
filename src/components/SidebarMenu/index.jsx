@@ -11,7 +11,7 @@ function SidebarMenu({ sidebarIsOpen, activeNavItem, setSidebarIsOpen }) {
       } md:w-60  lg:w-72 2xl:w-1/6`}
     >
       <ProfileImage shape="circle" />
-      <h2 className="text-3xl text-lightGray font-semibold font-luxury md:text-2xl 2xl">
+      <h2 className="text-3xl text-lightGray font-semibold font-luxury md:text-2xl 3xl:text-4xl">
         Diego Reyes
       </h2>
       <ul className="flex space-x-5">
@@ -29,7 +29,7 @@ function SidebarMenu({ sidebarIsOpen, activeNavItem, setSidebarIsOpen }) {
         />
       </ul>
       <nav className="pt-2 md:self-start lg:pt-8">
-        <ul className="flex flex-col gap-5 text-midGray font-semibold tracking-wide text-lg md:text-xl md:gap-6">
+        <ul className="flex flex-col gap-5 text-midGray font-semibold tracking-wide text-lg md:text-xl md:gap-6 3xl:text-2xl">
           <NavItem
             name="home"
             id="home"
