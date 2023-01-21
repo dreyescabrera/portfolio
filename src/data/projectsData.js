@@ -12,7 +12,7 @@ const projects = [
       alt: "IP Tracker - Tool for finding server locations",
     },
     description:
-      "Tracks the IP Address or Domain Name inserted by fetching data from <strong>Ipify API</strong> and placed a markup on its location using the coordinates provided, and a global map provided by <strong>Leaflet</strong>.",
+      "Tracks the IP Address or Domain Name entered by fetching data from <strong>Ipify API</strong> and places a markup on its location using the coordinates returned, and a global map provided by <strong>Leaflet</strong>.",
     demo: "https://realdiegor.github.io/ip_tracker/",
     source: "https://github.com/realDiegoR/ip_tracker",
     technologies: [
@@ -29,7 +29,7 @@ const projects = [
       alt: "Todo App - An app for managing your daily goals",
     },
     description:
-      "Manage your daiy tasks by creating, marking as active or completed, filtering and deleting ToDo's. This app features fetching from <strong>LocalStorage</strong> and multiple tabs synchronization.",
+      "Manage your daiy tasks by creating, marking as checked, filtering and deleting ToDo's. This app features fetching from <strong>LocalStorage</strong> and multiple tabs synchronization.",
     demo: "https://realdiegor.github.io/Todo-App-React/",
     source: "https://github.com/realDiegoR/Todo-App-React",
     technologies: [
@@ -45,7 +45,7 @@ const projects = [
       alt: "Country Quiz - A Game for those who love geography ",
     },
     description:
-      "Fetches the data it needs from the <strong>REST Countries API</strong>. It chooses a question and a country, three thinkfully wrong options and the correct one among the others. It contains a timer and a correct counter.",
+      "Fetches the data it needs from the <strong>REST Countries API</strong>. It chooses a question and a country, three thinkfully wrong options and the correct one among the others.",
     demo: "https://realdiegor.github.io/Country-quiz/",
     source: "https://github.com/realDiegoR/Country-quiz",
     technologies: [

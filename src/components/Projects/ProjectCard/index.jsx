@@ -8,8 +8,7 @@ function ProjectCard(project) {
   return (
     <article className="max-w-sm p-6 rounded-sm shadow-md">
       <img
-        src={project.img.src}
-        alt={project.img.alt}
+        {...project.img}
         aria-label={project.title}
         className="w-full aspect-video rounded-sm"
         loading="lazy"

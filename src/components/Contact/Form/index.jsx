@@ -39,7 +39,7 @@ function Form() {
         name="user_email"
         placeholder="example@email.com"
         required
-        pattern="^[\w\d]+@[\w\d]+\.[a-z]{2,5}$"
+        pattern="^[\w._%+-]+@[\w-]+\.[a-z]{2,}$"
         ref={emailInput}
         className="mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black focus-within:outline-2 focus-within:outline-terciary"
       />

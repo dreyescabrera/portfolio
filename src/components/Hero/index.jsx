@@ -4,8 +4,14 @@ import { ScrollButton } from "./ScrollButton";
 import { useAnimatedText } from "./useAnimatedText";
 
 function Hero({ refference }) {
-  const { textValue, answerQuestion, textIsChanging, chosenAnswer } =
-    useAnimatedText();
+  const {
+    textValue,
+    answerQuestion,
+    textIsChanging,
+    chosenAnswer,
+    startOver,
+    textToPrint,
+  } = useAnimatedText();
   return (
     <header
       className={`grid grid-cols-6 grid-rows-5 justify-items-center w-full h-screen bg-hero-littlest bg-cover bg-center text-quaternary font-luxury xs:bg-hero-mobile md:bg-hero-desktop lg:bg-fixed`}
@@ -43,18 +49,26 @@ function Hero({ refference }) {
               triggeringText={textValue}
             />
             <HeroButtton
-              type={"navigation"}
+              type="navigation"
               text="projects"
               answerQuestion={answerQuestion}
               triggeringText={textValue}
               chosenAnswer={chosenAnswer.current}
             />
             <HeroButtton
-              type={"navigation"}
+              type="navigation"
               text="contact"
               answerQuestion={answerQuestion}
               triggeringText={textValue}
               chosenAnswer={chosenAnswer.current}
+            />
+            <HeroButtton
+              type="startOver"
+              text="Start Over"
+              answerQuestion={answerQuestion}
+              startOver={startOver}
+              triggeringText={textValue}
+              textToPrint={textToPrint}
             />
           </div>
         </div>

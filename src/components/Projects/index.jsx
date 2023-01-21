@@ -7,7 +7,7 @@ function Projects({ refference }) {
   return (
     <section className="m-sm lg:m-lg" id="projects" ref={refference}>
       <SectionTitle text="Projects" />
-      <section className="flex flex-wrap gap-8 justify-center mt-10 lg:gap-10 xl:justify-between">
+      <section className="grid grid-cols-flexible gap-6 mt-10">
         {projects.map((project) => (
           <ProjectCard {...project} key={project.id} />
         ))}

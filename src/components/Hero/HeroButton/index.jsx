@@ -10,6 +10,8 @@ function HeroButtton({
   answerQuestion,
   triggeringText,
   chosenAnswer,
+  startOver,
+  textToPrint,
 }) {
   let buttonMustAppear;
   let navTo;
@@ -56,6 +58,32 @@ function HeroButtton({
               >
                 {text.toUpperCase()}
               </m.a>
+            )}
+          </AnimatePresence>
+        </LazyMotion>
+      );
+    case "startOver":
+      buttonMustAppear =
+        triggeringText === "Let's work together!" && textToPrint.next === null;
+      return (
+        <LazyMotion features={loadFeatures}>
+          <AnimatePresence>
+            {buttonMustAppear && (
+              <m.button
+                className="relative p-1
+              after:content-[''] after:absolute after:w-5/6 after:h-[2px] after:left-[6px] after:bottom-0 after:bg-quaternary hover:after:scale-100 after:transition-all after:duration-500
+              lg:text-lg lg:after:scale-50 3xl:text-xl"
+                onClick={(ev) => {
+                  startOver();
+                  answerQuestion(ev);
+                }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ ease: "easeInOut", duration: 0.8 }}
+              >
+                {text}
+              </m.button>
             )}
           </AnimatePresence>
         </LazyMotion>
