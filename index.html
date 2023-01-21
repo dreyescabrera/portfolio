@@ -4,43 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>realdiegor | portfolio</title>
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="favicons/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="favicons/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="favicons/favicon-16x16.png"
-    />
-    <link
-      rel="preload"
-      as="image"
-      href="/src/assets/img/hero-littlest.webp"
-      media="(max-width: 360px)"
-    />
-    <link
-      rel="preload"
-      as="image"
-      href="/src/assets/img/hero-mobile.webp"
-      media="(min-width: 361px) and (max-width: 767px)"
-    />
-    <link
-      rel="preload"
-      as="image"
-      href="/src/assets/img/hero-desktop.webp"
-      media="(min-width: 768px)"
-    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/service-worker.js");
+        });
+      }
+    </script>
     <style>
       .loader,
       .loader:before,
@@ -127,6 +99,41 @@
       }
     </style>
     <link
+      rel="preload"
+      as="image"
+      href="/src/assets/img/hero-littlest.webp"
+      media="(max-width: 360px)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/src/assets/img/hero-mobile.webp"
+      media="(min-width: 361px) and (max-width: 767px)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/src/assets/img/hero-desktop.webp"
+      media="(min-width: 768px)"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicons/favicon-16x16.png"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Raleway:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
@@ -148,13 +155,6 @@
       property="og:description"
       content="Hello, I'm Diego! I'm a Web Developer from Venezuela, currently located in Atlanta, USA."
     />
-    <script>
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", () => {
-          navigator.serviceWorker.register("/service-worker.js");
-        });
-      }
-    </script>
   </head>
   <body class="block-scroll">
     <div
