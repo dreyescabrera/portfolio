@@ -40,7 +40,7 @@ function App() {
 				sidebarIsOpen={sidebarIsOpen}
 				setSidebarIsOpen={setSidebarIsOpen}
 			/>
-			<div className="dark:bg-[#020610]  transition-[padding] duration-700 md:pl-60 lg:pl-72">
+			<div className="dark:bg-[#040c20]  transition-[padding] duration-700 md:pl-60 lg:pl-72">
 				<Hero
 					sidebarIsOpen={sidebarIsOpen}
 					setSidebarIsOpen={setSidebarIsOpen}
