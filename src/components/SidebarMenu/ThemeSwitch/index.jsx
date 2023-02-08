@@ -26,7 +26,7 @@ function ThemeSwitch() {
 	}, []);
 
 	return (
-		<div className="flex gap-2 items-center justify-center mt-6 md:self-start">
+		<div className="flex gap-2 items-center justify-center mt-2 xs:mt-6 md:self-start">
 			<Icon type="sun" styles="w-6 h-full text-white" />
 			<div
 				className="w-14 h-6 p-0.5 bg-red-50  rounded-full overflow-hidden cursor-pointer"
