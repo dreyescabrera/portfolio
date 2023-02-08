@@ -9,14 +9,17 @@ function Form() {
 	return (
 		<form
 			ref={form}
-			className="relative flex flex-col flex-grow p-4 shadow-md rounded-sm"
+			className="relative flex flex-col flex-grow p-4 shadow-md rounded-sm dark:bg-quaternary"
 			id="form"
 			onSubmit={sendEmail}
 		>
 			<Suspense fallback="">
 				<FormAlert formAlert={formAlert} />
 			</Suspense>
-			<label htmlFor="user_name" className="xs:text-lg lg:text-xl text-black">
+			<label
+				htmlFor="user_name"
+				className="xs:text-lg lg:text-xl text- dark:text-lightGray"
+			>
 				Your Name
 			</label>
 			<input
@@ -25,11 +28,11 @@ function Form() {
 				name="user_name"
 				placeholder="Dana"
 				required
-				className="mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black focus-within:outline-2 focus-within:outline-terciary"
+				className="mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black dark:text-darkGray focus-within:outline-2 focus-within:outline-terciary dark:bg-lightGray placeholder:text-midGray"
 			/>
 			<label
 				htmlFor="user_email"
-				className="mt-4 xs:text-lg lg:text-xl text-black"
+				className="mt-4 xs:text-lg lg:text-xl text-black dark:text-lightGray"
 			>
 				Your Email
 			</label>
@@ -41,11 +44,11 @@ function Form() {
 				required
 				pattern="^[\w._%+-]+@[\w-]+\.[a-z]{2,}$"
 				ref={emailInput}
-				className="mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black focus-within:outline-2 focus-within:outline-terciary"
+				className="mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black dark:text-darkGray focus-within:outline-2 focus-within:outline-terciary dark:bg-lightGray placeholder:text-midGray"
 			/>
 			<label
 				htmlFor="message"
-				className="mt-4 xs:text-lg lg:text-xl text-black"
+				className="mt-4 xs:text-lg lg:text-xl text-black dark:text-lightGray"
 			>
 				Message
 			</label>
@@ -55,11 +58,11 @@ function Form() {
 				rows="5"
 				placeholder="Hello!"
 				required
-				className="resize-y mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black focus-within:outline-2 focus-within:outline-terciary"
+				className="resize-y mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black dark:text-darkGray focus-within:outline-2 focus-within:outline-terciary dark:bg-lightGray placeholder:text-midGray"
 			></textarea>
 			<button
 				type="submit"
-				className="mx-auto my-5 px-6 py-3 xs:text-lg bg-secondary text-white rounded-sm hover:bg-primary transition-colors duration-200 lg:text-base lg:px-6"
+				className="mx-auto my-5 px-6 py-3 xs:text-lg bg-secondary text-white rounded-sm hover:bg-primary transition-colors duration-200 lg:text-base lg:px-6 dark:bg-terciary dark:hover:bg-primary"
 			>
 				Send Email
 			</button>

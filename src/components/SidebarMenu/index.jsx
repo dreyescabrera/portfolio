@@ -2,17 +2,12 @@ import React from "react";
 import { ProfileImage } from "../common/ProfileImage";
 import { SidebarMediaButton } from "./SidebarMediaButton";
 import { NavItem } from "./NavItem";
-import { Icon } from "../common/Icon";
+import { ThemeSwitch } from "./ThemeSwitch";
 
 function SidebarMenu({ sidebarIsOpen, activeNavItem, setSidebarIsOpen }) {
-	const changeTheme = (ev) => {
-		ev.currentTarget.firstChild.classList.toggle("translate-x-8");
-		ev.currentTarget.firstChild.classList.toggle("rotate-180");
-	};
-
 	return (
 		<aside
-			className={`fixed w-full left-0 h-screen flex flex-col justify-start items-center px-6 py-8 gap-5 overflow-auto bg-black dark:bg-red-500 transition-all duration-700 z-10 ${
+			className={`fixed w-full left-0 h-screen flex flex-col justify-start items-center px-6 py-8 gap-5 overflow-auto bg-black transition-all duration-700 z-10 ${
 				sidebarIsOpen ? " left-0" : "-left-full"
 			} md:w-60  lg:w-72 2xl:w-1/6`}
 		>
@@ -66,16 +61,7 @@ function SidebarMenu({ sidebarIsOpen, activeNavItem, setSidebarIsOpen }) {
 					/>
 				</ul>
 			</nav>
-			<div className="flex gap-2 items-center justify-center mt-6 self-start ">
-				<Icon type="sun" styles="w-6 h-full text-white" />
-				<div
-					className="w-14 h-6 p-0.5 bg-red-50  rounded-full overflow-hidden cursor-pointer"
-					onClickCapture={changeTheme}
-				>
-					<div className="w-5 h-full bg-gradient-to-r from-terciary to-primary bg-terciary rounded-full transition-transform duration-500 ease-in-out"></div>
-				</div>
-				<Icon type="moon" styles="w-6 h-full text-white" />
-			</div>
+			<ThemeSwitch />
 		</aside>
 	);
 }

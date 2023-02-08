@@ -13,7 +13,6 @@ function useIntersectionObserver() {
 	const lightUpNavItem = (item) => {
 		setActiveNavItem(item);
 		sessionStorage.setItem("activeNavItem", item);
-		console.log(sessionStorage);
 	};
 
 	React.useEffect(() => {
