@@ -51,7 +51,7 @@ function App() {
 					<Skills />
 					<Projects refference={projectsRef} />
 					<Contact refference={contactRef} />
-					<p className="text-center mt-14 mb-5 lg:mt-20 lg:mb-8">
+					<p className="text-center text-black dark:text-lightGray mt-14 mb-5 lg:mt-20 lg:mb-8 transition-colors duration-500">
 						Made with 💙 by{" "}
 						<a
 							href="https://www.linkedin.com/in/diegoreyescabrera/"
