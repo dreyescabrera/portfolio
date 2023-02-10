@@ -9,7 +9,7 @@ function Form() {
 	return (
 		<form
 			ref={form}
-			className="relative flex flex-col flex-grow p-4 shadow-md rounded-sm dark:bg-quaternary"
+			className="relative flex flex-col flex-grow p-4 shadow-md rounded-sm dark:bg-quaternary transition-colors duration-500"
 			id="form"
 			onSubmit={sendEmail}
 		>
@@ -18,7 +18,7 @@ function Form() {
 			</Suspense>
 			<label
 				htmlFor="user_name"
-				className="xs:text-lg lg:text-xl text- dark:text-lightGray"
+				className="xs:text-lg lg:text-xl text-black dark:text-lightGray transition-colors duration-500"
 			>
 				Your Name
 			</label>
@@ -28,11 +28,11 @@ function Form() {
 				name="user_name"
 				placeholder="Dana"
 				required
-				className="mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black dark:text-darkGray focus-within:outline-2 focus-within:outline-terciary dark:bg-lightGray placeholder:text-midGray"
+				className="mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black dark:text-lightGray focus-within:outline-2 focus-within:outline-terciary dark:bg-primary dark:outline-quaternary placeholder:text-midGray dark:placeholder:text-terciary transition-colors duration-500"
 			/>
 			<label
 				htmlFor="user_email"
-				className="mt-4 xs:text-lg lg:text-xl text-black dark:text-lightGray"
+				className="mt-4 xs:text-lg lg:text-xl text-black dark:text-lightGray transition-colors duration-500"
 			>
 				Your Email
 			</label>
@@ -44,11 +44,11 @@ function Form() {
 				required
 				pattern="^[\w._%+-]+@[\w-]+\.[a-z]{2,}$"
 				ref={emailInput}
-				className="mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black dark:text-darkGray focus-within:outline-2 focus-within:outline-terciary dark:bg-lightGray placeholder:text-midGray"
+				className="mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black dark:text-lightGray focus-within:outline-2 focus-within:outline-terciary dark:bg-primary dark:outline-quaternary placeholder:text-midGray dark:placeholder:text-terciary transition-colors duration-500"
 			/>
 			<label
 				htmlFor="message"
-				className="mt-4 xs:text-lg lg:text-xl text-black dark:text-lightGray"
+				className="mt-4 xs:text-lg lg:text-xl text-black dark:text-lightGray transition-colors duration-500"
 			>
 				Message
 			</label>
@@ -58,11 +58,11 @@ function Form() {
 				rows="5"
 				placeholder="Hello!"
 				required
-				className="resize-y mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black dark:text-darkGray focus-within:outline-2 focus-within:outline-terciary dark:bg-lightGray placeholder:text-midGray"
+				className="resize-y mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black dark:text-lightGray focus-within:outline-2 focus-within:outline-terciary dark:bg-primary dark:outline-quaternary placeholder:text-midGray dark:placeholder:text-terciary transition-colors duration-500"
 			></textarea>
 			<button
 				type="submit"
-				className="mx-auto my-5 px-6 py-3 xs:text-lg bg-secondary text-white rounded-sm hover:bg-primary transition-colors duration-200 lg:text-base lg:px-6 dark:bg-terciary dark:hover:bg-primary"
+				className="mx-auto my-5 px-6 py-3 xs:text-lg bg-secondary text-white rounded-sm hover:bg-primary transition-colors duration-200 lg:text-base lg:px-6 dark:text-primary dark:bg-darkPrimary dark:hover:bg-lightGray"
 			>
 				Send Email
 			</button>

@@ -26,6 +26,10 @@ module.exports = {
 				terciary: "#4164B5",
 				quaternary: "#071536",
 				quintenary: "#ccf6",
+
+				darkPrimary: "#B9C8E8",
+				darkSecondary: "#7491D2",
+
 				white: "#f9fafb",
 				lightGray: "#d5d7db",
 				midGray: "#7b8290",

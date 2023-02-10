@@ -6,14 +6,14 @@ import { ProjectButton } from "../ProjectButton";
 
 function ProjectCard(project) {
 	return (
-		<article className="max-w-sm p-6 rounded-sm shadow-md dark:bg-quaternary">
+		<article className="max-w-sm p-6 rounded-sm shadow-md dark:bg-quaternary transition-colors duration-500">
 			<img
 				{...project.img}
 				aria-label={project.title}
 				className="w-full aspect-video rounded-sm"
 				loading="lazy"
 			/>
-			<h3 className="my-4 text-xl xs:text-2xl font-semibold text-primary dark:text-terciary underline decoration-secondary underline-offset-8 lg:text-2xl">
+			<h3 className="my-4 text-xl xs:text-2xl font-semibold text-primary dark:text-darkPrimary underline decoration-secondary dark:decoration-terciary underline-offset-8 lg:text-2xl transition-colors duration-500">
 				{project.title}
 			</h3>
 
@@ -21,7 +21,7 @@ function ProjectCard(project) {
 				dangerouslySetInnerHTML={{
 					__html: DOMPurify.sanitize(project.description),
 				}}
-				className="pb-5 text-darkGray dark:text-lightGray text-sm xs:text-base lg:text-lg"
+				className="pb-5 text-darkGray dark:text-lightGray text-sm xs:text-base lg:text-lg transition-colors duration-500"
 			/>
 			<div className="flex my-4 gap-2">
 				{project.technologies.map((tech) => (

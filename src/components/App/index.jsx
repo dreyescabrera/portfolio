@@ -40,13 +40,13 @@ function App() {
 				sidebarIsOpen={sidebarIsOpen}
 				setSidebarIsOpen={setSidebarIsOpen}
 			/>
-			<div className="dark:bg-[#040c20]  transition-[padding] duration-700 md:pl-60 lg:pl-72">
+			<div className="dark:bg-[#040c20] transition-[padding_,background] duration-[700ms_,500ms] md:pl-60 lg:pl-72">
 				<Hero
 					sidebarIsOpen={sidebarIsOpen}
 					setSidebarIsOpen={setSidebarIsOpen}
 					refference={homeRef}
 				/>
-				<main className=" dark:text-lightGray w-11/12 max-w-6xl m-auto font-casual overflow-auto">
+				<main className=" dark:text-lightGray w-11/12 max-w-6xl m-auto font-casual overflow-auto transition-colors duration-500">
 					<About refference={whoamiRef} />
 					<Skills />
 					<Projects refference={projectsRef} />
@@ -55,7 +55,7 @@ function App() {
 						Made with 💙 by{" "}
 						<a
 							href="https://www.linkedin.com/in/diegoreyescabrera/"
-							className="underline cursor-pointer text-primary hover:text-terciary dark:text-[#5e7fd1] dark:hover:text-terciary"
+							className="underline cursor-pointer text-primary hover:text-terciary dark:text-[#5e7fd1] dark:hover:text-terciary transition-colors duration-500"
 							target="_blank"
 							rel="noreferrer"
 						>

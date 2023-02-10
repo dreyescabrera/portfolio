@@ -8,8 +8,8 @@ function ProjectButton({ link, text, mainCtA }) {
 			rel="noreferrer"
 			className={`${
 				mainCtA
-					? "bg-secondary text-white border-2 border-transparent hover:bg-primary dark:bg-terciary dark:hover:bg-primary"
-					: "text-terciary border-terciary border-2 hover:bg-quintenary dark:hover:bg-primary dark:hover:border-transparent dark:text-lightGray"
+					? "bg-secondary text-white border-2 border-transparent hover:bg-primary dark:text-primary dark:bg-darkPrimary dark:hover:bg-lightGray"
+					: "text-terciary border-terciary border-2 dark:hover:bg-[rgba(51,101,176,0.3)]  dark:text-lightGray dark:border-darkSecondary"
 			} px-4 py-2 text-sm xs:text-base rounded-sm transition-colors duration-200 lg:text-base lg:px-3`}
 		>
 			{text}

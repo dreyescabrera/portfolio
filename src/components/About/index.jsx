@@ -16,7 +16,7 @@ function About({ refference }) {
 				<ProfileImage shape="square" />
 
 				<article className="space-y-4 max-w-lg">
-					<h3 className="text-primary dark:text-terciary font-bold text-2xl text-center tracking-tight xs:text-3xl">
+					<h3 className="text-primary dark:text-darkPrimary font-bold text-2xl text-center tracking-tight xs:text-3xl transition-colors duration-500">
 						Frontend Developer
 					</h3>
 					<BulletedTextContent text="Every day I am working on my side projects, currently focused on technologies such as JavaScript, ReactJS and Tailwind CSS, thinking how I can create a product you'd need or wish to have." />
