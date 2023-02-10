@@ -6,7 +6,6 @@ function HamburguerButton({ sidebarIsOpen, setSidebarIsOpen }) {
 			className="fixed bottom-6 right-6 bg-quaternary dark:bg-secondary flex justify-center items-center w-14 h-14 rounded-full z-10 cursor-pointer shadow shadow-darkGray md:hidden"
 			onClick={() => {
 				setSidebarIsOpen((prev) => !prev);
-				document.documentElement.classList.toggle("preventScroll");
 			}}
 		>
 			<div
