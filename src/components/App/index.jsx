@@ -46,7 +46,7 @@ function App() {
 					setSidebarIsOpen={setSidebarIsOpen}
 					refference={homeRef}
 				/>
-				<main className=" dark:text-lightGray w-11/12 max-w-6xl m-auto font-casual overflow-auto transition-colors duration-500">
+				<main className="w-11/12 max-w-6xl m-auto font-casual overflow-auto transition-colors duration-500">
 					<About refference={whoamiRef} />
 					<Skills />
 					<Projects refference={projectsRef} />

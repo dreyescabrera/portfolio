@@ -7,17 +7,17 @@ function ThemeSwitch() {
 	const switchTheme = () => {
 		if (document.documentElement.classList.contains("dark")) {
 			document.documentElement.classList.remove("dark");
-			sessionStorage.setItem("theme", "light");
+			localStorage.setItem("theme", "light");
 			setIsDark(false);
 			return;
 		}
 		document.documentElement.classList.add("dark");
-		sessionStorage.setItem("theme", "dark");
+		localStorage.setItem("theme", "dark");
 		setIsDark(true);
 	};
 
 	React.useEffect(() => {
-		const userTheme = sessionStorage.getItem("theme");
+		const userTheme = localStorage.getItem("theme");
 		const systemTheme = matchMedia("(prefers-color-scheme: dark)").matches;
 		if (userTheme === "dark" || (!userTheme && systemTheme)) {
 			document.documentElement.classList.add("dark");
