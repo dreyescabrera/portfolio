@@ -1,4 +1,3 @@
-import React from "react";
 import { Icon } from "../../common/Icon";
 
 function SocialMediaItem({ name, nickname, link }) {

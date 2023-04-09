@@ -305,43 +305,45 @@ const iconTypes = {
 	vite: (styles) => (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
-			width="46"
-			height="46"
-			preserveAspectRatio="xMidYMid"
-			viewBox="-0.5 0 257 257"
+			width="48"
+			height="48"
+			fill="none"
+			viewBox="0 0 410 404"
 			className={styles}
 		>
+			<path
+				fill="url(#paint0_linear)"
+				d="M399.641 59.525l-183.998 329.02c-3.799 6.793-13.559 6.833-17.415.073L10.582 59.556C6.38 52.19 12.68 43.266 21.028 44.76l184.195 32.923c1.175.21 2.378.208 3.553-.006l180.343-32.87c8.32-1.517 14.649 7.337 10.522 14.719z"
+			></path>
+			<path
+				fill="url(#paint1_linear)"
+				d="M292.965 1.574L156.801 28.255a5 5 0 00-4.03 4.611l-8.376 141.464c-.197 3.332 2.863 5.918 6.115 5.168l37.91-8.749c3.547-.818 6.752 2.306 6.023 5.873l-11.263 55.153c-.758 3.712 2.727 6.886 6.352 5.785l23.415-7.114c3.63-1.102 7.118 2.081 6.35 5.796l-17.899 86.633c-1.12 5.419 6.088 8.374 9.094 3.728l2.008-3.103 110.954-221.428c1.858-3.707-1.346-7.935-5.418-7.15l-39.022 7.532c-3.667.707-6.787-2.708-5.752-6.296l25.469-88.291c1.036-3.594-2.095-7.012-5.766-6.293z"
+			></path>
 			<defs>
 				<linearGradient
-					id="linearGradient-1"
-					x1="-.828%"
-					x2="57.636%"
-					y1="7.652%"
-					y2="78.411%"
+					id="paint0_linear"
+					x1="6"
+					x2="235"
+					y1="33"
+					y2="344"
+					gradientUnits="userSpaceOnUse"
 				>
-					<stop offset="0%" stopColor="#41D1FF"></stop>
-					<stop offset="100%" stopColor="#BD34FE"></stop>
+					<stop stopColor="#41D1FF"></stop>
+					<stop offset="1" stopColor="#BD34FE"></stop>
 				</linearGradient>
 				<linearGradient
-					id="linearGradient-2"
-					x1="43.376%"
-					x2="50.316%"
-					y1="2.242%"
-					y2="89.03%"
+					id="paint1_linear"
+					x1="194.651"
+					x2="236.076"
+					y1="8.818"
+					y2="292.989"
+					gradientUnits="userSpaceOnUse"
 				>
-					<stop offset="0%" stopColor="#FFEA83"></stop>
-					<stop offset="8.333%" stopColor="#FFDD35"></stop>
-					<stop offset="100%" stopColor="#FFA800"></stop>
+					<stop stopColor="#FFEA83"></stop>
+					<stop offset="0.083" stopColor="#FFDD35"></stop>
+					<stop offset="1" stopColor="#FFA800"></stop>
 				</linearGradient>
 			</defs>
-			<path
-				fill="url(#linearGradient-1)"
-				d="M255.153 37.938L134.897 252.976c-2.483 4.44-8.862 4.466-11.382.048L.875 37.958c-2.746-4.814 1.371-10.646 6.827-9.67l120.385 21.517a6.537 6.537 0 002.322-.004l117.867-21.483c5.438-.991 9.574 4.796 6.877 9.62z"
-			></path>
-			<path
-				fill="url(#linearGradient-2)"
-				d="M185.432.063L96.44 17.501a3.268 3.268 0 00-2.634 3.014l-5.474 92.456a3.268 3.268 0 003.997 3.378l24.777-5.718c2.318-.535 4.413 1.507 3.936 3.838l-7.361 36.047c-.495 2.426 1.782 4.5 4.151 3.78l15.304-4.649c2.372-.72 4.652 1.36 4.15 3.788l-11.698 56.621c-.732 3.542 3.979 5.473 5.943 2.437l1.313-2.028 72.516-144.72c1.215-2.423-.88-5.186-3.54-4.672l-25.505 4.922c-2.396.462-4.435-1.77-3.759-4.114l16.646-57.705c.677-2.35-1.37-4.583-3.769-4.113z"
-			></path>
 		</svg>
 	),
 	git: (styles) => (

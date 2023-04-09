@@ -1,8 +1,8 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { Icon } from "../../common/Icon";
 
 function ThemeSwitch() {
-	const [isDark, setIsDark] = React.useState(false);
+	const [isDark, setIsDark] = useState(false);
 
 	const switchTheme = () => {
 		if (document.documentElement.classList.contains("dark")) {
@@ -16,7 +16,7 @@ function ThemeSwitch() {
 		setIsDark(true);
 	};
 
-	React.useEffect(() => {
+	useEffect(() => {
 		const userTheme = localStorage.getItem("theme");
 		const systemTheme = matchMedia("(prefers-color-scheme: dark)").matches;
 		if (userTheme === "dark" || (!userTheme && systemTheme)) {

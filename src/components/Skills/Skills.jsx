@@ -1,7 +1,6 @@
-import React from "react";
 import { SectionTitle } from "../common/SectionTitle";
 import { TextContent } from "../common/TextContent";
-import { SkillsItem } from "./SkillsItem";
+import { SkillsItem } from "./SkillsItem/SkillsItem";
 
 function Skills() {
 	return (

@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from "react";
-import { useEmailing } from "./useEmailing";
+import { useEmailing } from "../../../hooks/useEmailing";
 
-const FormAlert = lazy(() => import("../FormAlert"));
+const FormAlert = lazy(() => import("../FormAlert/FormAlert"));
 
 function Form() {
 	const { form, formAlert, emailInput, sendEmail } = useEmailing();
