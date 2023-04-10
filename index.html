@@ -31,8 +31,7 @@
 			.loader:before,
 			.loader:after {
 				background: #ffffff;
-				-webkit-animation: load1 1s infinite ease-in-out;
-				animation: load1 1s infinite ease-in-out;
+				animation: load 1s infinite ease-in-out;
 				width: 1em;
 				height: 4em;
 			}
@@ -42,10 +41,7 @@
 				margin: 88px auto;
 				position: relative;
 				font-size: 11px;
-				-webkit-transform: translateZ(0);
-				-ms-transform: translateZ(0);
 				transform: translateZ(0);
-				-webkit-animation-delay: -0.16s;
 				animation-delay: -0.16s;
 			}
 			.loader:before,
@@ -56,19 +52,12 @@
 			}
 			.loader:before {
 				left: -1.5em;
-				-webkit-animation-delay: -0.32s;
 				animation-delay: -0.32s;
 			}
 			.loader:after {
 				left: 1.5em;
 			}
-			.preloader {
-				animation: hide 1.5s linear forwards;
-			}
-			.block-scroll {
-				animation: block 1.5s linear forwards;
-			}
-			@-webkit-keyframes load1 {
+			@keyframes load {
 				0%,
 				80%,
 				100% {
@@ -78,57 +67,27 @@
 				40% {
 					box-shadow: 0 -2em;
 					height: 5em;
-				}
-			}
-			@keyframes load1 {
-				0%,
-				80%,
-				100% {
-					box-shadow: 0 0;
-					height: 4em;
-				}
-				40% {
-					box-shadow: 0 -2em;
-					height: 5em;
-				}
-			}
-			@keyframes hide {
-				0%,
-				75% {
-					opacity: 1;
-				}
-				100% {
-					opacity: 0;
-				}
-			}
-			@keyframes block {
-				0%,
-				50% {
-					overflow: hidden;
-				}
-				75% {
-					overflow: visible;
 				}
 			}
 		</style>
 		<link
 			rel="preload"
 			as="image"
-			href="/src/assets/img/hero_mobile.avif"
-			media="(max-width: 360px)"
+			href="/src/assets/hero/hero_mobile.avif"
+			media="(max-width: 440px)"
 		/>
 
 		<link
 			rel="preload"
 			as="image"
-			href="/src/assets/img/hero_tablet.avif"
-			media="(min-width: 361px) and (max-width: 767px)"
+			href="/src/assets/hero/hero_tablet.avif"
+			media="(min-width: 441px) and (max-width: 767px)"
 		/>
 
 		<link
 			rel="preload"
 			as="image"
-			href="/src/assets/img/hero_desktop.avif"
+			href="/src/assets/hero/hero_desktop.avif"
 			media="(min-width: 768px)"
 		/>
 
@@ -171,14 +130,15 @@
 			property="og:description"
 			content="Hello, I'm Diego! I'm a Web Developer from Venezuela, currently located in Atlanta, USA."
 		/>
+		<script defer type="module" src="/src/app.jsx"></script>
 	</head>
-	<body class="block-scroll">
+	<body class="overflow-hidden">
 		<div
-			class="preloader fixed z-30 flex justify-center items-center w-full h-screen overflow-hidden bg-[#050c19] pointer-events-none"
+			id="preloader"
+			class="preloader fixed z-30 flex justify-center items-center w-full h-screen bg-[#050c19] pointer-events-none transition-opacity opacity-100 duration-500"
 		>
 			<div class="loader"></div>
 		</div>
 		<div id="root"></div>
-		<script type="module" src="/src/app.jsx"></script>
 	</body>
 </html>

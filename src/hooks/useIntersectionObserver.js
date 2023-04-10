@@ -1,12 +1,12 @@
-import React from "react";
+import { useRef, useState, useEffect } from "react";
 
 function useIntersectionObserver() {
-	const homeRef = React.useRef(null);
-	const whoamiRef = React.useRef(null);
-	const projectsRef = React.useRef(null);
-	const contactRef = React.useRef(null);
+	const homeRef = useRef(null);
+	const whoamiRef = useRef(null);
+	const projectsRef = useRef(null);
+	const contactRef = useRef(null);
 
-	const [activeNavItem, setActiveNavItem] = React.useState(
+	const [activeNavItem, setActiveNavItem] = useState(
 		sessionStorage.activeNavItem ? sessionStorage.activeNavItem : "home"
 	);
 
@@ -15,12 +15,13 @@ function useIntersectionObserver() {
 		sessionStorage.setItem("activeNavItem", item);
 	};
 
-	React.useEffect(() => {
+	useEffect(() => {
 		const options = {
 			threshold: [0.25, 0.8], //0.25 for normal scroll, 0.8 for bugfixing on scrolling down to about section and not ever leaving home section entirely
 		};
 
 		const callback = (entries) => {
+			console.log(entries);
 			const currentSection = entries[0];
 			const intersectionRatio = currentSection.intersectionRatio;
 			if (intersectionRatio > 0.25 && intersectionRatio < 0.6) {

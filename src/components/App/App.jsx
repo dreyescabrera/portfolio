@@ -10,6 +10,14 @@ import { Contact } from "../Contact/Contact";
 import { Footer } from "../Footer/Footer";
 import { NavItem } from "../SidebarMenu/NavItem/NavItem";
 
+window.addEventListener("DOMContentLoaded", () => {
+	console.log("DOM fully loaded and parsed");
+	document.body.classList.remove("overflow-hidden");
+	document
+		.getElementById("preloader")
+		.classList.replace("opacity-100", "opacity-0");
+});
+
 function App() {
 	const [sidebarIsOpen, setSidebarIsOpen] = useState(window.innerWidth >= 768);
 
