@@ -1,10 +1,8 @@
-import React from "react";
-
 function ScrollButton() {
 	const scrollDown = () => {
 		scrollTo({
 			left: 0,
-			top: window.innerHeight,
+			top: innerHeight,
 			behavior: "smooth",
 		});
 	};

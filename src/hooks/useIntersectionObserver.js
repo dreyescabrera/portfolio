@@ -21,7 +21,6 @@ function useIntersectionObserver() {
 		};
 
 		const callback = (entries) => {
-			console.log(entries);
 			const currentSection = entries[0];
 			const intersectionRatio = currentSection.intersectionRatio;
 			if (intersectionRatio > 0.25 && intersectionRatio < 0.6) {

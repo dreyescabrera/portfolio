@@ -1,28 +1,28 @@
-import React from "react";
+import { useRef, useEffect, useState } from "react";
 
-const phrases = {
+const SENTENCES = {
 	main: "Let's work together!",
 	question: "What do you think?",
 	affirmed: "That's great to hear!",
 	denied: "Let me show you.",
 };
 
-let questionSentence = {
-	currentSentence: phrases.main,
+const DIALOGUE_TREE = {
+	current: SENTENCES.main,
 	next: {
-		currentSentence: phrases.question,
+		current: SENTENCES.question,
 		next: [
 			{
-				currentSentence: phrases.affirmed,
+				current: SENTENCES.affirmed,
 				next: {
-					currentSentence: phrases.main,
+					current: SENTENCES.main,
 					next: null,
 				},
 			},
 			{
-				currentSentence: phrases.denied,
+				current: SENTENCES.denied,
 				next: {
-					currentSentence: phrases.main,
+					current: SENTENCES.main,
 					next: null,
 				},
 			},
@@ -32,13 +32,17 @@ let questionSentence = {
 
 function useAnimatedText() {
 	const textSpeed = 60;
-	const chosenAnswer = React.useRef(null);
-
-	const [isVisible, setIsVisible] = React.useState(
+	const userAnswer = useRef(null);
+	const [isFirstUpdate, setIsFirstUpdate] = useState(true);
+	const [textValue, setTextValue] = useState("");
+	const [textToPrint, setTextToPrint] = useState(DIALOGUE_TREE);
+	const [textChanging, setTextChanging] = useState(false);
+	const [shouldDelete, setShouldDelete] = useState(false);
+	const [isVisible, setIsVisible] = useState(
 		() => document.visibilityState === "visible"
 	);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		window.addEventListener("visibilitychange", () => {
 			if (document.visibilityState === "visible") {
 				setIsVisible(true);
@@ -46,33 +50,29 @@ function useAnimatedText() {
 		});
 	}, []);
 
-	const [textValue, setTextValue] = React.useState("");
-	const [textToPrint, setTextToPrint] = React.useState(questionSentence);
-	const [textIsChanging, setTextIsChanging] = React.useState(false); //used by text-machine animation
-	const [mustDelete, setMustDelete] = React.useState(false);
-
 	const startOver = () => {
-		setTextToPrint(questionSentence);
+		setTextToPrint(DIALOGUE_TREE);
 	};
 
-	//when mustDelete turns true, it will start deleting and once it finishes, turns it into false.
-	//once mustDelete is false, it will start printing the textToPrint
-	//before turning mustDelete into false, it will define the current textToPrint
+	// when shouldDelete turns true, it will start deleting and once it finishes, turns it into false.
+	// once shouldDelete is false, it will start printing the textToPrint
+	// before turning shouldDelete into false, it will define the current textToPrint
 
-	const onWrite = (index, text) => {
+	const onWrite = (text, index = 0) => {
 		setTimeout(() => {
 			setTextValue((prev) => prev + text[index]);
 			if (text[index + 1]) {
-				//recursion inside the setstate because of the asynchrony of setstate
-				onWrite(index + 1, text);
+				// recursion inside the setstate because of the asynchrony of setstate
+				onWrite(text, index + 1);
 				return;
 			}
-			setTextIsChanging(false);
+			setTextChanging(false);
 
-			// currently only used by the first printing
-			if (textToPrint.currentSentence === phrases.main && textToPrint.next) {
+			if (isFirstUpdate) {
+				console.log("First print");
+				setIsFirstUpdate(false);
 				setTimeout(() => {
-					setMustDelete(true);
+					setShouldDelete(true);
 				}, 2500);
 			}
 		}, textSpeed);
@@ -83,11 +83,12 @@ function useAnimatedText() {
 			setTextValue((prev) => {
 				const newText = prev.substring(0, prev.length - 1);
 				if (newText.length) {
+					// call another setTimeout and updates textValue
 					onDelete();
 					return newText;
 				}
-				onChangeCurrentText(); //PRINT
-				setMustDelete(false);
+				onChangeCurrentText();
+				setShouldDelete(false);
 				return newText;
 			});
 		}, textSpeed);
@@ -96,47 +97,46 @@ function useAnimatedText() {
 	const onChangeCurrentText = () => {
 		if (Array.isArray(textToPrint.next)) {
 			const nextText = textToPrint.next.find(
-				(sentence) => sentence.currentSentence === chosenAnswer.current
+				(sentence) => sentence.current === userAnswer.current
 			);
-			setTextToPrint(nextText); //UPDATE TEXT
+			setTextToPrint(nextText);
 			return;
 		}
 		setTextToPrint(textToPrint.next);
 	};
 
 	const answerQuestion = (ev) => {
-		chosenAnswer.current =
-			ev.target.textContent === "Of course!"
-				? phrases.affirmed
-				: phrases.denied;
+		if (ev.target.textContent === "Of course!")
+			userAnswer.current = SENTENCES.affirmed;
+		else userAnswer.current = SENTENCES.denied;
 
-		setMustDelete(true); //DELETE
+		setShouldDelete(true);
 	};
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (!isVisible) return;
-		setTextIsChanging(true); //ANIMATE TEXT MACHINE
+		setTextChanging(true);
 
-		if (mustDelete) {
+		if (shouldDelete) {
 			onDelete();
 			return;
 		}
 
-		if (textToPrint.currentSentence === phrases.main) {
+		if (isFirstUpdate) {
 			setTimeout(() => {
-				onWrite(0, textToPrint.currentSentence);
+				onWrite(textToPrint.current);
 			}, 2000);
 			return;
 		}
 
-		onWrite(0, textToPrint.currentSentence);
-	}, [mustDelete, isVisible]);
+		onWrite(textToPrint.current);
+	}, [shouldDelete, isVisible]);
 
 	return {
 		textValue,
 		answerQuestion,
-		textIsChanging,
-		chosenAnswer,
+		textChanging,
+		userAnswer,
 		startOver,
 		textToPrint,
 	};
