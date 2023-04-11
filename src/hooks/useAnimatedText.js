@@ -31,9 +31,10 @@ const DIALOGUE_TREE = {
 };
 
 function useAnimatedText() {
+	const firstPrintDelay = 2500;
 	const textSpeed = 60;
 	const userAnswer = useRef(null);
-	const [isFirstUpdate, setIsFirstUpdate] = useState(true);
+	const [isFirstPrint, setIsFirstPrint] = useState(true);
 	const [textValue, setTextValue] = useState("");
 	const [textToPrint, setTextToPrint] = useState(DIALOGUE_TREE);
 	const [textChanging, setTextChanging] = useState(false);
@@ -68,12 +69,11 @@ function useAnimatedText() {
 			}
 			setTextChanging(false);
 
-			if (isFirstUpdate) {
-				console.log("First print");
-				setIsFirstUpdate(false);
+			if (isFirstPrint) {
 				setTimeout(() => {
+					setIsFirstPrint(false);
 					setShouldDelete(true);
-				}, 2500);
+				}, firstPrintDelay);
 			}
 		}, textSpeed);
 	};
@@ -106,8 +106,8 @@ function useAnimatedText() {
 	};
 
 	const answerQuestion = (ev) => {
-		if (ev.target.textContent === "Of course!")
-			userAnswer.current = SENTENCES.affirmed;
+		const clickedButton = ev.target.textContent;
+		if (clickedButton === "Of course!") userAnswer.current = SENTENCES.affirmed;
 		else userAnswer.current = SENTENCES.denied;
 
 		setShouldDelete(true);
@@ -122,10 +122,10 @@ function useAnimatedText() {
 			return;
 		}
 
-		if (isFirstUpdate) {
+		if (isFirstPrint) {
 			setTimeout(() => {
 				onWrite(textToPrint.current);
-			}, 2000);
+			}, firstPrintDelay);
 			return;
 		}
 
