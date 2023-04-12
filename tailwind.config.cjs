@@ -4,6 +4,7 @@ module.exports = {
 		"./index.html",
 		"./src/*.{js,jsx}",
 		"./src/components/**/*.{js,jsx}",
+		"./src/hooks/*.js",
 	],
 	darkMode: "class",
 	theme: {
