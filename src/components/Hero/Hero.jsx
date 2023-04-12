@@ -14,7 +14,7 @@ function Hero({ refference }) {
 		answerQuestion,
 		textChanging,
 		userAnswer,
-		startOver,
+		onStartOver,
 		textToPrint,
 	} = useAnimatedText();
 	return (
@@ -108,10 +108,10 @@ function Hero({ refference }) {
 							userAnswer={userAnswer.current}
 						/>
 						<HeroButtton
-							type="startOver"
+							type="onStartOver"
 							text="Start Over"
 							answerQuestion={answerQuestion}
-							startOver={startOver}
+							onStartOver={onStartOver}
 							triggeringText={textValue}
 							textToPrint={textToPrint}
 						/>

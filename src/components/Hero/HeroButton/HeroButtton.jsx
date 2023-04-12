@@ -9,7 +9,7 @@ function HeroButtton({
 	answerQuestion,
 	triggeringText,
 	userAnswer,
-	startOver,
+	onStartOver,
 	textToPrint,
 }) {
 	let buttonMustAppear;
@@ -59,7 +59,7 @@ function HeroButtton({
 					</AnimatePresence>
 				</LazyMotion>
 			);
-		case "startOver":
+		case "onStartOver":
 			buttonMustAppear =
 				triggeringText === "Let's work together!" && textToPrint.next === null;
 			return (
@@ -71,7 +71,7 @@ function HeroButtton({
               after:content-[''] after:absolute after:w-5/6 after:h-[2px] after:left-[6px] after:bottom-0 after:bg-quaternary hover:after:scale-100 after:transition-all after:duration-500
               lg:text-lg lg:after:scale-50 3xl:text-xl"
 								onClick={(ev) => {
-									startOver();
+									onStartOver();
 									answerQuestion(ev);
 								}}
 								initial={{ opacity: 0, x: -20 }}

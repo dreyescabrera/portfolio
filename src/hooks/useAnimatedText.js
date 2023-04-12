@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useReducer } from "react";
 
 const SENTENCES = {
 	main: "Let's work together!",
@@ -30,79 +30,157 @@ const DIALOGUE_TREE = {
 	},
 };
 
+const initialState = {
+	isFirstDialogue: true,
+	textValue: "",
+	textToPrint: DIALOGUE_TREE,
+	textChanging: false,
+	shouldDelete: false,
+	isVisible: document.visibilityState === "visible",
+};
+
+const actionTypes = {
+	visible: "VISIBLE",
+	restart: "RESTART",
+	write: "WRITE",
+	first_delete: "FIRST_DELETE",
+	delete: "DELETE",
+	wait: "WAIT",
+	update_dialogue: "UPDATE_DIALOGUE",
+};
+
+const reducerObject = (state, payload) => ({
+	[actionTypes.visible]: {
+		...state,
+		isVisible: true,
+	},
+	[actionTypes.restart]: {
+		...state,
+		textToPrint: DIALOGUE_TREE,
+	},
+	[actionTypes.write]: {
+		...state,
+		textChanging: true,
+		shouldDelete: false,
+	},
+	[actionTypes.first_delete]: {
+		...state,
+		isFirstDialogue: false,
+		textChanging: true,
+		shouldDelete: true,
+	},
+	[actionTypes.delete]: {
+		...state,
+		textChanging: true,
+		shouldDelete: true,
+	},
+	[actionTypes.wait]: {
+		...state,
+		textChanging: false,
+	},
+	[actionTypes.update_dialogue]: {
+		...state,
+		textToPrint: payload,
+	},
+	[actionTypes.update_dialogue]: {
+		...state,
+		textToPrint: payload,
+	},
+});
+
+const reducer = (state, action) => {
+	return reducerObject(state, action.payload)[action.type] || state;
+};
+
 function useAnimatedText() {
 	const firstPrintDelay = 2500;
 	const textSpeed = 60;
 	const userAnswer = useRef(null);
-	const [isFirstPrint, setIsFirstPrint] = useState(true);
 	const [textValue, setTextValue] = useState("");
-	const [textToPrint, setTextToPrint] = useState(DIALOGUE_TREE);
-	const [textChanging, setTextChanging] = useState(false);
-	const [shouldDelete, setShouldDelete] = useState(false);
-	const [isVisible, setIsVisible] = useState(
-		() => document.visibilityState === "visible"
-	);
+	const [state, dispatch] = useReducer(reducer, initialState);
 
 	useEffect(() => {
 		window.addEventListener("visibilitychange", () => {
 			if (document.visibilityState === "visible") {
-				setIsVisible(true);
+				onVisible();
 			}
 		});
 	}, []);
 
-	const startOver = () => {
-		setTextToPrint(DIALOGUE_TREE);
+	const onStartOver = () => {
+		dispatch({ type: actionTypes.restart });
 	};
 
-	// when shouldDelete turns true, it will start deleting and once it finishes, turns it into false.
-	// once shouldDelete is false, it will start printing the textToPrint
-	// before turning shouldDelete into false, it will define the current textToPrint
+	const onVisible = () => {
+		dispatch({ type: actionTypes.visible });
+	};
 
-	const onWrite = (text, index = 0) => {
+	const onWait = () => {
+		dispatch({ type: actionTypes.wait });
+	};
+
+	const onFirstDelete = () => {
 		setTimeout(() => {
-			setTextValue((prev) => prev + text[index]);
-			if (text[index + 1]) {
+			dispatch({ type: actionTypes.first_delete });
+		}, firstPrintDelay);
+	};
+
+	const onWrite = () => {
+		dispatch({ type: actionTypes.write });
+	};
+
+	const onUpdateDialogue = (nextDialogue) => {
+		dispatch({ type: actionTypes.update_dialogue, payload: nextDialogue });
+	};
+
+	const onDelete = () => {
+		dispatch({ type: actionTypes.delete });
+	};
+
+	// shouldDelete === true -> it starts deleting and when finished, turns into false.
+	// shouldDelete === false -> it starts printing next dialogue asap
+
+	const writeText = (index = 0) => {
+		setTimeout(() => {
+			const currentDialogue = state.textToPrint.current;
+			setTextValue((prev) => prev + currentDialogue[index]);
+			if (currentDialogue[index + 1]) {
 				// recursion inside the setstate because of the asynchrony of setstate
-				onWrite(text, index + 1);
+				writeText(index + 1);
 				return;
 			}
-			setTextChanging(false);
-
-			if (isFirstPrint) {
-				setTimeout(() => {
-					setIsFirstPrint(false);
-					setShouldDelete(true);
-				}, firstPrintDelay);
+			onWait();
+			if (state.isFirstDialogue) {
+				onFirstDelete();
 			}
 		}, textSpeed);
 	};
 
-	const onDelete = () => {
+	const deleteText = () => {
 		setTimeout(() => {
 			setTextValue((prev) => {
 				const newText = prev.substring(0, prev.length - 1);
 				if (newText.length) {
 					// call another setTimeout and updates textValue
-					onDelete();
+					deleteText();
 					return newText;
 				}
-				onChangeCurrentText();
-				setShouldDelete(false);
+				changeDialogue();
+				onWrite();
 				return newText;
 			});
 		}, textSpeed);
 	};
 
-	const onChangeCurrentText = () => {
-		if (Array.isArray(textToPrint.next)) {
-			const nextText = textToPrint.next.find(
+	const changeDialogue = () => {
+		if (Array.isArray(state.textToPrint.next)) {
+			const nextText = state.textToPrint.next.find(
 				(sentence) => sentence.current === userAnswer.current
 			);
-			setTextToPrint(nextText);
+			onUpdateDialogue(nextText);
 			return;
 		}
-		setTextToPrint(textToPrint.next);
+		onUpdateDialogue(state.textToPrint.next);
 	};
 
 	const answerQuestion = (ev) => {
@@ -110,35 +188,34 @@ function useAnimatedText() {
 		if (clickedButton === "Of course!") userAnswer.current = SENTENCES.affirmed;
 		else userAnswer.current = SENTENCES.denied;
 
-		setShouldDelete(true);
+		onDelete();
 	};
 
 	useEffect(() => {
-		if (!isVisible) return;
-		setTextChanging(true);
+		if (!state.isVisible) return;
 
-		if (shouldDelete) {
-			onDelete();
+		if (state.shouldDelete) {
+			deleteText();
 			return;
 		}
 
-		if (isFirstPrint) {
+		if (state.isFirstDialogue) {
 			setTimeout(() => {
-				onWrite(textToPrint.current);
+				writeText();
 			}, firstPrintDelay);
 			return;
 		}
 
-		onWrite(textToPrint.current);
-	}, [shouldDelete, isVisible]);
+		writeText();
+	}, [state.shouldDelete, state.isVisible]);
 
 	return {
 		textValue,
 		answerQuestion,
-		textChanging,
+		textChanging: state.textChanging,
 		userAnswer,
-		startOver,
-		textToPrint,
+		onStartOver,
+		textToPrint: state.textToPrint,
 	};
 }
 

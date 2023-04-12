@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
 import { useIntersectionObserver } from "../../hooks/useIntersectionObserver";
+import { useWindowListeners } from "../../hooks/useWindowListeners";
 import { HamburguerButton } from "../common/HamburguerButton";
 import { SidebarMenu } from "../SidebarMenu/SidebarMenu";
 import { Hero } from "../Hero/Hero";
@@ -9,11 +9,9 @@ import { Projects } from "../Projects/Projects";
 import { Contact } from "../Contact/Contact";
 import { Footer } from "../Footer/Footer";
 import { NavItem } from "../SidebarMenu/NavItem/NavItem";
-import { useWindowListeners } from "../../hooks/useWindowListeners";
 
 function App() {
 	const { sidebarIsOpen, setSidebarIsOpen } = useWindowListeners();
-
 	const { activeNavItem, homeRef, whoamiRef, projectsRef, contactRef } =
 		useIntersectionObserver();
 
