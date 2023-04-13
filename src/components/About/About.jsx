@@ -1,11 +1,12 @@
+import { forwardRef } from "react";
 import { SectionTitle } from "../common/SectionTitle";
 import { TextContent } from "../common/TextContent";
 import { BulletedTextContent } from "./BulletedTextContent/BulletedTextContent.jsx";
 import { ProfileImage } from "../common/ProfileImage";
 
-function About({ refference }) {
+export const About = forwardRef(function About(_, ref) {
 	return (
-		<section className="m-sm lg:m-lg" id="whoami?" ref={refference}>
+		<section className="m-sm lg:m-lg" id="whoami?" ref={ref}>
 			<SectionTitle text="Who Am I?" />
 
 			<TextContent text="Hello, I'm Diego! I'm a Web Developer from Venezuela, currently located in Atlanta, USA." />
@@ -25,6 +26,4 @@ function About({ refference }) {
 			</section>
 		</section>
 	);
-}
-
-export { About };
+});

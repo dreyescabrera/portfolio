@@ -34,17 +34,13 @@ function App() {
 				setSidebarIsOpen={setSidebarIsOpen}
 			/>
 			<div className="transition-[padding_,background] duration-[700ms_,500ms] md:pl-60 lg:pl-72">
-				<Hero
-					sidebarIsOpen={sidebarIsOpen}
-					setSidebarIsOpen={setSidebarIsOpen}
-					refference={homeRef}
-				/>
+				<Hero ref={homeRef} />
 				<main className="relative bg-white dark:bg-[#040c20] z-10 font-casual overflow-auto transition-colors duration-500">
 					<div className="w-11/12 max-w-6xl m-auto">
-						<About refference={whoamiRef} />
+						<About ref={whoamiRef} />
 						<Skills />
-						<Projects refference={projectsRef} />
-						<Contact refference={contactRef} />
+						<Projects ref={projectsRef} />
+						<Contact ref={contactRef} />
 						<Footer />
 					</div>
 				</main>

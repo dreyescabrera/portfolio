@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import { HeroButtton } from "./HeroButton/HeroButtton";
 import { ScrollButton } from "./ScrollButton/ScrollButton";
 import { useAnimatedText } from "../../hooks/useAnimatedText";
@@ -8,7 +9,7 @@ import tabletWebp from "./../../assets/hero/hero_tablet.webp";
 import desktopAvif from "./../../assets/hero/hero_desktop.avif";
 import desktopWebp from "./../../assets/hero/hero-desktop.webp";
 
-function Hero({ refference }) {
+export const Hero = forwardRef(function Hero(_, ref) {
 	const {
 		textValue,
 		textChanging,
@@ -21,7 +22,7 @@ function Hero({ refference }) {
 		<header
 			id="home"
 			className="relative grid grid-cols-6 grid-rows-5 justify-items-center w-full h-screen text-quaternary font-luxury "
-			ref={refference}
+			ref={ref}
 		>
 			<picture className="fixed -z-10 w-full h-screen">
 				<source
@@ -122,6 +123,4 @@ function Hero({ refference }) {
 			<ScrollButton />
 		</header>
 	);
-}
-
-export { Hero };
+});
