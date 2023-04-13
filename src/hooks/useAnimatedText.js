@@ -31,6 +31,7 @@ const DIALOGUE_TREE = {
 };
 
 const initialState = {
+	dialogueStatus: "start",
 	isFirstDialogue: true,
 	textValue: "",
 	textToPrint: DIALOGUE_TREE,
@@ -57,6 +58,8 @@ const reducerObject = (state, payload) => ({
 	[actionTypes.restart]: {
 		...state,
 		textToPrint: DIALOGUE_TREE,
+		shouldDelete: true,
+		dialogueStatus: "changing",
 	},
 	[actionTypes.write]: {
 		...state,
@@ -68,15 +71,18 @@ const reducerObject = (state, payload) => ({
 		isFirstDialogue: false,
 		textChanging: true,
 		shouldDelete: true,
+		dialogueStatus: "changing",
 	},
 	[actionTypes.delete]: {
 		...state,
 		textChanging: true,
 		shouldDelete: true,
+		dialogueStatus: "changing",
 	},
 	[actionTypes.wait]: {
 		...state,
 		textChanging: false,
+		dialogueStatus: payload,
 	},
 	[actionTypes.update_dialogue]: {
 		...state,
@@ -99,14 +105,6 @@ function useAnimatedText() {
 	const [textValue, setTextValue] = useState("");
 	const [state, dispatch] = useReducer(reducer, initialState);
 
-	useEffect(() => {
-		window.addEventListener("visibilitychange", () => {
-			if (document.visibilityState === "visible") {
-				onVisible();
-			}
-		});
-	}, []);
-
 	const onStartOver = () => {
 		dispatch({ type: actionTypes.restart });
 	};
@@ -115,8 +113,8 @@ function useAnimatedText() {
 		dispatch({ type: actionTypes.visible });
 	};
 
-	const onWait = () => {
-		dispatch({ type: actionTypes.wait });
+	const onWait = (status) => {
+		dispatch({ type: actionTypes.wait, payload: status });
 	};
 
 	const onFirstDelete = () => {
@@ -137,8 +135,8 @@ function useAnimatedText() {
 		dispatch({ type: actionTypes.delete });
 	};
 
-	// shouldDelete === true -> it starts deleting and when finished, turns into false.
-	// shouldDelete === false -> it starts printing next dialogue asap
+	// shouldDelete === true --> it starts deleting and when finished, turns into false.
+	// shouldDelete === false --> it starts printing next dialogue asap
 
 	const writeText = (index = 0) => {
 		setTimeout(() => {
@@ -149,10 +147,12 @@ function useAnimatedText() {
 				writeText(index + 1);
 				return;
 			}
-			onWait();
 			if (state.isFirstDialogue) {
 				onFirstDelete();
+				return;
 			}
+
+			onWait(currentDialogue);
 		}, textSpeed);
 	};
 
@@ -193,7 +193,7 @@ function useAnimatedText() {
 
 	useEffect(() => {
 		if (!state.isVisible) return;
-
+		console.log(state.textChanging);
 		if (state.shouldDelete) {
 			deleteText();
 			return;
@@ -209,13 +209,21 @@ function useAnimatedText() {
 		writeText();
 	}, [state.shouldDelete, state.isVisible]);
 
+	useEffect(() => {
+		window.addEventListener("visibilitychange", () => {
+			if (document.visibilityState === "visible") {
+				onVisible();
+			}
+		});
+	}, []);
+
 	return {
 		textValue,
-		answerQuestion,
 		textChanging: state.textChanging,
-		userAnswer,
+		dialogueStatus: state.dialogueStatus,
+		answerQuestion,
 		onStartOver,
-		textToPrint: state.textToPrint,
+		onDelete,
 	};
 }
 

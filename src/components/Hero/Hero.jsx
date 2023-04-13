@@ -11,11 +11,11 @@ import desktopWebp from "./../../assets/hero/hero-desktop.webp";
 function Hero({ refference }) {
 	const {
 		textValue,
-		answerQuestion,
 		textChanging,
-		userAnswer,
+		dialogueStatus,
+		answerQuestion,
 		onStartOver,
-		textToPrint,
+		onDelete,
 	} = useAnimatedText();
 	return (
 		<header
@@ -80,40 +80,41 @@ function Hero({ refference }) {
 					>
 						{textValue}
 					</span>
-					<div className="mt-2 space-x-4 lg:mt-4">
+					<div className="mt-2 space-x-7 lg:mt-4">
 						<HeroButtton
-							type="option"
+							type="button"
+							animation="fromBottom"
 							text="Why should I?"
-							answerQuestion={answerQuestion}
-							triggeringText={textValue}
+							shouldShow={dialogueStatus === "What do you think?"}
+							callback={answerQuestion}
 						/>
 						<HeroButtton
-							type="option"
+							type="button"
+							animation="fromBottom"
 							text="Of course!"
-							answerQuestion={answerQuestion}
-							triggeringText={textValue}
+							shouldShow={dialogueStatus === "What do you think?"}
+							callback={answerQuestion}
 						/>
 						<HeroButtton
-							type="navigation"
-							text="projects"
-							answerQuestion={answerQuestion}
-							triggeringText={textValue}
-							userAnswer={userAnswer.current}
+							type="anchor"
+							animation="fromRight"
+							text="Projects"
+							shouldShow={dialogueStatus === "Let me show you."}
+							callback={onDelete}
 						/>
 						<HeroButtton
-							type="navigation"
-							text="contact"
-							answerQuestion={answerQuestion}
-							triggeringText={textValue}
-							userAnswer={userAnswer.current}
+							type="anchor"
+							animation="fromRight"
+							text="Contact"
+							shouldShow={dialogueStatus === "That's great to hear!"}
+							callback={onDelete}
 						/>
 						<HeroButtton
-							type="onStartOver"
+							type="button"
+							animation="fromLeft"
 							text="Start Over"
-							answerQuestion={answerQuestion}
-							onStartOver={onStartOver}
-							triggeringText={textValue}
-							textToPrint={textToPrint}
+							shouldShow={dialogueStatus === "Let's work together!"}
+							callback={onStartOver}
 						/>
 					</div>
 				</div>

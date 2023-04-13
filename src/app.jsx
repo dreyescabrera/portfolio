@@ -1,9 +1,9 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import { App } from "./components/App/App";
-import scrollPolyfill from "./features/scrollBehaviorPolyfill";
+import runPolyfills from "./features/scrollBehaviorPolyfill";
 import "./assets/css/index.css";
-scrollPolyfill();
+runPolyfills();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
