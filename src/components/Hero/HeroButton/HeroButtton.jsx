@@ -21,7 +21,13 @@ const LIFECYCLE_ANIMATION = {
 	},
 };
 
-function HeroButtton({ type, animation, text, callback, shouldShow }) {
+export const HeroButtton = ({
+	type,
+	animation,
+	text,
+	callback,
+	shouldShow,
+}) => {
 	const props = {
 		className:
 			"relative inline-block py-0.5 text-lg after:content-[''] after:absolute after:w-5/6 after:h-[2px] after:left-0 after:right-0 after:mx-auto after:bottom-0 after:bg-quaternary hover:after:scale-100 after:transition-transform after:duration-500 after:scale-50 lg:after:-bottom-1 3xl:text-xl",
@@ -46,6 +52,4 @@ function HeroButtton({ type, animation, text, callback, shouldShow }) {
 			</AnimatePresence>
 		</LazyMotion>
 	);
-}
-
-export { HeroButtton };
+};

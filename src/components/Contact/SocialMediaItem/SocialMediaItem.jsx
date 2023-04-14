@@ -1,6 +1,6 @@
-import { Icon } from "../../common/Icon";
+import { Icon } from "@common/Icon";
 
-function SocialMediaItem({ name, nickname, link }) {
+export const SocialMediaItem = ({ name, nickname, link }) => {
 	return (
 		<li className="flex w-full p-4 gap-4 items-center rounded-sm shadow-md dark:bg-quaternary transition-colors duration-500">
 			<span className="w-11 bg-quintenary aspect-square flex justify-center items-center rounded-full dark:bg-primary transition-colors duration-500">
@@ -29,6 +29,4 @@ function SocialMediaItem({ name, nickname, link }) {
 			</div>
 		</li>
 	);
-}
-
-export { SocialMediaItem };
+};

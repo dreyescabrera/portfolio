@@ -193,7 +193,6 @@ function useAnimatedText() {
 
 	useEffect(() => {
 		if (!state.isVisible) return;
-		console.log(state.textChanging);
 		if (state.shouldDelete) {
 			deleteText();
 			return;

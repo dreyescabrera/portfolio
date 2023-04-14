@@ -1,6 +1,7 @@
-import { SectionTitle } from "../common/SectionTitle";
-import { TextContent } from "../common/TextContent";
+import { SectionTitle } from "@common/SectionTitle";
+import { TextContent } from "@common/TextContent";
 import { SkillsItem } from "./SkillsItem/SkillsItem";
+import { skills } from "@data/skills";
 
 function Skills() {
 	return (
@@ -11,15 +12,9 @@ function Skills() {
 					<TextContent text="I have managed to gather these skills through all my never-ending process as a self-taught developer, deepening on them for being able of provide the appropriate solution to a problem." />
 				</div>
 				<ul className="xl:w-2/3 grid grid-cols-[repeat(auto-fit,_minmax(6rem,_7rem))] gap-8 justify-center">
-					<SkillsItem name="HTML" iconName="html" />
-					<SkillsItem name="CSS" iconName="css" />
-					<SkillsItem name="SASS" iconName="sass" />
-					<SkillsItem name="JavaScript" iconName="javascript" />
-					<SkillsItem name="ReactJS" iconName="react" />
-					<SkillsItem name="Tailwind" iconName="tailwind" />
-					<SkillsItem name="Vite" iconName="vite" />
-					<SkillsItem name="Figma" iconName="figma" />
-					<SkillsItem name="Git" iconName="git" />
+					{skills.map((skill) => (
+						<SkillsItem {...skill} key={skill.id} />
+					))}
 				</ul>
 			</div>
 		</section>

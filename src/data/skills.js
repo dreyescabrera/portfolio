@@ -3,46 +3,46 @@ export const skills = [
 	{
 		id: uuid(),
 		name: "HTML",
-		icon: "html",
+		iconName: "html",
 	},
 	{
 		id: uuid(),
 		name: "CSS",
-		icon: "css",
+		iconName: "css",
 	},
 	{
 		id: uuid(),
 		name: "SASS",
-		icon: "sass",
+		iconName: "sass",
 	},
 	{
 		id: uuid(),
 		name: "JavaScript",
-		icon: "javascript",
+		iconName: "javascript",
 	},
 	{
 		id: uuid(),
 		name: "ReactJS",
-		icon: "react",
+		iconName: "react",
 	},
 	{
 		id: uuid(),
 		name: "Tailwind",
-		icon: "tailwind",
+		iconName: "tailwind",
 	},
 	{
 		id: uuid(),
 		name: "Vite",
-		icon: "vite",
+		iconName: "vite",
 	},
 	{
 		id: uuid(),
 		name: "Figma",
-		icon: "figma",
+		iconName: "figma",
 	},
 	{
 		id: uuid(),
 		name: "Git",
-		icon: "git",
+		iconName: "git",
 	},
 ];

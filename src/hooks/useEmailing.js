@@ -18,16 +18,19 @@ function useEmailing() {
 				"St5iv4lgJlmyZvCCN"
 			)
 			.then(() => {
+				form.current.reset();
 				setFormAlert({ status: "Email Sent!", isVisible: true });
 			})
 			.catch((err) => {
 				console.error(err);
-				setFormAlert({ status: "Error", isVisible: true });
+				setFormAlert({
+					status: "Oops... there was an error.",
+					isVisible: true,
+				});
 			})
 			.finally(() => {
-				form.current.reset();
 				setTimeout(() => {
-					setFormAlert({ ...formAlert, isVisible: false });
+					setFormAlert({ status: null, isVisible: false });
 				}, 2000);
 			});
 	};

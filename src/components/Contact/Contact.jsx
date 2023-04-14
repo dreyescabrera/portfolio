@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { SectionTitle } from "../common/SectionTitle";
+import { SectionTitle } from "@common/SectionTitle";
 import { SocialMediaItem } from "./SocialMediaItem/SocialMediaItem";
 import { Form } from "./Form/Form";
 

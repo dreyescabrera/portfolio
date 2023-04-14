@@ -1,4 +1,4 @@
-import { Icon } from "../../common/Icon";
+import { Icon } from "@common/Icon";
 
 function SidebarMediaButton({ socialMedia, link }) {
 	const capitalizedWord =

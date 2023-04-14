@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { Icon } from "../../common/Icon";
+import { Icon } from "@common/Icon";
 
-function ThemeSwitch() {
+export const ThemeSwitch = () => {
 	const [isDark, setIsDark] = useState(false);
 
 	const switchTheme = () => {
@@ -41,6 +41,4 @@ function ThemeSwitch() {
 			<Icon type="moon" styles="w-6 h-full text-white" />
 		</div>
 	);
-}
-
-export { ThemeSwitch };
+};

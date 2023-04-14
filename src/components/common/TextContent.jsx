@@ -1,7 +1,6 @@
-import React from "react";
 import { Icon } from "./Icon";
 
-function TextContent({ text, bulleted }) {
+export const TextContent = ({ text, bulleted }) => {
 	return (
 		<p className="mb-4 text-black xs:text-lg xl:text-xl dark:text-lightGray transition-colors duration-500">
 			{bulleted && (
@@ -13,6 +12,4 @@ function TextContent({ text, bulleted }) {
 			{text}
 		</p>
 	);
-}
-
-export { TextContent };
+};

@@ -1,9 +1,9 @@
-import React, { Suspense, lazy } from "react";
-import { useEmailing } from "../../../hooks/useEmailing";
+import { Suspense, lazy } from "react";
+import { useEmailing } from "@hooks/useEmailing";
 
 const FormAlert = lazy(() => import("../FormAlert/FormAlert"));
 
-function Form() {
+export const Form = () => {
 	const { form, formAlert, emailInput, sendEmail } = useEmailing();
 
 	return (
@@ -16,50 +16,38 @@ function Form() {
 			<Suspense fallback="">
 				<FormAlert formAlert={formAlert} />
 			</Suspense>
-			<label
-				htmlFor="user_name"
-				className="xs:text-lg lg:text-xl text-black dark:text-lightGray transition-colors duration-500"
-			>
+			<label className="xs:text-lg lg:text-xl text-black dark:text-lightGray transition-colors duration-500">
 				Your Name
+				<input
+					type="text"
+					name="user_name"
+					placeholder="Dana"
+					required
+					className=" w-full mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black dark:text-lightGray focus-within:outline-2 focus-within:outline-terciary dark:bg-primary dark:outline-quaternary placeholder:text-midGray dark:placeholder:text-terciary transition-colors duration-500"
+				/>
 			</label>
-			<input
-				type="text"
-				id="user_name"
-				name="user_name"
-				placeholder="Dana"
-				required
-				className="mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black dark:text-lightGray focus-within:outline-2 focus-within:outline-terciary dark:bg-primary dark:outline-quaternary placeholder:text-midGray dark:placeholder:text-terciary transition-colors duration-500"
-			/>
-			<label
-				htmlFor="user_email"
-				className="mt-4 xs:text-lg lg:text-xl text-black dark:text-lightGray transition-colors duration-500"
-			>
+			<label className="mt-4 xs:text-lg lg:text-xl text-black dark:text-lightGray transition-colors duration-500">
 				Your Email
+				<input
+					type="email"
+					name="user_email"
+					placeholder="example@email.com"
+					required
+					pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$"
+					ref={emailInput}
+					className="w-full mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black dark:text-lightGray focus-within:outline-2 focus-within:outline-terciary dark:bg-primary dark:outline-quaternary placeholder:text-midGray dark:placeholder:text-terciary transition-colors duration-500"
+				/>
 			</label>
-			<input
-				type="email"
-				id="user_email"
-				name="user_email"
-				placeholder="example@email.com"
-				required
-				pattern="^[\w._%+-]+@[\w-]+\.[a-z]{2,}$"
-				ref={emailInput}
-				className="mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black dark:text-lightGray focus-within:outline-2 focus-within:outline-terciary dark:bg-primary dark:outline-quaternary placeholder:text-midGray dark:placeholder:text-terciary transition-colors duration-500"
-			/>
-			<label
-				htmlFor="message"
-				className="mt-4 xs:text-lg lg:text-xl text-black dark:text-lightGray transition-colors duration-500"
-			>
+			<label className="mt-4 xs:text-lg lg:text-xl text-black dark:text-lightGray transition-colors duration-500">
 				Message
+				<textarea
+					name="message"
+					rows="5"
+					placeholder="Hello!"
+					required
+					className="w-full resize-y mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black dark:text-lightGray focus-within:outline-2 focus-within:outline-terciary dark:bg-primary dark:outline-quaternary placeholder:text-midGray dark:placeholder:text-terciary transition-colors duration-500"
+				></textarea>
 			</label>
-			<textarea
-				name="message"
-				id="message"
-				rows="5"
-				placeholder="Hello!"
-				required
-				className="resize-y mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black dark:text-lightGray focus-within:outline-2 focus-within:outline-terciary dark:bg-primary dark:outline-quaternary placeholder:text-midGray dark:placeholder:text-terciary transition-colors duration-500"
-			></textarea>
 			<button
 				type="submit"
 				className="mx-auto my-5 px-6 py-3 xs:text-lg bg-secondary text-white rounded-sm hover:bg-primary transition-colors duration-200 lg:text-base lg:px-6 dark:text-primary dark:bg-darkPrimary dark:hover:bg-lightGray"
@@ -68,6 +56,4 @@ function Form() {
 			</button>
 		</form>
 	);
-}
-
-export { Form };
+};

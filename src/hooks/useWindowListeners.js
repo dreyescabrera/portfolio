@@ -4,7 +4,6 @@ export const useWindowListeners = () => {
 	const [sidebarIsOpen, setSidebarIsOpen] = useState(window.innerWidth >= 768);
 	const removePreloader = () => {
 		setTimeout(() => {
-			console.log("DOM fully loaded and parsed");
 			document.body.classList.remove("overflow-hidden");
 			document
 				.getElementById("preloader")

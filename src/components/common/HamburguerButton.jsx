@@ -1,6 +1,4 @@
-import React from "react";
-
-function HamburguerButton({ isActive, callback }) {
+export const HamburguerButton = ({ isActive, callback }) => {
 	return (
 		<button
 			type="button"
@@ -18,6 +16,4 @@ function HamburguerButton({ isActive, callback }) {
 			></span>
 		</button>
 	);
-}
-
-export { HamburguerButton };
+};

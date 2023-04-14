@@ -1,16 +1,16 @@
-import { useIntersectionObserver } from "../../hooks/useIntersectionObserver";
-import { useWindowListeners } from "../../hooks/useWindowListeners";
-import { HamburguerButton } from "../common/HamburguerButton";
-import { SidebarMenu } from "../SidebarMenu/SidebarMenu";
-import { Hero } from "../Hero/Hero";
-import { About } from "../About/About";
-import { Skills } from "../Skills/Skills";
-import { Projects } from "../Projects/Projects";
-import { Contact } from "../Contact/Contact";
-import { Footer } from "../Footer/Footer";
-import { NavItem } from "../SidebarMenu/NavItem/NavItem";
+import { useIntersectionObserver } from "@hooks/useIntersectionObserver";
+import { useWindowListeners } from "@hooks/useWindowListeners";
+import { HamburguerButton } from "@common/HamburguerButton";
+import { SidebarMenu } from "@components/SidebarMenu/SidebarMenu";
+import { Hero } from "@components/Hero/Hero";
+import { About } from "@components/About/About";
+import { Skills } from "@components/Skills/Skills";
+import { Projects } from "@components/Projects/Projects";
+import { Contact } from "@components/Contact/Contact";
+import { Footer } from "@components/Footer/Footer";
+import { NavItem } from "@components/SidebarMenu/NavItem/NavItem";
 
-function App() {
+export const App = () => {
 	const { sidebarIsOpen, toggleSidebar } = useWindowListeners();
 	const { activeNavItem, homeRef, whoamiRef, projectsRef, contactRef } =
 		useIntersectionObserver();
@@ -44,6 +44,4 @@ function App() {
 			<HamburguerButton isActive={sidebarIsOpen} callback={toggleSidebar} />
 		</>
 	);
-}
-
-export { App };
+};

@@ -1,13 +1,13 @@
 import { forwardRef } from "react";
 import { HeroButtton } from "./HeroButton/HeroButtton";
 import { ScrollButton } from "./ScrollButton/ScrollButton";
-import { useAnimatedText } from "../../hooks/useAnimatedText";
-import mobileAvif from "./../../assets/hero/hero_mobile.avif";
-import mobileWebp from "./../../assets/hero/hero-mobile.webp";
-import tabletAvif from "./../../assets/hero/hero_tablet.avif";
-import tabletWebp from "./../../assets/hero/hero_tablet.webp";
-import desktopAvif from "./../../assets/hero/hero_desktop.avif";
-import desktopWebp from "./../../assets/hero/hero-desktop.webp";
+import { useAnimatedText } from "@hooks/useAnimatedText";
+import mobileAvif from "@assets/hero/hero_mobile.avif";
+import mobileWebp from "@assets/hero/hero-mobile.webp";
+import tabletAvif from "@assets/hero/hero_tablet.avif";
+import tabletWebp from "@assets/hero/hero_tablet.webp";
+import desktopAvif from "@assets/hero/hero_desktop.avif";
+import desktopWebp from "@assets/hero/hero-desktop.webp";
 
 export const Hero = forwardRef(function Hero(_, ref) {
 	const {

@@ -1,4 +1,3 @@
-import React from "react";
 const iconTypes = {
 	instagram: (styles) => (
 		<svg
@@ -412,8 +411,6 @@ const iconTypes = {
 	),
 };
 
-function Icon({ type, styles = "w-full h-full" }) {
+export const Icon = ({ type, styles = "w-full h-full" }) => {
 	return iconTypes[type](styles);
-}
-
-export { Icon };
+};

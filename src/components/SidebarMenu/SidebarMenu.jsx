@@ -1,4 +1,4 @@
-import { ProfileImage } from "../common/ProfileImage";
+import { ProfileImage } from "@common/ProfileImage";
 import { SidebarMediaButton } from "./SidebarMediaButton/SidebarMediaButton";
 import { ThemeSwitch } from "./ThemeSwitch/ThemeSwitch";
 

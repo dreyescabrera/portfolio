@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
-import { SectionTitle } from "../common/SectionTitle";
+import { SectionTitle } from "@common/SectionTitle";
 import { ProjectCard } from "./ProjectCard/ProjectCard";
-import { projects } from "../../data/projects";
+import { projects } from "@data/projects";
 
 export const Projects = forwardRef(function Projects(_, ref) {
 	return (

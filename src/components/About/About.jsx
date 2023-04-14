@@ -1,8 +1,7 @@
 import { forwardRef } from "react";
-import { SectionTitle } from "../common/SectionTitle";
-import { TextContent } from "../common/TextContent";
-import { BulletedTextContent } from "./BulletedTextContent/BulletedTextContent.jsx";
-import { ProfileImage } from "../common/ProfileImage";
+import { SectionTitle } from "@common/SectionTitle";
+import { TextContent } from "@common/TextContent";
+import { ProfileImage } from "@common/ProfileImage";
 
 export const About = forwardRef(function About(_, ref) {
 	return (
@@ -19,9 +18,18 @@ export const About = forwardRef(function About(_, ref) {
 					<h3 className="text-primary dark:text-darkPrimary font-bold text-2xl text-center tracking-tight xs:text-3xl transition-colors duration-500">
 						Frontend Developer
 					</h3>
-					<BulletedTextContent text="Every day I am working on my side projects, currently focused on technologies such as JavaScript, ReactJS and Tailwind CSS, thinking how I can create a product you'd need or wish to have." />
-					<BulletedTextContent text="I am working on learning modern frontend frameworks, such as ReactJS and the libraries around it, soon to come the whole MERN Stack." />
-					<BulletedTextContent text="I develop highly efficient, responsive and performant websites and web apps, always keeping in mind the user experience and the impact it is having on my project. " />
+					<TextContent
+						bulleted
+						text="Every day I am working on my side projects, currently focused on technologies such as JavaScript, ReactJS and Tailwind CSS, thinking how I can create a product you'd need or wish to have."
+					/>
+					<TextContent
+						bulleted
+						text="I am working on learning modern frontend frameworks, such as ReactJS and the libraries around it, soon to come the whole MERN Stack."
+					/>
+					<TextContent
+						bulleted
+						text="I develop highly efficient, responsive and performant websites and web apps, always keeping in mind the user experience and the impact it is having on my project. "
+					/>
 				</article>
 			</section>
 		</section>
