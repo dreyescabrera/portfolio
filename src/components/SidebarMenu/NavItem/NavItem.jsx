@@ -1,32 +1,27 @@
 import { Icon } from "../../common/Icon";
 
-function NavItem({ id, name, iconName, activeNavItem, setSidebarIsOpen }) {
-	const href = "#" + id;
-	const isCurrentSection = activeNavItem === id;
+function NavItem({ id, text, iconName, isActive, callback }) {
 	const closeSidebar = () => {
 		if (document.documentElement.clientWidth < 678) {
-			setSidebarIsOpen(false);
-			document.documentElement.classList.toggle("preventScroll");
+			callback();
 		}
 	};
 	return (
-		<li>
-			<a
-				href={href}
-				className={`flex items-center space-x-4 capitalize font-casual transition-colors duration-100 ${
-					isCurrentSection ? "text-lightGray" : null
+		<a
+			href={"#" + id}
+			className={`flex items-center space-x-4 capitalize font-casual transition-colors duration-100 ${
+				isActive ? "text-lightGray" : ""
+			}`}
+			onClick={closeSidebar}
+		>
+			<Icon
+				type={iconName}
+				styles={`w-6 aspect-square transition-colors duration-100 ${
+					isActive ? "text-terciary" : ""
 				}`}
-				onClick={closeSidebar}
-			>
-				<Icon
-					type={iconName}
-					styles={`w-6 aspect-square transition-colors duration-100 ${
-						isCurrentSection && "text-terciary"
-					}`}
-				/>
-				<span>{name}</span>
-			</a>
-		</li>
+			/>
+			<span>{text}</span>
+		</a>
 	);
 }
 

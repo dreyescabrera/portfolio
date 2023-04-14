@@ -7,10 +7,6 @@ html {
 	@apply bg-white;
 }
 
-.preventScroll {
-	@apply overflow-hidden;
-}
-
 :target {
 	scroll-margin-top: 3.125rem;
 }

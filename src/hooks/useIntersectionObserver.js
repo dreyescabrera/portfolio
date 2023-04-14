@@ -38,6 +38,10 @@ function useIntersectionObserver() {
 		observer.observe(whoamiRef.current);
 		observer.observe(projectsRef.current);
 		observer.observe(contactRef.current);
+
+		return () => {
+			observer.disconnect();
+		};
 	}, []);
 
 	return { activeNavItem, homeRef, whoamiRef, projectsRef, contactRef };

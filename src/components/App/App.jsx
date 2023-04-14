@@ -11,27 +11,23 @@ import { Footer } from "../Footer/Footer";
 import { NavItem } from "../SidebarMenu/NavItem/NavItem";
 
 function App() {
-	const { sidebarIsOpen, setSidebarIsOpen } = useWindowListeners();
+	const { sidebarIsOpen, toggleSidebar } = useWindowListeners();
 	const { activeNavItem, homeRef, whoamiRef, projectsRef, contactRef } =
 		useIntersectionObserver();
 
 	return (
 		<>
 			<SidebarMenu
-				renderNavItem={({ id, name, iconName }) => (
+				isActive={sidebarIsOpen}
+				renderNavItem={({ id, text, iconName }) => (
 					<NavItem
 						id={id}
-						name={name}
+						text={text}
 						iconName={iconName}
-						activeNavItem={activeNavItem}
-						setSidebarIsOpen={setSidebarIsOpen}
+						isActive={activeNavItem === id}
+						callback={toggleSidebar}
 					/>
 				)}
-				sidebarIsOpen={sidebarIsOpen}
-			/>
-			<HamburguerButton
-				sidebarIsOpen={sidebarIsOpen}
-				setSidebarIsOpen={setSidebarIsOpen}
 			/>
 			<div className="transition-[padding_,background] duration-[700ms_,500ms] md:pl-60 lg:pl-72">
 				<Hero ref={homeRef} />
@@ -45,6 +41,7 @@ function App() {
 					</div>
 				</main>
 			</div>
+			<HamburguerButton isActive={sidebarIsOpen} callback={toggleSidebar} />
 		</>
 	);
 }

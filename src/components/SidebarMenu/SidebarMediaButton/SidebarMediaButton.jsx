@@ -10,11 +10,9 @@ function SidebarMediaButton({ socialMedia, link }) {
 				target="_blank"
 				rel="noreferrer"
 				aria-label={`Visit my ${socialMedia}`}
+				title={capitalizedWord}
 			>
-				<span
-					className="w-10 bg-darkGray aspect-square flex justify-center items-center rounded-full transition-transform transition-100 hover:scale-105 3xl:w-12"
-					title={capitalizedWord}
-				>
+				<span className="w-10 bg-darkGray aspect-square flex justify-center items-center rounded-full transition-transform transition-100 hover:scale-105 3xl:w-12">
 					<Icon
 						type={socialMedia}
 						styles="w-6 3xl:w-7 aspect-square text-lightGray"

@@ -12,18 +12,22 @@ export const useWindowListeners = () => {
 		}, 1000);
 	};
 
-	const toggleSidebar = (ev) => {
-		setSidebarIsOpen(ev.target.innerWidth >= 768);
+	const toggleSidebar = () => {
+		setSidebarIsOpen((prev) => !prev);
 	};
 
 	useEffect(() => {
 		removePreloader();
-		window.addEventListener("resize", toggleSidebar);
+		window.addEventListener("resize", (ev) => {
+			setSidebarIsOpen(ev.target.innerWidth >= 768);
+		});
 
 		return () => {
-			window.removeEventListener("resize", toggleSidebar);
+			window.removeEventListener("resize", (ev) => {
+				setSidebarIsOpen(ev.target.innerWidth >= 768);
+			});
 		};
 	}, []);
 
-	return { sidebarIsOpen, setSidebarIsOpen };
+	return { sidebarIsOpen, toggleSidebar };
 };
