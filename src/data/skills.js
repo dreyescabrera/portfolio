@@ -27,6 +27,11 @@ export const skills = [
 	},
 	{
 		id: uuid(),
+		name: "TypeScript",
+		iconName: "typescript",
+	},
+	{
+		id: uuid(),
 		name: "Tailwind",
 		iconName: "tailwind",
 	},
