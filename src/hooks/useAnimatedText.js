@@ -30,7 +30,7 @@ const DIALOGUE_TREE = {
 	},
 };
 
-const initialState = {
+const INITIAL_STATE = {
 	dialogueStatus: "start",
 	isFirstDialogue: true,
 	textValue: "",
@@ -40,7 +40,7 @@ const initialState = {
 	isVisible: document.visibilityState === "visible",
 };
 
-const actionTypes = {
+const ACTION_TYPES = {
 	visible: "VISIBLE",
 	restart: "RESTART",
 	write: "WRITE",
@@ -51,44 +51,44 @@ const actionTypes = {
 };
 
 const reducerObject = (state, payload) => ({
-	[actionTypes.visible]: {
+	[ACTION_TYPES.visible]: {
 		...state,
 		isVisible: true,
 	},
-	[actionTypes.restart]: {
+	[ACTION_TYPES.restart]: {
 		...state,
 		textToPrint: DIALOGUE_TREE,
 		shouldDelete: true,
 		dialogueStatus: "changing",
 	},
-	[actionTypes.write]: {
+	[ACTION_TYPES.write]: {
 		...state,
 		textChanging: true,
 		shouldDelete: false,
 	},
-	[actionTypes.first_delete]: {
+	[ACTION_TYPES.first_delete]: {
 		...state,
 		isFirstDialogue: false,
 		textChanging: true,
 		shouldDelete: true,
 		dialogueStatus: "changing",
 	},
-	[actionTypes.delete]: {
+	[ACTION_TYPES.delete]: {
 		...state,
 		textChanging: true,
 		shouldDelete: true,
 		dialogueStatus: "changing",
 	},
-	[actionTypes.wait]: {
+	[ACTION_TYPES.wait]: {
 		...state,
 		textChanging: false,
 		dialogueStatus: payload,
 	},
-	[actionTypes.update_dialogue]: {
+	[ACTION_TYPES.update_dialogue]: {
 		...state,
 		textToPrint: payload,
 	},
-	[actionTypes.update_dialogue]: {
+	[ACTION_TYPES.update_dialogue]: {
 		...state,
 		textToPrint: payload,
 	},
@@ -103,36 +103,36 @@ function useAnimatedText() {
 	const textSpeed = 60;
 	const userAnswer = useRef(null);
 	const [textValue, setTextValue] = useState("");
-	const [state, dispatch] = useReducer(reducer, initialState);
+	const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
 
 	const onStartOver = () => {
-		dispatch({ type: actionTypes.restart });
+		dispatch({ type: ACTION_TYPES.restart });
 	};
 
 	const onVisible = () => {
-		dispatch({ type: actionTypes.visible });
+		dispatch({ type: ACTION_TYPES.visible });
 	};
 
 	const onWait = (status) => {
-		dispatch({ type: actionTypes.wait, payload: status });
+		dispatch({ type: ACTION_TYPES.wait, payload: status });
 	};
 
 	const onFirstDelete = () => {
 		setTimeout(() => {
-			dispatch({ type: actionTypes.first_delete });
+			dispatch({ type: ACTION_TYPES.first_delete });
 		}, firstPrintDelay);
 	};
 
 	const onWrite = () => {
-		dispatch({ type: actionTypes.write });
+		dispatch({ type: ACTION_TYPES.write });
 	};
 
 	const onUpdateDialogue = (nextDialogue) => {
-		dispatch({ type: actionTypes.update_dialogue, payload: nextDialogue });
+		dispatch({ type: ACTION_TYPES.update_dialogue, payload: nextDialogue });
 	};
 
 	const onDelete = () => {
-		dispatch({ type: actionTypes.delete });
+		dispatch({ type: ACTION_TYPES.delete });
 	};
 
 	// shouldDelete === true --> it starts deleting and when finished, turns into false.
@@ -191,6 +191,8 @@ function useAnimatedText() {
 		onDelete();
 	};
 
+	// used useEffect to write or delete text due to setState asynchrony, so it can write
+	// or delete successfully from the real current value
 	useEffect(() => {
 		if (!state.isVisible) return;
 		if (state.shouldDelete) {

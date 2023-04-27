@@ -27,6 +27,7 @@ export const HeroButtton = ({
 	text,
 	callback,
 	shouldShow,
+	children,
 }) => {
 	const props = {
 		className:

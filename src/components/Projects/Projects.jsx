@@ -6,7 +6,7 @@ import { projects } from "@data/projects";
 export const Projects = forwardRef(function Projects(_, ref) {
 	return (
 		<section className="m-sm lg:m-lg" id="projects" ref={ref}>
-			<SectionTitle text="Projects" />
+			<SectionTitle>Projects</SectionTitle>
 			<section className="grid grid-cols-flexible gap-6 mt-10">
 				{projects.map((project) => (
 					<ProjectCard {...project} key={project.id} />

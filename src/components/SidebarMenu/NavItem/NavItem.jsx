@@ -1,6 +1,4 @@
-import { Icon } from "@common/Icon";
-
-function NavItem({ id, text, iconName, isActive, callback }) {
+export const NavItem = ({ id, callback, children }) => {
 	const closeSidebar = () => {
 		if (document.documentElement.clientWidth < 678) {
 			callback();
@@ -9,20 +7,10 @@ function NavItem({ id, text, iconName, isActive, callback }) {
 	return (
 		<a
 			href={"#" + id}
-			className={`flex items-center space-x-4 capitalize font-casual transition-colors duration-100 ${
-				isActive ? "text-lightGray" : ""
-			}`}
+			className={`flex items-center space-x-4 capitalize font-casual transition-colors duration-100 `}
 			onClick={closeSidebar}
 		>
-			<Icon
-				type={iconName}
-				styles={`w-6 aspect-square transition-colors duration-100 ${
-					isActive ? "text-terciary" : ""
-				}`}
-			/>
-			<span>{text}</span>
+			{children}
 		</a>
 	);
-}
-
-export { NavItem };
+};

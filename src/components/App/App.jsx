@@ -9,6 +9,7 @@ import { Projects } from "@components/Projects/Projects";
 import { Contact } from "@components/Contact/Contact";
 import { Footer } from "@components/Footer/Footer";
 import { NavItem } from "@components/SidebarMenu/NavItem/NavItem";
+import { Icon } from "@common/Icon";
 
 export const App = () => {
 	const { sidebarIsOpen, toggleSidebar } = useWindowListeners();
@@ -20,13 +21,17 @@ export const App = () => {
 			<SidebarMenu
 				isActive={sidebarIsOpen}
 				renderNavItem={({ id, text, iconName }) => (
-					<NavItem
-						id={id}
-						text={text}
-						iconName={iconName}
-						isActive={activeNavItem === id}
-						callback={toggleSidebar}
-					/>
+					<NavItem id={id} callback={toggleSidebar}>
+						<Icon
+							type={iconName}
+							styles={`w-6 aspect-square transition-colors duration-100 ${
+								activeNavItem === id ? "text-terciary" : ""
+							}`}
+						/>
+						<span className={`${activeNavItem === id ? "text-lightGray" : ""}`}>
+							{text}
+						</span>
+					</NavItem>
 				)}
 			/>
 			<div className="transition-[padding_,background] duration-[700ms_,500ms] md:pl-60 lg:pl-72">

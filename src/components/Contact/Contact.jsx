@@ -6,7 +6,7 @@ import { Form } from "./Form/Form";
 export const Contact = forwardRef(function Contact(_, ref) {
 	return (
 		<section className="m-sm lg:m-lg" id="contact" ref={ref}>
-			<SectionTitle text="Contact" />
+			<SectionTitle>Contact</SectionTitle>
 			<div className="flex flex-col mt-10 gap-5 items-start-center lg:flex-row">
 				<ul className="w-full lg:w-2/5 space-y-5">
 					<SocialMediaItem

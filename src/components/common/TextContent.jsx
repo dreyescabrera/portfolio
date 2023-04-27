@@ -1,15 +1,7 @@
-import { Icon } from "./Icon";
-
-export const TextContent = ({ text, bulleted }) => {
+export const TextContent = ({ children }) => {
 	return (
 		<p className="mb-4 text-black xs:text-lg xl:text-xl dark:text-lightGray transition-colors duration-500">
-			{bulleted && (
-				<Icon
-					type="arrowLeft"
-					styles="relative -top-px w-4 h-4 inline-block text-primary dark:text-terciary mr-2"
-				/>
-			)}
-			{text}
+			{children}
 		</p>
 	);
 };

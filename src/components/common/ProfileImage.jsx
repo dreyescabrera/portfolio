@@ -22,6 +22,6 @@ export const ProfileImage = ({ shape }) => {
 				/>
 			);
 		default:
-			throw new Error("Profile Image Shape needs to be defined.");
+			throw new Error("ProfileImage shape needs to be defined.");
 	}
 };
