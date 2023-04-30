@@ -10,14 +10,14 @@ export const About = forwardRef(function About(_, ref) {
 			<SectionTitle>Who Am I?</SectionTitle>
 
 			<TextContent>
-				Hello, I'm Diego! I'm a Web Developer from Venezuela, currently located
-				in Atlanta, USA.
+				Hello, I&apos;m Diego! I&apos;m a Web Developer from Venezuela,
+				currently located in Atlanta, USA.
 			</TextContent>
 			<TextContent>
 				One year ago, I found a passion for developing when I took a course of
 				JavaScript, as I was seeking a purpose that really catches me, facing my
 				ever first algorithms, layouts and so on. Since then, I have been
-				working on mastering my ability of solving user's problems with
+				working on mastering my ability of solving user&apos;s problems with
 				optimized and clean code within my web apps.
 			</TextContent>
 
@@ -31,7 +31,7 @@ export const About = forwardRef(function About(_, ref) {
 					<BulletedTextContent>
 						Every day I am working on my side projects, currently focused on
 						technologies such as JavaScript, ReactJS and Tailwind CSS, thinking
-						how I can create a product you'd need or wish to have.
+						how I can create a product you&apos;d need or wish to have.
 					</BulletedTextContent>
 					<BulletedTextContent>
 						I am working on learning modern frontend frameworks, such as ReactJS

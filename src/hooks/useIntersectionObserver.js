@@ -1,14 +1,13 @@
 import { useRef, useState, useEffect } from "react";
 
 function useIntersectionObserver() {
+	const [activeNavItem, setActiveNavItem] = useState(
+		sessionStorage.getItem("activeNavItem") || "home"
+	);
 	const homeRef = useRef(null);
 	const whoamiRef = useRef(null);
 	const projectsRef = useRef(null);
 	const contactRef = useRef(null);
-
-	const [activeNavItem, setActiveNavItem] = useState(
-		sessionStorage.activeNavItem ? sessionStorage.activeNavItem : "home"
-	);
 
 	const lightUpNavItem = (item) => {
 		setActiveNavItem(item);
@@ -17,20 +16,17 @@ function useIntersectionObserver() {
 
 	useEffect(() => {
 		const options = {
-			threshold: [0.25, 0.8], //0.25 for normal scroll, 0.8 for bugfixing on scrolling down to about section and not ever leaving home section entirely
+			delay: 300,
+			threshold: [0.2, 0.5, 0.8],
+			rootMargin: "-20px 0px 0px 0px",
 		};
 
 		const callback = (entries) => {
-			const currentSection = entries[0];
-			const intersectionRatio = currentSection.intersectionRatio;
-			if (intersectionRatio > 0.25 && intersectionRatio < 0.6) {
-				lightUpNavItem(currentSection.target.id);
-				return;
-			}
-			if (intersectionRatio > 0.8) {
-				//only for scrolling up to home section
-				lightUpNavItem(currentSection.target.id);
-			}
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					lightUpNavItem(entry.target.id);
+				}
+			});
 		};
 
 		const observer = new IntersectionObserver(callback, options);
