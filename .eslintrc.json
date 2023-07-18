@@ -9,6 +9,7 @@
 		"eslint:recommended",
 		"plugin:@typescript-eslint/recommended",
 		"plugin:@typescript-eslint/recommended-requiring-type-checking",
+		"plugin:tailwindcss/recommended",
 		"next",
 		"next/core-web-vitals",
 		"prettier"
@@ -18,5 +19,4 @@
 		"project": "./tsconfig.json"
 	},
 	"plugins": ["@typescript-eslint"]
-	
 }
