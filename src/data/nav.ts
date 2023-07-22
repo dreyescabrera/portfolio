@@ -6,11 +6,11 @@ type NavItem = {
 	iconName: IconType;
 };
 
-export const navData = [
+export const navData: NavItem[] = [
 	{ text: 'home', id: 'home', iconName: 'home' },
 	{
 		text: 'who am i?',
-		id: 'whoami?',
+		id: 'about',
 		iconName: 'profile',
 	},
 	{

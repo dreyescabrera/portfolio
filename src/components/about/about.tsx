@@ -6,7 +6,7 @@ import { ProfileImage } from '@/components/common/profile-image';
 
 export const About = forwardRef<HTMLDivElement>(function About(_, ref) {
 	return (
-		<section className="m-sm lg:m-lg" id="whoami?" ref={ref}>
+		<section className="m-sm lg:m-lg" id="about" ref={ref}>
 			<SectionTitle>Who Am I?</SectionTitle>
 			<TextContent>
 				Hello, I&apos;m Diego! I&apos;m a Web Developer from Venezuela, currently located in
@@ -19,10 +19,10 @@ export const About = forwardRef<HTMLDivElement>(function About(_, ref) {
 				with optimized and clean code within my web apps.
 			</TextContent>
 
-			<section className="flex flex-col items-center gap-10 mt-8 lg:flex-row lg:justify-around xl:my-16">
+			<section className="mt-8 flex flex-col items-center gap-10 lg:flex-row lg:justify-around xl:my-16">
 				<ProfileImage shape="square" />
 
-				<article className="space-y-4 max-w-lg">
+				<article className="max-w-lg space-y-4">
 					<SectionTitle variant="h3">Frontend Developer</SectionTitle>
 					<BulletedContent>
 						Every day I am working on my side projects, currently focused on technologies such as
