@@ -17,7 +17,7 @@ export const NavItem = ({ id, callback, children }: NavItemProps) => {
 	return (
 		<a
 			href={'#' + id}
-			className={`flex items-center space-x-4 font-casual capitalize transition-colors duration-100 `}
+			className="flex items-center space-x-4 font-casual capitalize transition-colors duration-100"
 			onClick={closeSidebar}
 		>
 			{children}
