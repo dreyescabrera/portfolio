@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { forwardRef } from 'react';
 import { HeroButtton } from './hero-button';
 import { ScrollButton } from './scroll-button';
@@ -8,7 +9,6 @@ import { useInteractiveText } from '@/hooks/use-interactive-text';
 // import tabletWebp from '@assets/hero/hero_tablet.webp';
 // import desktopAvif from '@assets/hero/hero_desktop.avif';
 // import desktopWebp from '/hero/hero-desktop.webp';
-import Image from 'next/image';
 
 export const Hero = forwardRef<HTMLDivElement>(function Hero(props, ref) {
 	const { textValue, textChanging, dialogueStatus, answerQuestion, onStartOver, onDelete } =
@@ -16,10 +16,10 @@ export const Hero = forwardRef<HTMLDivElement>(function Hero(props, ref) {
 	return (
 		<section
 			id="home"
-			className="relative grid grid-cols-6 grid-rows-5 justify-items-center w-full h-screen text-quaternary font-luxury "
+			className="relative grid h-screen w-full grid-cols-6 grid-rows-5 justify-items-center font-luxury text-quaternary "
 			ref={ref}
 		>
-			<figure className="fixed -z-10 w-full h-screen">
+			<figure className="fixed -z-10 h-screen w-full">
 				<Image src={'/hero/hero-desktop.webp'} fill alt="background" priority quality={95} />
 				{/* <source
 					srcSet={mobileAvif.src}
@@ -57,16 +57,16 @@ export const Hero = forwardRef<HTMLDivElement>(function Hero(props, ref) {
 					className="w-full h-full object-cover object-center"
 				/> */}
 			</figure>
-			<div className="col-span-full row-start-2 tracking-tight space-y-3 sm:space-y-4 lg:col-end-6 xl:col-end-5">
-				<h1 className="font-bold mb-1 text-4xl antialiased xs:text-5xl sm:text-6xl lg:text-7xl 3xl:text-8xl lg:mb-3 3xl:mb-4">
+			<div className="col-span-full row-start-2 space-y-3 tracking-tight sm:space-y-4 lg:col-end-6 xl:col-end-5">
+				<h1 className="mb-1 text-4xl font-bold antialiased xs:text-5xl sm:text-6xl lg:mb-3 lg:text-7xl 3xl:mb-4 3xl:text-8xl">
 					Diego Reyes
 				</h1>
-				<span className="pl-0.5 text-2xl antialiased font-semibold leading-7 lg:text-4xl 3xl:text-5xl">
+				<span className="pl-0.5 text-2xl font-semibold leading-7 antialiased lg:text-4xl 3xl:text-5xl">
 					Frontend Developer
 				</span>
-				<div className="pt-6 font-medium select-none lg:pt-10 2xl:pt-14">
+				<div className="select-none pt-6 font-medium lg:pt-10 2xl:pt-14">
 					<span
-						className={`text-xl lg:text-2xl 3xl:text-3xl relative after:content-['|'] after:relative after:bottom-[2px] after:left-[3px] after:inline-block ${
+						className={`relative text-xl after:relative after:bottom-[2px] after:left-[3px] after:inline-block after:content-['|'] lg:text-2xl 3xl:text-3xl ${
 							textChanging ? '' : 'after:motion-safe:animate-text-machine'
 						}`}
 					>

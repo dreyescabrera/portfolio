@@ -5,28 +5,17 @@ import { NavItem } from './nav-item';
 import { Icon, IconType } from '../common';
 import { SectionId } from '@/hooks/use-intersection-observer';
 import { navData } from '@/data/nav';
-import { useEffect, useRef } from 'react';
 
 type SidebarProps = {
-	isOpen: boolean;
 	toggleSidebar: () => void;
 	activeNavItem: SectionId;
 };
 
-export const Sidebar = ({ isOpen, toggleSidebar, activeNavItem }: SidebarProps) => {
-	const openStyles = isOpen ? 'translate-x-0' : '-translate-x-full';
-	const sidebarStyles = useRef<string>(
-		'fixed w-4/5 left-0 h-screen flex flex-col justify-start items-center px-6 py-8 gap-5 overflow-auto bg-black z-20 md:w-60 lg:w-72 2xl:w-1/6'
-	);
-
-	const addTransitions = () => {
-		sidebarStyles.current += ' transition-transform duration-500';
-	};
-
+export const Sidebar = ({ toggleSidebar, activeNavItem }: SidebarProps) => {
 	return (
-		<aside className={`${sidebarStyles.current} ${openStyles}`} onLoad={addTransitions}>
+		<aside className="sticky top-0  flex h-screen flex-col items-center justify-start gap-5 overflow-auto bg-black px-6 py-8 transition-transform duration-500">
 			<ProfileImage shape="circle" />
-			<h2 className="text-3xl text-lightGray font-semibold font-luxury md:text-2xl 3xl:text-4xl">
+			<h2 className="font-luxury text-3xl font-bold text-lightGray md:text-2xl 3xl:text-4xl">
 				Diego Reyes
 			</h2>
 			<ul className="flex space-x-5">
@@ -35,7 +24,7 @@ export const Sidebar = ({ isOpen, toggleSidebar, activeNavItem }: SidebarProps) 
 				<MediaButton link="https://www.linkedin.com/in/diegoreyescabrera/" socialMedia="linkedin" />
 			</ul>
 			<nav className="pt-2 md:self-start lg:pt-8">
-				<ul className="flex flex-col gap-5 text-midGray font-semibold tracking-wide text-lg md:text-xl md:gap-6 3xl:text-2xl">
+				<ul className="flex flex-col gap-5 text-lg font-semibold tracking-wide text-midGray md:gap-6 md:text-xl 3xl:text-2xl">
 					{navData.map(({ id, text, iconName }) => (
 						<li key={id}>
 							<NavItem id={id} callback={toggleSidebar}>
@@ -55,3 +44,5 @@ export const Sidebar = ({ isOpen, toggleSidebar, activeNavItem }: SidebarProps) 
 		</aside>
 	);
 };
+
+export default Sidebar;

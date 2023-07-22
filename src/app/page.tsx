@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
-import { HamburguerButton } from '@/components/common/hamburger-button';
+import { HamburgerButton } from '@/components/common/hamburger-button';
 import { Sidebar } from '@/components/sidebar';
 import { Hero } from '@/components/hero';
 import { About } from '@/components/about';
@@ -10,19 +10,28 @@ import { Skills } from '@/components/skills';
 import { Projects } from '@/components/projects';
 import { Contact } from '@/components/contact';
 import { Footer } from '@/components/footer';
-import { useWindowListeners } from '@/hooks/use-window-listener';
 
 export default function Home() {
 	const { activeNavItem, refs } = useIntersectionObserver();
-	const { isSidebarOpen, toggleSidebar } = useWindowListeners();
+	const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
+
+	const toggleSidebar = () => {
+		setIsSidebarOpen((prev) => !prev);
+	};
 
 	return (
-		<>
-			<Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} activeNavItem={activeNavItem} />
-			<div className="transition-[padding_,background] duration-[700ms_,500ms] md:pl-60 lg:pl-72">
+		<div className="grid grid-cols-[repeat(5,_1fr)] md:grid-cols-[1fr_3fr] xl:grid-cols-[2fr_9fr]">
+			<div
+				className={`z-20 col-start-1 col-end-5 row-span-full transition-transform duration-500 md:col-span-1 md:translate-x-0 md:transition-none ${
+					isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+				}`}
+			>
+				<Sidebar toggleSidebar={toggleSidebar} activeNavItem={activeNavItem} />
+			</div>
+			<div className="col-span-full row-span-full md:col-auto">
 				<Hero ref={refs.homeRef} />
-				<main className="relative bg-white dark:bg-[#040c20] z-10 font-casual overflow-auto transition-colors duration-500">
-					<div className="w-11/12 max-w-6xl m-auto">
+				<main className="relative z-10 overflow-auto bg-white font-casual transition-colors duration-500 dark:bg-[#040c20]">
+					<div className="m-auto w-11/12 max-w-6xl">
 						<About ref={refs.whoamiRef} />
 						<Skills />
 						<Projects ref={refs.projectsRef} />
@@ -31,7 +40,7 @@ export default function Home() {
 					</div>
 				</main>
 			</div>
-			<HamburguerButton isActive={isSidebarOpen} callback={toggleSidebar} />
-		</>
+			<HamburgerButton isActive={isSidebarOpen} callback={toggleSidebar} />
+		</div>
 	);
 }
