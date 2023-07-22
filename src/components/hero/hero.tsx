@@ -3,10 +3,6 @@ import { forwardRef } from 'react';
 import { HeroButtton } from './hero-button';
 import { ScrollButton } from './scroll-button';
 import { useInteractiveText } from '@/hooks/use-interactive-text';
-// import mobileAvif from '@assets/hero/hero_mobile.avif';
-// import tabletAvif from '@assets/hero/hero_tablet.avif';
-// import tabletWebp from '@assets/hero/hero_tablet.webp';
-// import desktopAvif from '@assets/hero/hero_desktop.avif';
 import mobileWebp from '/public/hero/hero-mobile.webp';
 import desktopWebp from '/public/hero/hero-desktop.webp';
 
