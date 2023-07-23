@@ -1,6 +1,9 @@
+import { GoogleAnalytics } from '@/components/analytics/google-analytics';
 import { Raleway, Outfit } from 'next/font/google';
 import { type Metadata } from 'next';
 import './globals.css';
+
+const GA_TRACKING_ID = process.env.GA_TRACKING_ID;
 
 const raleway = Raleway({
 	subsets: ['latin'],
@@ -43,6 +46,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en" className={`${outfit.variable} ${raleway.variable}`}>
+			<GoogleAnalytics GA_TRACKING_ID={GA_TRACKING_ID as string} />
 			<body>{children}</body>
 		</html>
 	);
