@@ -16,7 +16,7 @@ export default function FormAlert({ formAlert }: FormAlertProps) {
 			<AnimatePresence>
 				{formAlert.isVisible && (
 					<m.span
-						className={`absolute w-max py-1.5 px-4 -top-2 left-0 right-0 mx-auto rounded-sm ${bgColor} text-center`}
+						className={`absolute -top-2 left-0 right-0 mx-auto w-max rounded-sm px-4 py-1.5 ${bgColor} text-center`}
 						initial={{ opacity: 0, y: 0 }}
 						animate={{ opacity: 1, y: -20 }}
 						exit={{ opacity: 0, y: 0 }}

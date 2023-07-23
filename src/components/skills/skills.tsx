@@ -20,9 +20,9 @@ export function Skills() {
 						solution to a problem.
 					</TextContent>
 				</div>
-				<ul className="xl:w-2/3 grid grid-cols-[repeat(auto-fit,_minmax(6rem,_7rem))] gap-8 justify-center">
+				<ul className="grid grid-cols-[repeat(auto-fit,_minmax(6rem,_7rem))] justify-center gap-8 xl:w-2/3">
 					{skills.map((skill) => (
-						<SkillsItem name={skill.name} iconName={skill.iconName as IconType} key={skill.id} />
+						<SkillsItem name={skill.name} iconName={skill.iconName} key={skill.id} />
 					))}
 				</ul>
 			</div>
@@ -32,9 +32,9 @@ export function Skills() {
 
 export const SkillsItem = ({ name, iconName }: SkillsItemProps) => {
 	return (
-		<li className="flex flex-col w-24 h-28 p-2 justify-center items-center gap-1 text-center shadow-md dark:bg-quaternary dark:text-white lg:w-28 lg:h-32 transition-colors duration-500">
+		<li className="flex h-28 w-24 flex-col items-center justify-center gap-1 p-2 text-center shadow-md transition-colors duration-500 dark:bg-quaternary dark:text-white lg:h-32 lg:w-28">
 			<Icon type={iconName} styles="w-14 h-14 lg:w-16 lg:h-16" />
-			<span className="text-black tracking-wide leading-5 font-luxury dark:text-lightGray transition-colors duration-500">
+			<span className="font-luxury leading-5 tracking-wide text-black transition-colors duration-500 dark:text-lightGray">
 				{name}
 			</span>
 		</li>

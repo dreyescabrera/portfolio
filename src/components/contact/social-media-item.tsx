@@ -8,20 +8,20 @@ type SocialMediaItemProps = {
 
 export const SocialMediaItem = ({ name, nickname, link }: SocialMediaItemProps) => {
 	return (
-		<li className="flex w-full p-4 gap-4 items-center rounded-sm shadow-md dark:bg-quaternary transition-colors duration-500">
-			<span className="w-11 bg-quintenary aspect-square flex justify-center items-center rounded-full dark:bg-primary transition-colors duration-500">
+		<li className="flex w-full items-center gap-4 rounded-sm p-4 shadow-md transition-colors duration-500 dark:bg-quaternary">
+			<span className="flex aspect-square w-11 items-center justify-center rounded-full bg-quintenary transition-colors duration-500 dark:bg-primary">
 				<Icon
 					type={name.toLowerCase() as IconType}
 					styles="w-6 h-6 text-secondary dark:text-lightGray transition-colors duration-500"
 				/>
 			</span>
 			<div>
-				<h3 className="font-bold text-xl xs:text-2xl text-quaternary dark:text-darkSecondary transition-colors duration-500">
+				<h3 className="text-xl font-bold text-quaternary transition-colors duration-500 dark:text-darkSecondary xs:text-2xl">
 					{name}
 				</h3>
 				<a
 					href={link}
-					className=" text-midGray dark:text-lightGray xs:text-lg xl:text-xl hover:text-gray-800 dark:hover:text-darkPrimary align-bottom transition-colors duration-150"
+					className=" align-bottom text-midGray transition-colors duration-150 hover:text-gray-800 dark:text-lightGray dark:hover:text-darkPrimary xs:text-lg xl:text-xl"
 					aria-label={`Visit my ${name}`}
 					target="_blank"
 					rel="noreferrer"

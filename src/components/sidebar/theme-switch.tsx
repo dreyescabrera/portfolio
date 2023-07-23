@@ -28,14 +28,14 @@ export const ThemeSwitch = () => {
 	}, []);
 
 	return (
-		<div className="flex gap-2 items-center justify-center mt-2 xs:mt-6 md:self-start">
+		<div className="mt-2 flex items-center justify-center gap-2 xs:mt-6 md:self-start">
 			<Icon type="sun" styles="w-6 h-full text-white" />
 			<div
-				className="w-14 h-6 p-0.5 bg-red-50  rounded-full overflow-hidden cursor-pointer"
+				className="h-6 w-14 cursor-pointer overflow-hidden  rounded-full bg-red-50 p-0.5"
 				onClickCapture={switchTheme}
 			>
 				<div
-					className={`w-5 h-full bg-gradient-to-r from-terciary to-primary bg-terciary rounded-full transition-transform duration-500 ease-in-out ${
+					className={`h-full w-5 rounded-full bg-terciary bg-gradient-to-r from-terciary to-primary transition-transform duration-500 ease-in-out ${
 						isDark ? 'translate-x-8 rotate-180' : ''
 					}`}
 				></div>

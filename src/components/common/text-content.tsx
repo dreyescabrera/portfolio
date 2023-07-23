@@ -6,7 +6,7 @@ type TextContentProps = {
 
 export const TextContent = ({ children }: TextContentProps) => {
 	return (
-		<p className="mb-4 text-black xs:text-lg xl:text-xl dark:text-lightGray transition-colors duration-500">
+		<p className="mb-4 text-black transition-colors duration-500 dark:text-lightGray xs:text-lg xl:text-xl">
 			{children}
 		</p>
 	);

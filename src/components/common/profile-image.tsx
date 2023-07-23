@@ -13,7 +13,7 @@ export const ProfileImage = ({ shape }: ProfileImageProps) => {
 					alt="Profile Image"
 					width={150}
 					height={150}
-					className="w-[130px] min-[375px]:w-[150px] object-cover object-top rounded-full aspect-square shadow-[0_0_0_10px] shadow-darkGray 3xl:w-52"
+					className="aspect-square w-[130px] rounded-full object-cover object-top shadow-[0_0_0_10px] shadow-darkGray min-[375px]:w-[150px] 3xl:w-52"
 				/>
 			);
 
@@ -24,11 +24,11 @@ export const ProfileImage = ({ shape }: ProfileImageProps) => {
 					alt="Profile Image"
 					width={400}
 					height={600}
-					className="w-3/4 h-full max-w-xs self-center rounded"
+					className="h-full w-3/4 max-w-xs self-center rounded"
 				/>
 			);
 
 		default:
-			throw new Error('Invalid image shape: ' + shape);
+			throw new Error(`Invalid image shape: ${shape as string}`);
 	}
 };

@@ -7,8 +7,8 @@ export const Contact = forwardRef<HTMLDivElement>(function Contact(props, ref) {
 	return (
 		<section className="m-sm lg:m-lg" id="contact" ref={ref}>
 			<SectionTitle>Contact</SectionTitle>
-			<div className="flex flex-col mt-10 gap-5 items-start-center lg:flex-row">
-				<ul className="w-full lg:w-2/5 space-y-5">
+			<div className="items-start-center mt-10 flex flex-col gap-5 lg:flex-row">
+				<ul className="w-full space-y-5 lg:w-2/5">
 					<SocialMediaItem
 						name="LinkedIn"
 						nickname="diegoreyescabrera"

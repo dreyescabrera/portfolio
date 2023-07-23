@@ -18,7 +18,7 @@ export const ProjectButton = ({ link, variant = 'regular', children }: ProjectBu
 			href={link}
 			target="_blank"
 			rel="noreferrer"
-			className={`${colors} px-4 py-2 text-sm xs:text-base rounded-sm transition-colors duration-200 lg:text-base lg:px-3`}
+			className={`${colors} rounded-sm px-4 py-2 text-sm transition-colors duration-200 xs:text-base lg:px-3 lg:text-base`}
 		>
 			{children}
 		</a>

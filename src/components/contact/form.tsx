@@ -9,24 +9,24 @@ export const Form = () => {
 	return (
 		<form
 			ref={form}
-			className="relative flex flex-col flex-grow p-4 shadow-md rounded-sm dark:bg-quaternary transition-colors duration-500"
+			className="relative flex flex-grow flex-col rounded-sm p-4 shadow-md transition-colors duration-500 dark:bg-quaternary"
 			id="form"
 			onSubmit={sendEmail}
 		>
 			<Suspense fallback="">
 				<FormAlert formAlert={formAlert} />
 			</Suspense>
-			<label className="xs:text-lg lg:text-xl text-black dark:text-lightGray transition-colors duration-500">
+			<label className="text-black transition-colors duration-500 dark:text-lightGray xs:text-lg lg:text-xl">
 				Your Name
 				<input
 					type="text"
 					name="user_name"
 					placeholder="Dana"
 					required
-					className=" w-full mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black dark:text-lightGray focus-within:outline-2 focus-within:outline-terciary dark:bg-primary dark:outline-quaternary placeholder:text-midGray dark:placeholder:text-terciary transition-colors duration-500"
+					className=" mt-1 w-full rounded-sm px-2 py-1 text-black outline outline-1 outline-midGray transition-colors duration-500 placeholder:text-midGray focus-within:outline-2 focus-within:outline-terciary dark:bg-primary dark:text-lightGray dark:outline-quaternary dark:placeholder:text-terciary xl:text-lg"
 				/>
 			</label>
-			<label className="mt-4 xs:text-lg lg:text-xl text-black dark:text-lightGray transition-colors duration-500">
+			<label className="mt-4 text-black transition-colors duration-500 dark:text-lightGray xs:text-lg lg:text-xl">
 				Your Email
 				<input
 					type="email"
@@ -34,22 +34,22 @@ export const Form = () => {
 					placeholder="example@email.com"
 					required
 					pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$"
-					className="w-full mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black dark:text-lightGray focus-within:outline-2 focus-within:outline-terciary dark:bg-primary dark:outline-quaternary placeholder:text-midGray dark:placeholder:text-terciary transition-colors duration-500"
+					className="mt-1 w-full rounded-sm px-2 py-1 text-black outline outline-1 outline-midGray transition-colors duration-500 placeholder:text-midGray focus-within:outline-2 focus-within:outline-terciary dark:bg-primary dark:text-lightGray dark:outline-quaternary dark:placeholder:text-terciary xl:text-lg"
 				/>
 			</label>
-			<label className="mt-4 xs:text-lg lg:text-xl text-black dark:text-lightGray transition-colors duration-500">
+			<label className="mt-4 text-black transition-colors duration-500 dark:text-lightGray xs:text-lg lg:text-xl">
 				Message
 				<textarea
 					name="message"
 					rows={5}
 					placeholder="Hello!"
 					required
-					className="w-full resize-y mt-1 px-2 py-1 rounded-sm outline-1 outline outline-midGray xl:text-lg text-black dark:text-lightGray focus-within:outline-2 focus-within:outline-terciary dark:bg-primary dark:outline-quaternary placeholder:text-midGray dark:placeholder:text-terciary transition-colors duration-500"
+					className="mt-1 w-full resize-y rounded-sm px-2 py-1 text-black outline outline-1 outline-midGray transition-colors duration-500 placeholder:text-midGray focus-within:outline-2 focus-within:outline-terciary dark:bg-primary dark:text-lightGray dark:outline-quaternary dark:placeholder:text-terciary xl:text-lg"
 				></textarea>
 			</label>
 			<button
 				type="submit"
-				className="mx-auto my-5 px-6 py-3 xs:text-lg bg-secondary text-white rounded-sm hover:bg-primary transition-colors duration-200 lg:text-base lg:px-6 dark:text-primary dark:bg-darkPrimary dark:hover:bg-lightGray"
+				className="mx-auto my-5 rounded-sm bg-secondary px-6 py-3 text-white transition-colors duration-200 hover:bg-primary dark:bg-darkPrimary dark:text-primary dark:hover:bg-lightGray xs:text-lg lg:px-6 lg:text-base"
 			>
 				Send Email
 			</button>

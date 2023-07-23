@@ -1,6 +1,13 @@
 'use client';
 
-import { useRef, useEffect, useState, useReducer, type MouseEventHandler } from 'react';
+import {
+	useRef,
+	useEffect,
+	useState,
+	useReducer,
+	type MouseEventHandler,
+	useCallback,
+} from 'react';
 
 /** Types */
 
@@ -159,25 +166,39 @@ export function useInteractiveText() {
 	// shouldDelete === true --> it starts deleting and when finished, turns into false.
 	// shouldDelete === false --> it starts printing next dialogue asap
 
-	const writeText = (index = 0) => {
-		setTimeout(() => {
-			const currentDialogue = state.textToPrint.current;
-			setTextValue((prev) => prev + currentDialogue[index]);
-			if (currentDialogue[index + 1]) {
-				// recursion inside the setstate because of the asynchrony of setstate
-				writeText(index + 1);
-				return;
-			}
-			if (state.isFirstDialogue) {
-				onFirstDelete();
-				return;
-			}
+	const writeText = useCallback(
+		(index = 0) => {
+			setTimeout(() => {
+				const currentDialogue = state.textToPrint.current;
+				setTextValue((prev) => prev + currentDialogue[index]);
+				if (currentDialogue[index + 1]) {
+					// recursion inside the setstate because of the asynchrony of setstate
+					writeText(index + 1);
+					return;
+				}
+				if (state.isFirstDialogue) {
+					onFirstDelete();
+					return;
+				}
 
-			onWait(currentDialogue);
-		}, textSpeed);
-	};
+				onWait(currentDialogue);
+			}, textSpeed);
+		},
+		[state.isFirstDialogue, state.textToPrint]
+	);
 
-	const deleteText = () => {
+	const changeDialogue = useCallback(() => {
+		if (Array.isArray(state.textToPrint.next)) {
+			const nextText = state.textToPrint.next.find(
+				(sentence) => sentence.current === userAnswer.current
+			);
+			onUpdateDialogue(nextText as DialogueNode);
+			return;
+		}
+		onUpdateDialogue(state.textToPrint.next as DialogueNode);
+	}, [state.textToPrint.next]);
+
+	const deleteText = useCallback(() => {
 		setTimeout(() => {
 			setTextValue((prev) => {
 				const newText = prev.substring(0, prev.length - 1);
@@ -191,18 +212,7 @@ export function useInteractiveText() {
 				return newText;
 			});
 		}, textSpeed);
-	};
-
-	const changeDialogue = () => {
-		if (Array.isArray(state.textToPrint.next)) {
-			const nextText = state.textToPrint.next.find(
-				(sentence) => sentence.current === userAnswer.current
-			);
-			onUpdateDialogue(nextText as DialogueNode);
-			return;
-		}
-		onUpdateDialogue(state.textToPrint.next as DialogueNode);
-	};
+	}, [changeDialogue]);
 
 	const answerQuestion: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = (ev) => {
 		const clickedButton = ev.currentTarget.textContent;
@@ -228,7 +238,7 @@ export function useInteractiveText() {
 		}
 
 		writeText();
-	}, [state.shouldDelete, state.isVisible]);
+	}, [state.shouldDelete, state.isVisible, state.isFirstDialogue, writeText, deleteText]);
 
 	useEffect(() => {
 		const start = () => {

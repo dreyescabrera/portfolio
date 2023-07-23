@@ -2,7 +2,7 @@ import { ProfileImage } from '@/components/common/profile-image';
 import { MediaButton } from './media-button';
 import { ThemeSwitch } from './theme-switch';
 import { NavItem } from './nav-item';
-import { Icon, IconType } from '../common';
+import { Icon } from '../common';
 import { SectionId } from '@/hooks/use-intersection-observer';
 import { navData } from '@/data/nav';
 
@@ -29,7 +29,7 @@ export const Sidebar = ({ toggleSidebar, activeNavItem }: SidebarProps) => {
 						<li key={id}>
 							<NavItem id={id} callback={toggleSidebar}>
 								<Icon
-									type={iconName as IconType}
+									type={iconName}
 									styles={`w-6 aspect-square transition-colors duration-100 ${
 										activeNavItem === id ? 'text-terciary' : ''
 									}`}

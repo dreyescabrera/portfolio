@@ -1,6 +1,6 @@
 'use client';
 
-import type { MouseEvent, MouseEventHandler } from 'react';
+import type { MouseEventHandler } from 'react';
 import { LazyMotion, AnimatePresence, m } from 'framer-motion';
 const loadFeatures = () => import('@/lib/framer-motion').then((res) => res.default);
 

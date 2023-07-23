@@ -16,7 +16,7 @@ export function MediaButton({ socialMedia, link }: MediaButtonProps) {
 				aria-label={`Visit my ${socialMedia}`}
 				title={capitalizedWord}
 			>
-				<span className="w-10 bg-darkGray aspect-square flex justify-center items-center rounded-full transition-transform transition-100 hover:scale-105 3xl:w-12">
+				<span className="transition-100 flex aspect-square w-10 items-center justify-center rounded-full bg-darkGray transition-transform hover:scale-105 3xl:w-12">
 					<Icon type={socialMedia} styles="w-6 3xl:w-7 aspect-square text-lightGray" />
 				</span>
 			</a>
