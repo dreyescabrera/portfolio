@@ -5,8 +5,12 @@
 	"main": "index.js",
 	"scripts": {
 		"dev": "turbo dev",
-    "build": "turbo build",
-    "lint": "turbo lint"
+		"build": "turbo build",
+		"start": "turbo start",
+		"lint": "turbo lint"
 	},
+	"workspaces": [
+		"apps/*"
+	],
 	"license": "MIT"
 }
