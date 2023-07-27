@@ -14,8 +14,7 @@
 	],
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
-		"parser": "@typescript-eslint/parser",
-		"project": "./tsconfig.json"
+		"project": "./apps/frontend/tsconfig.json"
 	},
 	"plugins": ["@typescript-eslint", "prettier"],
 	"rules": {
