@@ -1,12 +1,34 @@
-import { forwardRef } from 'react';
 import { SectionTitle } from '@/components/common/section-title';
 import { TextContent } from '@/components/common/text-content';
 import { BulletedContent } from './bulleted-content';
 import { ProfileImage } from '@/components/common/profile-image';
+// import { getClient } from '@/lib/client';
+// import { graphql } from '@/services/graphql';
 
-export const About = forwardRef<HTMLDivElement>(function About(_, ref) {
+// const query = graphql(`
+// 	query GetAllArticles {
+// 		articles {
+// 			data {
+// 				attributes {
+// 					title
+// 					slug
+// 					createdAt
+// 					category
+// 				}
+// 			}
+// 		}
+// 	}
+// `);
+
+export function About() {
+	// const client = getClient();
+	// const {
+	// 	data: { articles },
+	// } = await client.query({ query });
+	// console.log(articles.data);
+
 	return (
-		<section className="m-sm lg:m-lg" id="about" ref={ref}>
+		<section className="m-sm lg:m-lg" id="about">
 			<SectionTitle>Who Am I?</SectionTitle>
 			<TextContent>
 				Hello, I&apos;m Diego! I&apos;m a Web Developer from Venezuela, currently located in
@@ -41,4 +63,4 @@ export const About = forwardRef<HTMLDivElement>(function About(_, ref) {
 			</section>
 		</section>
 	);
-});
+}

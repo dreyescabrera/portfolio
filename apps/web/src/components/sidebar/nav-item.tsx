@@ -1,17 +1,19 @@
 'use client';
 
+import { useSidebarMobileContext } from '@/contexts/side-bar-mobile';
 import type { ReactNode } from 'react';
 
 type NavItemProps = {
 	id: string;
-	callback?: () => void;
 	children: ReactNode;
 };
 
-export const NavItem = ({ id, callback, children }: NavItemProps) => {
+export const NavItem = ({ id, children }: NavItemProps) => {
+	const { toggleSidebar } = useSidebarMobileContext();
+
 	const closeSidebar = () => {
 		if (document.documentElement.clientWidth < 768) {
-			callback && callback();
+			toggleSidebar();
 		}
 	};
 	return (

@@ -1,3 +1,4 @@
+'use client';
 import { Suspense, lazy } from 'react';
 import { useEmailing } from '@/hooks/use-emailing';
 

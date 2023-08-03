@@ -3,17 +3,18 @@ import { MediaButton } from './media-button';
 import { ThemeSwitch } from './theme-switch';
 import { NavItem } from './nav-item';
 import { Icon } from '../common';
-import { SectionId } from '@/hooks/use-intersection-observer';
 import { navData } from '@/data/nav';
+import { useSidebarMobileContext } from '@/contexts/side-bar-mobile';
 
-type SidebarProps = {
-	toggleSidebar: () => void;
-	activeNavItem: SectionId;
-};
+export const Sidebar = () => {
+	const { isSidebarOpen } = useSidebarMobileContext();
 
-export const Sidebar = ({ toggleSidebar, activeNavItem }: SidebarProps) => {
 	return (
-		<aside className="sticky top-0  flex h-screen flex-col items-center justify-start gap-5 overflow-auto bg-black px-6 py-8 transition-transform duration-500">
+		<aside
+			className={`sticky top-0 z-20 col-start-1 col-end-5 row-span-full flex h-screen flex-col items-center justify-start gap-5 overflow-auto bg-black px-6 py-8 transition-transform duration-500 md:col-span-1 md:translate-x-0 md:transition-none ${
+				isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+			}`}
+		>
 			<ProfileImage shape="circle" />
 			<h2 className="font-luxury text-3xl font-bold text-lightGray md:text-2xl 3xl:text-4xl">
 				Diego Reyes
@@ -27,14 +28,12 @@ export const Sidebar = ({ toggleSidebar, activeNavItem }: SidebarProps) => {
 				<ul className="flex flex-col gap-5 text-lg font-semibold tracking-wide text-midGray md:gap-6 md:text-xl 3xl:text-2xl">
 					{navData.map(({ id, text, iconName }) => (
 						<li key={id}>
-							<NavItem id={id} callback={toggleSidebar}>
+							<NavItem id={id}>
 								<Icon
 									type={iconName}
-									styles={`w-6 aspect-square transition-colors duration-100 ${
-										activeNavItem === id ? 'text-terciary' : ''
-									}`}
+									styles={`w-6 aspect-square transition-colors duration-100 `}
 								/>
-								<span className={`${activeNavItem === id ? 'text-lightGray' : ''}`}>{text}</span>
+								<span className={``}>{text}</span>
 							</NavItem>
 						</li>
 					))}
@@ -44,5 +43,6 @@ export const Sidebar = ({ toggleSidebar, activeNavItem }: SidebarProps) => {
 		</aside>
 	);
 };
-
+/* ${activeNavItem === 'home' ? 'text-terciary' : ''} */
+//${activeNavItem === id ? 'text-lightGray' : ''}
 export default Sidebar;
