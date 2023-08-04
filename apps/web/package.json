@@ -19,6 +19,7 @@
 		"@emailjs/browser": "^3.9.1",
 		"@vercel/analytics": "^1.0.1",
 		"framer-motion": "^7.6.1",
+		"graphql": "^16.7.1",
 		"isomorphic-dompurify": "^1.8.0",
 		"next": "^13.4.10",
 		"react": "^18.2.0",
@@ -28,6 +29,7 @@
 	"devDependencies": {
 		"@graphql-codegen/cli": "5.0.0",
 		"@graphql-codegen/client-preset": "^4.1.0",
+		"@graphql-eslint/eslint-plugin": "^3.20.1",
 		"@parcel/watcher": "^2.2.0",
 		"@types/node": "20.4.2",
 		"@types/react": "^18.0.17",

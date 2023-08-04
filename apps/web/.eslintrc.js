@@ -22,4 +22,8 @@ module.exports = {
 	rules: {
 		'prettier/prettier': 'warn',
 	},
+	overrides: {
+		files: ['src/**/*.tsx'],
+		processor: '@graphql-eslint/graphql',
+	},
 };

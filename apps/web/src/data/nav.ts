@@ -2,21 +2,26 @@ import { IconType } from '@/components/common';
 
 type NavItem = {
 	text: string;
-	id: string;
+	path: string;
 	iconName: IconType;
 };
 
 export const navData: NavItem[] = [
-	{ text: 'home', id: 'home', iconName: 'home' },
+	{ text: 'home', path: '/', iconName: 'home' },
 	{
-		text: 'who am i?',
-		id: 'about',
+		text: 'about me',
+		path: '/about',
 		iconName: 'profile',
 	},
 	{
-		text: 'projects',
-		id: 'projects',
+		text: "work i've done",
+		path: '/work',
 		iconName: 'bolt',
 	},
-	{ text: 'contact', id: 'contact', iconName: 'mail' },
+	{
+		text: 'Articles',
+		path: '/articles',
+		iconName: 'bolt',
+	},
+	{ text: 'contact', path: '/contact', iconName: 'mail' },
 ];
