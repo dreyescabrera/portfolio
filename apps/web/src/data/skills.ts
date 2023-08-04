@@ -10,28 +10,8 @@ type Skill = {
 export const skills: Skill[] = [
 	{
 		id: uuid(),
-		name: 'HTML',
-		iconName: 'html',
-	},
-	{
-		id: uuid(),
-		name: 'CSS',
-		iconName: 'css',
-	},
-	{
-		id: uuid(),
-		name: 'SASS',
-		iconName: 'sass',
-	},
-	{
-		id: uuid(),
 		name: 'JavaScript',
 		iconName: 'javascript',
-	},
-	{
-		id: uuid(),
-		name: 'ReactJS',
-		iconName: 'react',
 	},
 	{
 		id: uuid(),
@@ -40,8 +20,38 @@ export const skills: Skill[] = [
 	},
 	{
 		id: uuid(),
+		name: 'ReactJS',
+		iconName: 'react',
+	},
+	{
+		id: uuid(),
+		name: 'Next.js',
+		iconName: 'nextjs',
+	},
+	{
+		id: uuid(),
+		name: 'GraphQL',
+		iconName: 'graphql',
+	},
+	{
+		id: uuid(),
+		name: 'Strapi CMS',
+		iconName: 'strapi',
+	},
+	{
+		id: uuid(),
+		name: 'SASS',
+		iconName: 'sass',
+	},
+	{
+		id: uuid(),
 		name: 'Tailwind',
 		iconName: 'tailwind',
+	},
+	{
+		id: uuid(),
+		name: 'Figma',
+		iconName: 'figma',
 	},
 	{
 		id: uuid(),
@@ -50,8 +60,8 @@ export const skills: Skill[] = [
 	},
 	{
 		id: uuid(),
-		name: 'Figma',
-		iconName: 'figma',
+		name: 'NodeJS',
+		iconName: 'nodejs',
 	},
 	{
 		id: uuid(),

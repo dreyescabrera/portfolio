@@ -25,7 +25,7 @@ export const Sidebar = () => {
 				<MediaButton link="https://www.linkedin.com/in/diegoreyescabrera/" socialMedia="linkedin" />
 			</ul>
 			<nav className="pt-2 md:self-start lg:pt-8">
-				<ul className="flex flex-col gap-5 text-lg font-semibold tracking-wide text-midGray md:gap-6 md:text-xl 3xl:text-2xl">
+				<ul className="flex flex-col gap-5 text-lg font-semibold tracking-wide text-midGray md:text-xl 3xl:text-2xl">
 					{navData.map(({ path, text, iconName }) => (
 						<li key={path}>
 							<NavItem path={path} icon={iconName}>

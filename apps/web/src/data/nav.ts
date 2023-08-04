@@ -21,7 +21,7 @@ export const navData: NavItem[] = [
 	{
 		text: 'Articles',
 		path: '/articles',
-		iconName: 'bolt',
+		iconName: 'article',
 	},
 	{ text: 'contact', path: '/contact', iconName: 'mail' },
 ];

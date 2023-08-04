@@ -35,11 +35,11 @@ export const NavItem = ({ path, children, icon }: NavItemProps) => {
 	return (
 		<Link
 			href={path}
-			className={`group flex items-center space-x-4 font-casual capitalize hover:transition-colors hover:duration-200 ${activeTextStyles}`}
+			className={`group inline-flex items-center font-casual capitalize hover:transition-colors hover:duration-200 ${activeTextStyles}`}
 			onClick={closeSidebar}
 		>
 			{icon && <Icon type={icon} styles={`w-6 mr-4 shrink-0 aspect-square ${activeIconStyles}`} />}
-			<span className="">{children}</span>
+			{children}
 		</Link>
 	);
 };

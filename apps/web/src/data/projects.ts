@@ -32,9 +32,8 @@ export const projects: Project[] = [
 		demo: 'https://realdiegor.github.io/Country-quiz/',
 		source: 'https://github.com/realDiegoR/Country-quiz',
 		technologies: [
-			{ id: uuid(), name: 'html' },
-			{ id: uuid(), name: 'tailwind' },
 			{ id: uuid(), name: 'typescript' },
+			{ id: uuid(), name: 'tailwind' },
 		],
 	},
 
@@ -50,9 +49,10 @@ export const projects: Project[] = [
 		demo: 'https://veranalia-food.vercel.app/',
 		source: 'https://github.com/realDiegoR/restaurant-app',
 		technologies: [
-			{ id: uuid(), name: 'react' },
+			{ id: uuid(), name: 'nextjs' },
 			{ id: uuid(), name: 'sass' },
 			{ id: uuid(), name: 'figma' },
+			{ id: uuid(), name: 'nodejs' },
 		],
 	},
 	{
@@ -67,9 +67,11 @@ export const projects: Project[] = [
 		demo: 'https://www.realdiegor.dev/',
 		source: 'https://github.com/realDiegoR/portfolio',
 		technologies: [
+			{ id: uuid(), name: 'nextjs' },
 			{ id: uuid(), name: 'react' },
 			{ id: uuid(), name: 'tailwind' },
-			{ id: uuid(), name: 'vite' },
+			{ id: uuid(), name: 'strapi' },
+			{ id: uuid(), name: 'graphql' },
 		],
 	},
 	{
@@ -84,7 +86,6 @@ export const projects: Project[] = [
 		demo: 'https://realdiegor.github.io/parallax-effect/',
 		source: 'https://github.com/realDiegoR/parallax-effect',
 		technologies: [
-			{ id: uuid(), name: 'css' },
 			{ id: uuid(), name: 'javascript' },
 			{ id: uuid(), name: 'vite' },
 		],
@@ -101,10 +102,6 @@ export const projects: Project[] = [
 			'Tracks the IP Address or Domain Name entered by fetching data from <strong>Ipify API</strong> and places a markup on its location using the coordinates returned, and a global map provided by <strong>Leaflet</strong>.',
 		demo: 'https://realdiegor.github.io/ip_tracker/',
 		source: 'https://github.com/realDiegoR/ip_tracker',
-		technologies: [
-			{ id: uuid(), name: 'html' },
-			{ id: uuid(), name: 'css' },
-			{ id: uuid(), name: 'javascript' },
-		],
+		technologies: [{ id: uuid(), name: 'javascript' }],
 	},
 ];
