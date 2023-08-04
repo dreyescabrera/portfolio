@@ -1,2 +1,2 @@
 export * from './article-link';
-export * from './articles';
+export * from './article-list';

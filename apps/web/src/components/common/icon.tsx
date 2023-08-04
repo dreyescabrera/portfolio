@@ -286,9 +286,9 @@ const iconTypes = {
 	nextjs: (styles: string) => (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
-			fill="none"
+			fill="currentColor"
 			viewBox="-3.12 -3.12 30.24 30.24"
-			className={styles}
+			className={styles + 'transition-colors duration-300 dark:invert'}
 		>
 			<g>
 				<g clipPath="url(#clip0)">

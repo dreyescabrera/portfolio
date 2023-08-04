@@ -3,7 +3,7 @@ import { Skills } from '@/components/skills';
 import { Projects } from '@/components/projects';
 import { Contact } from '@/components/contact';
 import { Footer } from '@/components/footer';
-import { Articles } from '../components/articles/articles';
+import { ArticleList } from '../components/article-list/article-list';
 
 export default function Home() {
 	return (
@@ -13,7 +13,7 @@ export default function Home() {
 				<div className="m-auto w-11/12 max-w-6xl">
 					<Projects />
 					<Skills />
-					<Articles />
+					<ArticleList limit={5} categories={['Software Engineering', 'Web Development']} />
 					<Contact />
 					<Footer />
 				</div>
