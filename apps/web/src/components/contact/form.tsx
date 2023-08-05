@@ -1,6 +1,7 @@
 'use client';
 import { Suspense, lazy } from 'react';
 import { useEmailing } from '@/hooks/use-emailing';
+import { Button } from '../common/button';
 
 const FormAlert = lazy(() => import('./form-alert'));
 
@@ -48,12 +49,12 @@ export const Form = () => {
 					className="mt-1 w-full resize-y rounded-sm px-2 py-1 text-black outline outline-1 outline-midGray transition-colors duration-500 placeholder:text-midGray focus-within:outline-2 focus-within:outline-terciary dark:bg-primary dark:text-lightGray dark:outline-quaternary dark:placeholder:text-terciary xl:text-lg"
 				></textarea>
 			</label>
-			<button
+			<Button
 				type="submit"
 				className="mx-auto my-5 rounded-sm bg-secondary px-6 py-3 text-white transition-colors duration-200 hover:bg-primary dark:bg-darkPrimary dark:text-primary dark:hover:bg-lightGray xs:text-lg lg:px-6 lg:text-base"
 			>
 				Send Email
-			</button>
+			</Button>
 		</form>
 	);
 };

@@ -18,10 +18,6 @@ module.exports = {
 				'2xl': '1725px',
 				'3xl': '2400px',
 			},
-			margin: {
-				sm: '50px 0 0',
-				lg: '80px 0 100px',
-			},
 			gridTemplateColumns: {
 				flexible: 'repeat(auto-fit, minmax(0, 22.6rem))',
 			},

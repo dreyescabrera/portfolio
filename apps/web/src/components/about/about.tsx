@@ -1,11 +1,11 @@
-import { SectionTitle } from '@/components/common/section-title';
-import { TextContent } from '@/components/common/text-content';
+import { PageSection, SectionTitle } from '@/components/common/';
+import { TextContent } from '@/components/common/';
 import { BulletedContent } from './bulleted-content';
-import { ProfileImage } from '@/components/common/profile-image';
+import { ProfileImage } from '@/components/common/';
 
 export function About() {
 	return (
-		<section className="m-sm lg:m-lg" id="about">
+		<PageSection>
 			<SectionTitle>Who Am I?</SectionTitle>
 			<TextContent>
 				Hello, I&apos;m Diego! I&apos;m a Web Developer from Venezuela, currently located in
@@ -38,6 +38,6 @@ export function About() {
 					</BulletedContent>
 				</article>
 			</section>
-		</section>
+		</PageSection>
 	);
 }

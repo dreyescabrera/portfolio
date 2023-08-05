@@ -2,6 +2,7 @@ import { SectionTitle } from '@/components/common/section-title';
 import { TextContent } from '@/components/common/text-content';
 import { skills } from '@/data/skills';
 import { Icon, IconType } from '@/components/common/icon';
+import { PageSection } from '../common';
 
 type SkillsItemProps = {
 	name: string;
@@ -10,7 +11,7 @@ type SkillsItemProps = {
 
 export function Skills() {
 	return (
-		<section className="m-sm lg:m-lg">
+		<PageSection>
 			<SectionTitle>Tech Stack</SectionTitle>
 			<div className="flex flex-col gap-6 xl:flex-row">
 				<div className="xl:w-1/3">
@@ -30,7 +31,7 @@ export function Skills() {
 					))}
 				</ul>
 			</div>
-		</section>
+		</PageSection>
 	);
 }
 

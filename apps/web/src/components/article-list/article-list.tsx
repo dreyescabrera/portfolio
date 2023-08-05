@@ -1,8 +1,7 @@
-import { SectionTitle, TextContent } from '@/components/common';
-import { getClient } from '@/lib/client';
-import { graphql } from '@/services/graphql';
 import { ArticleLink } from './article-link';
 import Link from 'next/link';
+import { getClient } from '@/lib/client';
+import { graphql } from '@/services/graphql';
 
 type ArticleCategory =
 	| 'Web Development'
@@ -10,9 +9,10 @@ type ArticleCategory =
 	| 'Adventures & Learnings'
 	| 'Growth & Reflections';
 
-type ArticleList = {
+type ArticleListProps = {
 	categories?: ArticleCategory[];
 	limit?: number;
+	showSeeAll?: boolean;
 };
 
 const articlesQuery = graphql(`
@@ -29,7 +29,7 @@ const articlesQuery = graphql(`
 	}
 `);
 
-export const ArticleList = async ({ categories, limit }: ArticleList) => {
+export const ArticleList = async ({ categories, limit, showSeeAll = true }: ArticleListProps) => {
 	const client = getClient();
 	const {
 		data: { articles },
@@ -45,48 +45,44 @@ export const ArticleList = async ({ categories, limit }: ArticleList) => {
 
 	const thereIsArticles = Boolean(articles?.data.length);
 
-	return (
-		<section className="m-sm lg:m-lg">
-			<SectionTitle>Articles I&apos;ve Written</SectionTitle>
-			<TextContent>
-				Journalism of my experience creating efficient products while, ironically, learning to make
-				them efficient. I try to materialize my knowledge to others, the way I would wanted to learn
-				it.
-			</TextContent>
-			{thereIsArticles ? (
-				<>
-					<ul>
-						{articles?.data.map(({ attributes }) => (
-							<ArticleLink
-								key={attributes?.slug as string}
-								createdAt={attributes?.createdAt}
-								slug={attributes?.slug as string}
-							>
-								{attributes?.title}
-							</ArticleLink>
-						))}
-					</ul>
+	if (thereIsArticles) {
+		return (
+			<>
+				<ul>
+					{articles?.data.map(({ attributes }) => (
+						<ArticleLink
+							key={attributes?.slug as string}
+							createdAt={attributes?.createdAt}
+							slug={attributes?.slug as string}
+						>
+							{attributes?.title}
+						</ArticleLink>
+					))}
+				</ul>
+				{showSeeAll && (
 					<Link
 						className="block border-t-2 p-2 text-center text-base text-gray-600 transition-colors duration-100 hover:bg-gray-100 dark:border-secondary/30 dark:text-lightGray/75 dark:hover:bg-quaternary"
 						href="/articles"
 					>
 						See all articles...
 					</Link>
-				</>
-			) : (
-				<div className="rounded-md border border-solid bg-gray-100 p-5 text-gray-800 dark:border-secondary/30 dark:bg-transparent dark:text-lightGray/75">
-					<p className="mb-3 text-lg">
-						Oops. Here should have been a list of articles. There is not. Guess I should start
-						writing.
-					</p>
-					<Link
-						className="inline-block rounded-md border border-solid border-gray-500 p-2 text-center text-base text-gray-800 transition-colors duration-100 hover:bg-gray-200 dark:border-secondary/20 dark:text-lightGray/75 dark:hover:bg-quaternary"
-						href="/articles"
-					>
-						See articles page
-					</Link>
-				</div>
-			)}
-		</section>
+				)}
+			</>
+		);
+	}
+
+	return (
+		<div className="rounded-md border border-solid bg-gray-100 p-5 text-gray-800 dark:border-secondary/30 dark:bg-transparent dark:text-lightGray/75">
+			<p className="mb-3 text-lg">
+				Oops. There should be a list of articles here. There is none. I guess I should start
+				writing.
+			</p>
+			<Link
+				className="inline-block rounded-md border border-solid border-gray-500 p-2 text-center text-base text-gray-800 transition-colors duration-100 hover:bg-gray-200 dark:border-secondary/20 dark:text-lightGray/75 dark:hover:bg-quaternary"
+				href="/articles"
+			>
+				See articles page
+			</Link>
+		</div>
 	);
 };

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { sanitize } from 'isomorphic-dompurify';
-import { ProjectButton } from './project-button';
 import { Icon, IconType } from '@/components/common/icon';
+import { AnchorButton } from '../common/anchor-button';
 
 type ProjectCardProps = {
 	title: string;
@@ -51,10 +51,10 @@ export const ProjectCard = ({
 				))}
 			</div>
 			<div className="flex flex-wrap gap-2">
-				<ProjectButton link={demo} variant="call-to-action">
-					View Demo
-				</ProjectButton>
-				<ProjectButton link={source}>Source Code</ProjectButton>
+				<AnchorButton link={demo}>View Demo</AnchorButton>
+				<AnchorButton variant="secondary" link={source}>
+					Source Code
+				</AnchorButton>
 			</div>
 		</article>
 	);
