@@ -18,7 +18,7 @@ export function About() {
 				with optimized and clean code within my web apps.
 			</TextContent>
 
-			<section className="mt-8 flex flex-col items-center gap-10 lg:flex-row lg:justify-around xl:my-16">
+			<section className="mt-8 flex flex-col items-center gap-10 lg:flex-row lg:justify-around">
 				<ProfileImage shape="square" />
 
 				<article className="flex max-w-lg flex-col items-center space-y-4 ">

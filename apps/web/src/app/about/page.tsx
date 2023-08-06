@@ -1,7 +1,6 @@
 import { About } from '@/components/about';
 import { Skills } from '@/components/skills';
 import { Contact } from '@/components/contact';
-import { Footer } from '@/components/footer';
 import { ArticleList } from '@/components/article-list';
 import { PageSection, PageWrapper, SectionTitle, TextContent } from '@/components/common';
 
@@ -20,7 +19,6 @@ export default function Home() {
 				<ArticleList limit={5} categories={['Adventures & Learnings', 'Growth & Reflections']} />
 			</PageSection>
 			<Contact />
-			<Footer />
 		</PageWrapper>
 	);
 }
