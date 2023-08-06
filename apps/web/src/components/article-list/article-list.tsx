@@ -1,9 +1,10 @@
-import { ArticleLink } from './article-link';
 import Link from 'next/link';
+import { ArticleLink } from './article-link';
 import { getClient } from '@/lib/client';
 import { graphql } from '@/services/graphql';
+import { AnchorButton } from '../common';
 
-type ArticleCategory =
+export type ArticleCategory =
 	| 'Web Development'
 	| 'Software Engineering'
 	| 'Adventures & Learnings'
@@ -16,7 +17,7 @@ type ArticleListProps = {
 };
 
 const articlesQuery = graphql(`
-	query GetAllArticles($categories: StringFilterInput, $limit: Int) {
+	query GetArticleTitles($categories: StringFilterInput, $limit: Int) {
 		articles(filters: { category: $categories }, pagination: { limit: $limit }) {
 			data {
 				attributes {
@@ -72,17 +73,14 @@ export const ArticleList = async ({ categories, limit, showSeeAll = true }: Arti
 	}
 
 	return (
-		<div className="rounded-md border border-solid bg-gray-100 p-5 text-gray-800 dark:border-secondary/30 dark:bg-transparent dark:text-lightGray/75">
+		<div className="rounded-md border border-solid bg-gray-100 p-5 text-gray-800 dark:border-secondary/30 dark:bg-transparent dark:text-lightGray">
 			<p className="mb-3 text-lg">
 				Oops. There should be a list of articles here. There is none. I guess I should start
 				writing.
 			</p>
-			<Link
-				className="inline-block rounded-md border border-solid border-gray-500 p-2 text-center text-base text-gray-800 transition-colors duration-100 hover:bg-gray-200 dark:border-secondary/20 dark:text-lightGray/75 dark:hover:bg-quaternary"
-				href="/articles"
-			>
+			<AnchorButton variant="secondary" link="/articles">
 				See articles page
-			</Link>
+			</AnchorButton>
 		</div>
 	);
 };

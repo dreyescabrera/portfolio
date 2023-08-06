@@ -1,6 +1,6 @@
 export const Footer = () => {
 	return (
-		<p className="mb-5 mt-14 text-center text-black transition-colors duration-500 dark:text-lightGray lg:mb-8 lg:mt-20">
+		<p className="lg mt-auto:pt-20 mb-5 mt-auto pt-14 text-center text-black transition-colors duration-500 dark:text-lightGray lg:mb-8">
 			Made with 💙 by{' '}
 			<a
 				href="https://www.linkedin.com/in/diegoreyescabrera/"

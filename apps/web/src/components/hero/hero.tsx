@@ -28,7 +28,6 @@ export function Hero() {
 					alt="background"
 					priority
 					className="h-full object-cover object-center"
-					placeholder="blur"
 				/>
 			</picture>
 			<div className="col-span-full row-start-2 space-y-3 tracking-tight sm:space-y-4 lg:col-end-6 xl:col-end-5">

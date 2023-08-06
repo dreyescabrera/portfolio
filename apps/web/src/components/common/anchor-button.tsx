@@ -22,7 +22,8 @@ export const AnchorButton = ({ link, variant = 'primary', children }: LinkProps)
 			href={link}
 			target="_blank"
 			rel="noreferrer"
-			className={`${colors} rounded-sm px-4 py-2 text-sm transition-colors duration-200 xs:text-base lg:px-3 lg:text-base`}
+			className={`${colors} inline-block
+       rounded-sm px-4 py-2 text-sm transition-colors duration-200 xs:text-base lg:px-3 lg:text-base`}
 		>
 			{children}
 		</Link>

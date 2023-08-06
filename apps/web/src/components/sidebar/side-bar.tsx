@@ -2,7 +2,6 @@ import { ProfileImage } from '@/components/common/profile-image';
 import { MediaButton } from './media-button';
 import { ThemeSwitch } from './theme-switch';
 import { NavItem } from './nav-item';
-import { Icon } from '../common';
 import { navData } from '@/data/nav';
 import { useSidebarMobileContext } from '@/contexts/side-bar-mobile';
 
@@ -12,7 +11,7 @@ export const Sidebar = () => {
 	return (
 		<aside
 			className={`sticky top-0 z-20 col-start-1 col-end-5 row-span-full flex h-screen flex-col items-center justify-start gap-5 overflow-auto bg-black px-6 py-8 transition-transform duration-500 md:col-span-1 md:translate-x-0 md:transition-none ${
-				isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+				isSidebarOpen ? 'translate-x-0' : '-translate-x-full '
 			}`}
 		>
 			<ProfileImage shape="circle" />

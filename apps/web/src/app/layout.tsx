@@ -46,7 +46,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en" className={`${outfit.variable} ${raleway.variable}`}>
+		<html
+			style={{ scrollbarGutter: 'stable' }}
+			lang="en"
+			className={`${outfit.variable} ${raleway.variable}`}
+		>
 			<GoogleAnalytics GA_TRACKING_ID={GA_TRACKING_ID as string} />
 			<body>
 				<PageLayout>{children}</PageLayout>
