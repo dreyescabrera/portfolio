@@ -21,7 +21,7 @@ export function About() {
 			<section className="mt-8 flex flex-col items-center gap-10 lg:flex-row lg:justify-around xl:my-16">
 				<ProfileImage shape="square" />
 
-				<article className="max-w-lg space-y-4">
+				<article className="flex max-w-lg flex-col items-center space-y-4 ">
 					<SectionTitle variant="h3">Frontend Developer</SectionTitle>
 					<BulletedContent>
 						Every day I am working on my side projects, currently focused on technologies such as

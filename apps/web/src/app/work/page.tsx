@@ -1,12 +1,15 @@
 import { Footer } from '@/components/footer';
-import { Projects } from '@/components/projects';
+import { ProjectGrid } from '@/components/projects';
 import React from 'react';
-import { PageWrapper } from '@/components/common';
+import { PageSection, PageWrapper, SectionTitle } from '@/components/common';
 
 export default function WorkPage() {
 	return (
 		<PageWrapper>
-			<Projects />
+			<PageSection>
+				<SectionTitle>Work I've Done</SectionTitle>
+				<ProjectGrid />
+			</PageSection>
 			<Footer />
 		</PageWrapper>
 	);

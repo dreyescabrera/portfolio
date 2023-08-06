@@ -15,7 +15,7 @@ export const SectionTitle = ({ variant = 'h2', children }: SectionTitletProps) =
 			);
 		case 'h3':
 			return (
-				<h3 className="text-center text-2xl font-semibold tracking-tight text-primary transition-colors duration-500 dark:text-darkPrimary xs:text-3xl">
+				<h3 className="text-2xl font-semibold tracking-tight text-primary transition-colors duration-500 dark:text-darkPrimary xs:text-3xl">
 					{children}
 				</h3>
 			);

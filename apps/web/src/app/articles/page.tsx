@@ -12,9 +12,30 @@ export default function ArticleHomePage() {
 					make them efficient. I try to materialize my knowledge to others, the way I would wanted
 					to learn it.
 				</TextContent>
-				<ArticleList />
-				<Footer />
 			</PageSection>
+			<PageSection>
+				<div className="flex justify-between border-b-2 border-secondary/30">
+					<span>
+						<SectionTitle variant="h3">Filter by category</SectionTitle>
+					</span>
+					<div className="flex">
+						<button className="hover relative top-[1px] block w-16 border-b-2 border-b-secondary">
+							All
+						</button>
+						<button className="hover relative top-[1px] block w-16 border-b-2 border-b-transparent">
+							Foo
+						</button>
+						<button className="hover relative top-[1px] block w-16 border-b-2 border-b-transparent">
+							Bar
+						</button>
+						<button className="hover relative top-[1px] block w-16 border-b-2 border-b-transparent">
+							Baz
+						</button>
+					</div>
+				</div>
+				<ArticleList showSeeAll={false} />
+			</PageSection>
+			<Footer />
 		</PageWrapper>
 	);
 }
