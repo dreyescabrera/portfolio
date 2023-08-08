@@ -10,7 +10,7 @@ import {
 
 function makeClient() {
 	const baseUrl =
-		process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://realdiegor.dev';
+		process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'http://localhost:3000';
 	const httpLink = new HttpLink({
 		uri: `${baseUrl}/api/`,
 	});

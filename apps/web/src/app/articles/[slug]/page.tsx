@@ -2,6 +2,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getClient } from '@/lib/client';
 import { graphql } from '@/services/graphql';
 import { AnchorButton, PageSection, PageWrapper } from '@/components/common';
+import { notFound } from 'next/navigation';
 
 type ArticlePageProps = {
 	params: {
@@ -9,7 +10,7 @@ type ArticlePageProps = {
 	};
 };
 
-const fullArticleQuery = graphql(`
+const GetFullArticleQuery = graphql(`
 	query GetFullArticle($id: StringFilterInput) {
 		articles(filters: { slug: $id }) {
 			data {
@@ -25,20 +26,62 @@ const fullArticleQuery = graphql(`
 	}
 `);
 
+const GetSlugsQuery = graphql(`
+	query GetSlugs {
+		articles {
+			data {
+				attributes {
+					slug
+				}
+			}
+		}
+	}
+`);
+
+export async function generateStaticParams() {
+	const client = getClient();
+	const {
+		data: { articles },
+	} = await client.query({
+		query: GetSlugsQuery,
+		context: {
+			fetchOptions: {
+				cache: 'no-store',
+			},
+		},
+	});
+
+	const slugs = articles?.data;
+
+	if (slugs)
+		return slugs.map((slug) => ({
+			slug: slug.attributes?.slug,
+		}));
+
+	return [];
+}
+
 export default async function ArticlePage({ params }: ArticlePageProps) {
 	const { slug } = params;
 	const client = getClient();
 	const {
 		data: { articles },
 	} = await client.query({
-		query: fullArticleQuery,
+		query: GetFullArticleQuery,
 		variables: {
 			id: { eq: slug },
 		},
 	});
 
+	const article = articles?.data[0];
+
+	if (!article) return notFound();
+
 	const data = articles?.data[0].attributes;
-	const date = new Date(data?.createdAt);
+
+	if (!data) return notFound();
+
+	const date = new Date(data.createdAt as string);
 	const createdAtDate = new Intl.DateTimeFormat('en-us', {
 		dateStyle: 'long',
 	}).format(new Date(date));
@@ -56,8 +99,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 						<span>{createdAtDate}</span>
 						<span>{data?.readTime} min read</span>
 					</div>
-					<h1>{data?.title as string}</h1>
-					<MDXRemote source={data?.text as string} />
+					<h1>{data.title}</h1>
+					<MDXRemote source={data.text} />
 				</div>
 			</PageSection>
 		</PageWrapper>

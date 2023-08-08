@@ -14,6 +14,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  */
 const documents = {
     "\n\tquery GetFullArticle($id: StringFilterInput) {\n\t\tarticles(filters: { slug: $id }) {\n\t\t\tdata {\n\t\t\t\tattributes {\n\t\t\t\t\ttitle\n\t\t\t\t\ttext\n\t\t\t\t\tcategory\n\t\t\t\t\treadTime\n\t\t\t\t\tcreatedAt\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n": types.GetFullArticleDocument,
+    "\n\tquery GetSlugs {\n\t\tarticles {\n\t\t\tdata {\n\t\t\t\tattributes {\n\t\t\t\t\tslug\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n": types.GetSlugsDocument,
     "\n\tquery GetArticleTitles($categories: StringFilterInput, $limit: Int) {\n\t\tarticles(filters: { category: $categories }, pagination: { limit: $limit }) {\n\t\t\tdata {\n\t\t\t\tattributes {\n\t\t\t\t\ttitle\n\t\t\t\t\tslug\n\t\t\t\t\tcreatedAt\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n": types.GetArticleTitlesDocument,
     "\n\tquery GetArticlesTitlesAndCategory($categories: StringFilterInput, $limit: Int) {\n\t\tarticles(filters: { category: $categories }, pagination: { limit: $limit }) {\n\t\t\tdata {\n\t\t\t\tattributes {\n\t\t\t\t\ttitle\n\t\t\t\t\tslug\n\t\t\t\t\tcreatedAt\n\t\t\t\t\tcategory\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n": types.GetArticlesTitlesAndCategoryDocument,
 };
@@ -36,6 +37,10 @@ export function graphql(source: string): unknown;
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n\tquery GetFullArticle($id: StringFilterInput) {\n\t\tarticles(filters: { slug: $id }) {\n\t\t\tdata {\n\t\t\t\tattributes {\n\t\t\t\t\ttitle\n\t\t\t\t\ttext\n\t\t\t\t\tcategory\n\t\t\t\t\treadTime\n\t\t\t\t\tcreatedAt\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n"): (typeof documents)["\n\tquery GetFullArticle($id: StringFilterInput) {\n\t\tarticles(filters: { slug: $id }) {\n\t\t\tdata {\n\t\t\t\tattributes {\n\t\t\t\t\ttitle\n\t\t\t\t\ttext\n\t\t\t\t\tcategory\n\t\t\t\t\treadTime\n\t\t\t\t\tcreatedAt\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n\tquery GetSlugs {\n\t\tarticles {\n\t\t\tdata {\n\t\t\t\tattributes {\n\t\t\t\t\tslug\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n"): (typeof documents)["\n\tquery GetSlugs {\n\t\tarticles {\n\t\t\tdata {\n\t\t\t\tattributes {\n\t\t\t\t\tslug\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

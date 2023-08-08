@@ -11,6 +11,7 @@ module.exports = {
 		'plugin:@typescript-eslint/recommended-requiring-type-checking',
 		'next',
 		'next/core-web-vitals',
+		'prettier',
 	],
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
@@ -18,12 +19,5 @@ module.exports = {
 		tsconfigRootDir: __dirname,
 		sourceType: 'module',
 	},
-	plugins: ['@typescript-eslint', 'prettier'],
-	rules: {
-		'prettier/prettier': 'warn',
-	},
-	overrides: {
-		files: ['src/**/*.tsx'],
-		processor: '@graphql-eslint/graphql',
-	},
+	plugins: ['@typescript-eslint'],
 };

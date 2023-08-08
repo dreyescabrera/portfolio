@@ -5,7 +5,7 @@ export default function WorkPage() {
 	return (
 		<PageWrapper>
 			<PageSection>
-				<SectionTitle>Work I've Done</SectionTitle>
+				<SectionTitle>Work I&apos;ve Done</SectionTitle>
 				<ProjectGrid />
 			</PageSection>
 		</PageWrapper>

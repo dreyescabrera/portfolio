@@ -36,7 +36,7 @@ export const ClientArticleList = ({ category }: ClientArticleListProps) => {
 				{data.articles?.data.map(({ attributes }) => (
 					<ArticleLink
 						key={attributes?.slug as string}
-						createdAt={attributes?.createdAt}
+						createdAt={attributes?.createdAt as string}
 						slug={attributes?.slug as string}
 					>
 						{attributes?.title}

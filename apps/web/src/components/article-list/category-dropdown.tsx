@@ -1,4 +1,4 @@
-import { ChangeEventHandler, MouseEventHandler } from 'react';
+import { ChangeEventHandler } from 'react';
 import { ArticleCategory } from './article-list';
 
 type CategoryDropDownProps = {

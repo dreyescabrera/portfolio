@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { PageSection, SectionTitle } from '@/components/common';
+import { SectionTitle } from '@/components/common';
 import { ArticleCategory } from './article-list';
 import { CategoryButton } from './category-button';
 import { ApolloWrapper } from '@/lib/apollo-provider';

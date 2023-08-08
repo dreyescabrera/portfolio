@@ -53,7 +53,7 @@ export const ArticleList = async ({ categories, limit, showSeeAll = true }: Arti
 					{articles?.data.map(({ attributes }) => (
 						<ArticleLink
 							key={attributes?.slug as string}
-							createdAt={attributes?.createdAt}
+							createdAt={attributes?.createdAt as string}
 							slug={attributes?.slug as string}
 						>
 							{attributes?.title}
