@@ -78,7 +78,7 @@ export const ArticleList = async ({ categories, limit, showSeeAll = true }: Arti
 				Oops. There should be a list of articles here. There is none. I guess I should start
 				writing.
 			</p>
-			<AnchorButton variant="secondary" link="/articles">
+			<AnchorButton variant="secondary" href="/articles">
 				See articles page
 			</AnchorButton>
 		</div>

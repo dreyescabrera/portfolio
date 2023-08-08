@@ -18,12 +18,12 @@ export const NavItem = ({ path, children, icon }: NavItemProps) => {
 
 	let activeTextStyles = '';
 	let activeIconStyles = '';
-	if (pathname === '/') {
+	if (path === '/') {
 		activeTextStyles = pathname === path ? 'text-lightGray' : 'hover:text-gray-200/60';
 		activeIconStyles = pathname === path ? 'text-terciary' : '';
 	} else {
-		activeTextStyles = path.startsWith(pathname) ? 'text-lightGray' : 'hover:text-gray-200/60';
-		activeIconStyles = path.startsWith(pathname) ? 'text-terciary' : '';
+		activeTextStyles = pathname.startsWith(path) ? 'text-lightGray' : 'hover:text-gray-200/60';
+		activeIconStyles = pathname.startsWith(path) ? 'text-terciary' : '';
 	}
 
 	const closeSidebar = () => {
