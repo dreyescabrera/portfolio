@@ -9,8 +9,15 @@ import {
 } from '@apollo/experimental-nextjs-app-support/ssr';
 
 function makeClient() {
-	const baseUrl =
-		process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'http://localhost:3000';
+	let baseUrl = 'http://localhost:3000';
+	if (
+		typeof process.env.NEXT_PUBLIC_VERCEL_ENV === 'string' &&
+		process.env.NEXT_PUBLIC_VERCEL_ENV !== 'development'
+	) {
+		console.log('ME FUIIIIIIIIIII');
+		baseUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+	}
+
 	const httpLink = new HttpLink({
 		uri: `${baseUrl}/api/`,
 	});
@@ -23,7 +30,12 @@ function makeClient() {
 						new SSRMultipartLink({
 							stripDefer: true,
 						}),
-						httpLink,
+						new HttpLink({
+							uri: process.env.API_URL,
+							headers: {
+								Authorization: `Bearer ${process.env.API_TOKEN}`,
+							},
+						}),
 				  ])
 				: httpLink,
 	});

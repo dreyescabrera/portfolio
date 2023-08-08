@@ -26,6 +26,11 @@ type ClientArticleListProps = {
 export const ClientArticleList = ({ category }: ClientArticleListProps) => {
 	const { data } = useSuspenseQuery(articlesQuery, {
 		variables: { categories: { eq: category } },
+		context: {
+			fetchOptions: {
+				method: 'POST',
+			},
+		},
 	});
 
 	const thereIsArticles = Boolean(data?.articles?.data.length);
