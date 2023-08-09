@@ -14,8 +14,7 @@ function makeClient() {
 		typeof process.env.NEXT_PUBLIC_VERCEL_ENV === 'string' &&
 		process.env.NEXT_PUBLIC_VERCEL_ENV !== 'development'
 	) {
-		console.log('ME FUIIIIIIIIIII');
-		baseUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+		baseUrl = 'https://www.realdiegor.dev';
 	}
 
 	const httpLink = new HttpLink({
