@@ -1,26 +1,45 @@
 'use client';
 
+import { useSidebarMobileContext } from '@/contexts/side-bar-mobile';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import type { ReactNode } from 'react';
+import { Icon, IconType } from '../common';
 
 type NavItemProps = {
-	id: string;
-	callback?: () => void;
+	path: string;
+	icon?: IconType;
 	children: ReactNode;
 };
 
-export const NavItem = ({ id, callback, children }: NavItemProps) => {
+export const NavItem = ({ path, children, icon }: NavItemProps) => {
+	const { toggleSidebar } = useSidebarMobileContext();
+	const pathname = usePathname();
+
+	let activeTextStyles = '';
+	let activeIconStyles = '';
+	if (path === '/') {
+		activeTextStyles = pathname === path ? 'text-lightGray' : 'hover:text-gray-200/60';
+		activeIconStyles = pathname === path ? 'text-terciary' : '';
+	} else {
+		activeTextStyles = pathname.startsWith(path) ? 'text-lightGray' : 'hover:text-gray-200/60';
+		activeIconStyles = pathname.startsWith(path) ? 'text-terciary' : '';
+	}
+
 	const closeSidebar = () => {
 		if (document.documentElement.clientWidth < 768) {
-			callback && callback();
+			toggleSidebar();
 		}
 	};
+
 	return (
-		<a
-			href={'#' + id}
-			className="flex items-center space-x-4 font-casual capitalize transition-colors duration-100"
+		<Link
+			href={path}
+			className={`group inline-flex items-center font-casual capitalize hover:transition-colors hover:duration-200 ${activeTextStyles}`}
 			onClick={closeSidebar}
 		>
+			{icon && <Icon type={icon} styles={`w-6 mr-4 shrink-0 aspect-square ${activeIconStyles}`} />}
 			{children}
-		</a>
+		</Link>
 	);
 };

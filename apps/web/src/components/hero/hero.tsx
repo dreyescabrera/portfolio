@@ -1,19 +1,19 @@
+'use client';
+
 import Image from 'next/image';
-import { forwardRef } from 'react';
 import { HeroButtton } from './hero-button';
 import { ScrollButton } from './scroll-button';
 import { useInteractiveText } from '@/hooks/use-interactive-text';
 import mobileWebp from '/public/hero/hero-mobile.webp';
 import desktopWebp from '/public/hero/hero-desktop.webp';
 
-export const Hero = forwardRef<HTMLDivElement>(function Hero(props, ref) {
+export function Hero() {
 	const { textValue, textChanging, dialogueStatus, answerQuestion, onStartOver, onDelete } =
 		useInteractiveText();
 	return (
 		<section
 			id="home"
 			className="relative grid h-screen w-full grid-cols-6 grid-rows-5 justify-items-center font-luxury text-quaternary "
-			ref={ref}
 		>
 			<picture className="fixed -z-10 h-screen w-full">
 				<source
@@ -28,7 +28,6 @@ export const Hero = forwardRef<HTMLDivElement>(function Hero(props, ref) {
 					alt="background"
 					priority
 					className="h-full object-cover object-center"
-					placeholder="blur"
 				/>
 			</picture>
 			<div className="col-span-full row-start-2 space-y-3 tracking-tight sm:space-y-4 lg:col-end-6 xl:col-end-5">
@@ -95,4 +94,4 @@ export const Hero = forwardRef<HTMLDivElement>(function Hero(props, ref) {
 			<ScrollButton />
 		</section>
 	);
-});
+}

@@ -1,12 +1,11 @@
-import { forwardRef } from 'react';
-import { SectionTitle } from '@/components/common/section-title';
-import { TextContent } from '@/components/common/text-content';
+import { PageSection, SectionTitle } from '@/components/common/';
+import { TextContent } from '@/components/common/';
 import { BulletedContent } from './bulleted-content';
-import { ProfileImage } from '@/components/common/profile-image';
+import { ProfileImage } from '@/components/common/';
 
-export const About = forwardRef<HTMLDivElement>(function About(_, ref) {
+export function About() {
 	return (
-		<section className="m-sm lg:m-lg" id="about" ref={ref}>
+		<PageSection>
 			<SectionTitle>Who Am I?</SectionTitle>
 			<TextContent>
 				Hello, I&apos;m Diego! I&apos;m a Web Developer from Venezuela, currently located in
@@ -19,10 +18,10 @@ export const About = forwardRef<HTMLDivElement>(function About(_, ref) {
 				with optimized and clean code within my web apps.
 			</TextContent>
 
-			<section className="mt-8 flex flex-col items-center gap-10 lg:flex-row lg:justify-around xl:my-16">
+			<section className="mt-8 flex flex-col items-center gap-10 lg:flex-row lg:justify-around">
 				<ProfileImage shape="square" />
 
-				<article className="max-w-lg space-y-4">
+				<article className="flex max-w-lg flex-col items-center space-y-4 ">
 					<SectionTitle variant="h3">Frontend Developer</SectionTitle>
 					<BulletedContent>
 						Every day I am working on my side projects, currently focused on technologies such as
@@ -39,6 +38,6 @@ export const About = forwardRef<HTMLDivElement>(function About(_, ref) {
 					</BulletedContent>
 				</article>
 			</section>
-		</section>
+		</PageSection>
 	);
-});
+}

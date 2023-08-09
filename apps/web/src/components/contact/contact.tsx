@@ -1,12 +1,12 @@
-import { forwardRef } from 'react';
 import { SectionTitle } from '@/components/common/section-title';
 import { SocialMediaItem } from './social-media-item';
 import { Form } from './form';
+import { PageSection } from '../common';
 
-export const Contact = forwardRef<HTMLDivElement>(function Contact(props, ref) {
+export function Contact() {
 	return (
-		<section className="m-sm lg:m-lg" id="contact" ref={ref}>
-			<SectionTitle>Contact</SectionTitle>
+		<PageSection>
+			<SectionTitle>Contact Me</SectionTitle>
 			<div className="items-start-center mt-10 flex flex-col gap-5 lg:flex-row">
 				<ul className="w-full space-y-5 lg:w-2/5">
 					<SocialMediaItem
@@ -27,6 +27,6 @@ export const Contact = forwardRef<HTMLDivElement>(function Contact(props, ref) {
 				</ul>
 				<Form />
 			</div>
-		</section>
+		</PageSection>
 	);
-});
+}

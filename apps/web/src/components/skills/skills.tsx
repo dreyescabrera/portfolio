@@ -2,6 +2,7 @@ import { SectionTitle } from '@/components/common/section-title';
 import { TextContent } from '@/components/common/text-content';
 import { skills } from '@/data/skills';
 import { Icon, IconType } from '@/components/common/icon';
+import { PageSection } from '../common';
 
 type SkillsItemProps = {
 	name: string;
@@ -10,14 +11,18 @@ type SkillsItemProps = {
 
 export function Skills() {
 	return (
-		<section className="m-sm lg:m-lg">
-			<SectionTitle>Skills</SectionTitle>
+		<PageSection>
+			<SectionTitle>Tech Stack</SectionTitle>
 			<div className="flex flex-col gap-6 xl:flex-row">
 				<div className="xl:w-1/3">
 					<TextContent>
-						I have managed to gather these skills through all my never-ending process as a
-						self-taught developer, deepening on them for being able of provide the appropriate
-						solution to a problem.
+						I have managed to build professional projects from scratch with this tech stack so far.
+						I keep on going in my never-ending process as a self-taught developer to get deeper into
+						it.
+					</TextContent>
+					<TextContent>
+						Not only that, but I also look forward to learning more industry-used technologies in
+						order to provide the appropriate solution to a problem.
 					</TextContent>
 				</div>
 				<ul className="grid grid-cols-[repeat(auto-fit,_minmax(6rem,_7rem))] justify-center gap-8 xl:w-2/3">
@@ -26,7 +31,7 @@ export function Skills() {
 					))}
 				</ul>
 			</div>
-		</section>
+		</PageSection>
 	);
 }
 

@@ -1,6 +1,8 @@
-import { Suspense, lazy } from 'react';
-import { useEmailing } from '@/hooks/use-emailing';
+'use client';
 
+import { Suspense, lazy, InputHTMLAttributes, type ReactNode } from 'react';
+import { useEmailing } from '@/hooks/use-emailing';
+import { Button } from '@/components/common';
 const FormAlert = lazy(() => import('./form-alert'));
 
 export const Form = () => {
@@ -9,35 +11,28 @@ export const Form = () => {
 	return (
 		<form
 			ref={form}
-			className="relative flex flex-grow flex-col rounded-sm p-4 shadow-md transition-colors duration-500 dark:bg-quaternary"
+			className="relative flex flex-grow flex-col space-y-4 rounded-sm p-4 shadow-md transition-colors duration-500 dark:bg-quaternary"
 			id="form"
 			onSubmit={sendEmail}
 		>
 			<Suspense fallback="">
 				<FormAlert formAlert={formAlert} />
 			</Suspense>
-			<label className="text-black transition-colors duration-500 dark:text-lightGray xs:text-lg lg:text-xl">
+			<Label>
 				Your Name
-				<input
-					type="text"
-					name="user_name"
-					placeholder="Dana"
-					required
-					className=" mt-1 w-full rounded-sm px-2 py-1 text-black outline outline-1 outline-midGray transition-colors duration-500 placeholder:text-midGray focus-within:outline-2 focus-within:outline-terciary dark:bg-primary dark:text-lightGray dark:outline-quaternary dark:placeholder:text-terciary xl:text-lg"
-				/>
-			</label>
-			<label className="mt-4 text-black transition-colors duration-500 dark:text-lightGray xs:text-lg lg:text-xl">
+				<Input type="text" name="user_name" placeholder="Dana" required />
+			</Label>
+			<Label>
 				Your Email
-				<input
+				<Input
 					type="email"
 					name="user_email"
 					placeholder="example@email.com"
 					required
 					pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$"
-					className="mt-1 w-full rounded-sm px-2 py-1 text-black outline outline-1 outline-midGray transition-colors duration-500 placeholder:text-midGray focus-within:outline-2 focus-within:outline-terciary dark:bg-primary dark:text-lightGray dark:outline-quaternary dark:placeholder:text-terciary xl:text-lg"
 				/>
-			</label>
-			<label className="mt-4 text-black transition-colors duration-500 dark:text-lightGray xs:text-lg lg:text-xl">
+			</Label>
+			<Label>
 				Message
 				<textarea
 					name="message"
@@ -46,13 +41,34 @@ export const Form = () => {
 					required
 					className="mt-1 w-full resize-y rounded-sm px-2 py-1 text-black outline outline-1 outline-midGray transition-colors duration-500 placeholder:text-midGray focus-within:outline-2 focus-within:outline-terciary dark:bg-primary dark:text-lightGray dark:outline-quaternary dark:placeholder:text-terciary xl:text-lg"
 				></textarea>
-			</label>
-			<button
+			</Label>
+			<Button
 				type="submit"
 				className="mx-auto my-5 rounded-sm bg-secondary px-6 py-3 text-white transition-colors duration-200 hover:bg-primary dark:bg-darkPrimary dark:text-primary dark:hover:bg-lightGray xs:text-lg lg:px-6 lg:text-base"
 			>
 				Send Email
-			</button>
+			</Button>
 		</form>
 	);
 };
+
+function Label({ children }: { children: ReactNode }) {
+	return (
+		<label className="text-black transition-colors duration-500 dark:text-lightGray xs:text-lg lg:text-xl">
+			{children}
+		</label>
+	);
+}
+
+type NativeHTMLInputProps = InputHTMLAttributes<HTMLInputElement>;
+
+interface InputProps extends NativeHTMLInputProps {}
+
+function Input({ ...NativeHTMLInputProps }: InputProps) {
+	return (
+		<input
+			className="mt-1 w-full rounded-sm px-2 py-1 text-black outline outline-1 outline-midGray transition-colors duration-500 placeholder:text-midGray focus-within:outline-2 focus-within:outline-terciary dark:bg-primary dark:text-lightGray dark:outline-quaternary dark:placeholder:text-terciary xl:text-lg"
+			{...NativeHTMLInputProps}
+		/>
+	);
+}

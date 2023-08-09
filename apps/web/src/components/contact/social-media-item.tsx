@@ -16,7 +16,7 @@ export const SocialMediaItem = ({ name, nickname, link }: SocialMediaItemProps) 
 				/>
 			</span>
 			<div>
-				<h3 className="text-xl font-bold text-quaternary transition-colors duration-500 dark:text-darkSecondary xs:text-2xl">
+				<h3 className="text-xl font-semibold text-quaternary transition-colors duration-500 dark:text-darkSecondary xs:text-2xl">
 					{name}
 				</h3>
 				<a

@@ -1,3 +1,2 @@
-export * from './project-button';
+export * from './project-grid';
 export * from './project-card';
-export * from './projects';

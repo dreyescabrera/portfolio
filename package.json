@@ -1,11 +1,11 @@
 {
 	"name": "portfolio",
 	"version": "1.0.0",
-  "private": true,
+	"private": true,
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"dev": "turbo dev",
+		"dev": "turbo dev --no-daemon",
 		"build": "turbo build",
 		"start": "turbo start",
 		"lint": "turbo lint"
