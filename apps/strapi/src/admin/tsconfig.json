@@ -1,4 +1,8 @@
 {
+  "compilerOptions": {
+    "allowJs": true,
+    "noImplicitAny": false
+  },
   "extends": "@strapi/typescript-utils/tsconfigs/admin",
   "include": [
     "../plugins/**/admin/src/**/*",
