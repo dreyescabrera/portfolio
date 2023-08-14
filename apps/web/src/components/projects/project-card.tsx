@@ -51,8 +51,10 @@ export const ProjectCard = ({
 				))}
 			</div>
 			<div className="flex flex-wrap gap-2">
-				<AnchorButton href={demo}>View Demo</AnchorButton>
-				<AnchorButton variant="secondary" href={source}>
+				<AnchorButton href={demo} target="_blank">
+					View Demo
+				</AnchorButton>
+				<AnchorButton variant="secondary" href={source} target="_blank">
 					Source Code
 				</AnchorButton>
 			</div>

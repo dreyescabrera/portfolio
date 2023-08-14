@@ -9716,15 +9716,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fetch-ponyfill@npm:^7.1.0":
-  version: 7.1.0
-  resolution: "fetch-ponyfill@npm:7.1.0"
-  dependencies:
-    node-fetch: ~2.6.1
-  checksum: 7fd497dd5f7db890e80193de5bc1cd0115a62400272cd9a992849288e66886fcdb0724ea1ed161be7b8db2daeafda8c58d0259acdda42d6561155dbcdbb0720a
-  languageName: node
-  linkType: hard
-
 "figures@npm:^3.0.0":
   version: 3.2.0
   resolution: "figures@npm:3.2.0"
@@ -14627,7 +14618,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch@npm:^2.6.1, node-fetch@npm:^2.6.12, node-fetch@npm:^2.6.7, node-fetch@npm:^2.6.9, node-fetch@npm:~2.6.1":
+"node-fetch@npm:^2.6.1, node-fetch@npm:^2.6.12, node-fetch@npm:^2.6.7, node-fetch@npm:^2.6.9":
   version: 2.6.12
   resolution: "node-fetch@npm:2.6.12"
   dependencies:
@@ -19813,11 +19804,9 @@ __metadata:
     "@typescript-eslint/parser": ^6.1.0
     "@vercel/analytics": ^1.0.1
     autoprefixer: ^10.4.12
-    encoding: ^0.1.13
     eslint: ^8.45.0
     eslint-config-next: ^13.4.12
     eslint-config-prettier: ^9.0.0
-    fetch-ponyfill: ^7.1.0
     framer-motion: ^7.6.1
     graphql: ^16.7.1
     isomorphic-dompurify: ^1.8.0
