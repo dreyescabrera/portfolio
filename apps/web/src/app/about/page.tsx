@@ -3,6 +3,11 @@ import { Skills } from '@/components/skills';
 import { Contact } from '@/components/contact';
 import { ArticleList } from '@/components/article-list';
 import { PageSection, PageWrapper, SectionTitle, TextContent } from '@/components/common';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+	title: 'About',
+};
 
 export default function Home() {
 	return (

@@ -1,42 +1,15 @@
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import { getClient } from '@/lib/client';
-import { graphql } from '@/services/graphql';
-import { AnchorButton, PageSection, PageWrapper } from '@/components/common';
 import { notFound } from 'next/navigation';
+import { AnchorButton, PageSection, PageWrapper } from '@/components/common';
+import { Metadata } from 'next';
+import { GetFullArticleQuery, GetSlugsQuery } from './queries';
+import { getClient } from '@/lib/client';
 
 type ArticlePageProps = {
 	params: {
 		slug: string;
 	};
 };
-
-const GetFullArticleQuery = graphql(`
-	query GetFullArticle($id: StringFilterInput) {
-		articles(filters: { slug: $id }) {
-			data {
-				attributes {
-					title
-					text
-					category
-					readTime
-					createdAt
-				}
-			}
-		}
-	}
-`);
-
-const GetSlugsQuery = graphql(`
-	query GetSlugs {
-		articles {
-			data {
-				attributes {
-					slug
-				}
-			}
-		}
-	}
-`);
 
 export async function generateStaticParams() {
 	const client = getClient();
@@ -59,6 +32,38 @@ export async function generateStaticParams() {
 		}));
 
 	return [];
+}
+
+export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
+	const { slug } = params;
+	const client = getClient();
+	const {
+		data: { articles },
+	} = await client.query({
+		query: GetFullArticleQuery,
+		variables: {
+			id: { eq: slug },
+		},
+	});
+
+	const article = articles?.data[0];
+
+	if (!article) return notFound();
+
+	const data = articles?.data[0].attributes;
+
+	if (!data) return notFound();
+
+	const firstParagraph = data.text.split('\n')[0];
+
+	return {
+		title: data.title,
+		description: firstParagraph,
+		openGraph: {
+			title: data.title + ' by Diego Reyes Cabrera',
+			description: firstParagraph,
+		},
+	};
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {

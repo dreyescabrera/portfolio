@@ -4,6 +4,11 @@ import { ProjectGrid } from '@/components/projects';
 import { Contact } from '@/components/contact';
 import { ArticleList } from '../components/article-list/article-list';
 import { PageSection, PageWrapper, SectionTitle, TextContent } from '@/components/common';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+	title: 'Diego Reyes Cabrera - Frontend developer',
+};
 
 export default function Home() {
 	return (

@@ -1,5 +1,12 @@
 import { ArticleListWithFilter } from '@/components/article-list';
 import { PageSection, PageWrapper, SectionTitle, TextContent } from '@/components/common';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+	title: 'Articles',
+	description:
+		'Journalism of my experience creating efficient products while, ironically, learning to make them efficient. I try to materialize my knowledge to others, the way I would wanted to learn it.',
+};
 
 export default function ArticleHomePage() {
 	return (

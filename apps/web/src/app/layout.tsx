@@ -20,26 +20,26 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
 	title: {
-		template: '%s | realdiegor',
-		default: 'realdiegor | portfolio',
+		template: '%s | Diego Reyes Cabrera',
+		default: 'Diego Reyes Cabrera',
 	},
 	description:
 		"Hello, I'm Diego! I'm a Web Developer from Venezuela, currently located in Atlanta, USA.",
 	openGraph: {
-		title: 'realdiegor | portfolio',
+		title: 'Diego Reyes Cabrera - Frontend developer',
 		description:
 			"Hello, I'm Diego! I'm a Web Developer from Venezuela, currently located in Atlanta, USA.",
 		url: 'https://realdiegor.dev',
 		images: [
 			{
-				url: 'https://raw.githubusercontent.com/realDiegoR/portfolio/master/public/img/hero-desktop.webp',
-				width: 1200,
-				height: 630,
+				url: 'https://res.cloudinary.com/djvydqyun/image/upload/v1692326227/hero_189kb_z22mec.jpg',
+				width: 1920,
+				height: 1280,
 				alt: 'Portfolio Hero',
 			},
 		],
 		type: 'website',
-		siteName: 'realdiegor | portfolio',
+		siteName: 'Diego Reyes Cabrera - Frontend developer',
 		locale: 'en_US',
 	},
 };
