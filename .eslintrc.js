@@ -13,9 +13,10 @@ module.exports = {
 		'next/core-web-vitals',
 		'prettier',
 	],
+	ignorePatterns: ['.eslintrc.js', 'prettier.config.js', '**/services/graphql'],
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
-		project: 'tsconfig.json',
+		project: ['./apps/*/tsconfig.json'],
 		tsconfigRootDir: __dirname,
 		sourceType: 'module',
 	},

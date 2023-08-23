@@ -9,6 +9,6 @@ module.exports = {
 	bracketSpacing: true,
 	endOfLine: 'lf',
 	plugins: ['prettier-plugin-tailwindcss'],
-	tailwindConfig: './tailwind.config.js',
+	tailwindConfig: 'apps/web/tailwind.config.js',
 	tailwindFunctions: ['tw'],
 };

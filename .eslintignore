@@ -1,0 +1,10 @@
+.next
+.vercel
+node_modules
+*.config.c?js
+.cache
+.tmp
+.turbo
+dist
+build
+apps/strapi

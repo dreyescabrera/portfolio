@@ -1,5 +1,0 @@
-.next
-.vercel
-node_modules
-*.config.c?js
-src/services/graphql
