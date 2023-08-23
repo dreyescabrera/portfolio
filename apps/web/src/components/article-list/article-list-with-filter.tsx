@@ -6,14 +6,19 @@ import { ArticleCategory } from './article-list';
 import { CategoryButton } from './category-button';
 import { ApolloWrapper } from '@/lib/apollo-provider';
 import { Suspense } from 'react';
-import { ClientArticleList } from './client-article-list';
 import { Skeleton } from './skeleton';
 import { CategoryDropDown } from './category-dropdown';
+import { ClientArticleList } from './client-article-list';
+import type { ArticleListItem } from '@/app/articles/page';
 
-export const ArticleListWithFilter = () => {
-	const [category, setCategory] = useState<ArticleCategory | undefined>(undefined);
+type ArticleListWithFilterProps = {
+	articles: ArticleListItem[];
+};
 
-	const changeCategory = (newCategory: ArticleCategory | undefined) => {
+export const ArticleListWithFilter = ({ articles }: ArticleListWithFilterProps) => {
+	const [category, setCategory] = useState<ArticleCategory>('All');
+
+	const changeCategory = (newCategory: ArticleCategory) => {
 		setCategory(newCategory);
 	};
 
@@ -26,7 +31,7 @@ export const ArticleListWithFilter = () => {
 				<div className="hidden sm:flex">
 					<CategoryButton
 						currentCategory={category}
-						category={undefined}
+						category={'All'}
 						changeCategory={changeCategory}
 					/>
 					<CategoryButton
@@ -54,7 +59,7 @@ export const ArticleListWithFilter = () => {
 			<CategoryDropDown currentCategory={category} changeCategory={changeCategory} />
 			<ApolloWrapper>
 				<Suspense fallback={<Skeleton />}>
-					<ClientArticleList category={category} />
+					<ClientArticleList articles={articles} category={category} locale="en" />
 				</Suspense>
 			</ApolloWrapper>
 		</div>

@@ -1,9 +1,9 @@
 import { ArticleCategory } from './article-list';
 
 type CategoryButtonProps = {
-	currentCategory: ArticleCategory | undefined;
-	category: ArticleCategory | undefined;
-	changeCategory: (newCategory: ArticleCategory | undefined) => void;
+	currentCategory: ArticleCategory;
+	category: ArticleCategory;
+	changeCategory: (newCategory: ArticleCategory) => void;
 };
 
 export const CategoryButton = ({

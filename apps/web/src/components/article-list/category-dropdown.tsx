@@ -2,15 +2,14 @@ import { ChangeEventHandler } from 'react';
 import { ArticleCategory } from './article-list';
 
 type CategoryDropDownProps = {
-	changeCategory: (newCategory: ArticleCategory | undefined) => void;
-	currentCategory: ArticleCategory | undefined;
+	changeCategory: (newCategory: ArticleCategory) => void;
+	currentCategory: ArticleCategory;
 };
 
 export const CategoryDropDown = ({ currentCategory, changeCategory }: CategoryDropDownProps) => {
 	const changeHandler: ChangeEventHandler<HTMLSelectElement> = (ev) => {
-		const value = ev.currentTarget.value as ArticleCategory | 'All';
-		if (value === 'All') changeCategory(undefined);
-		else changeCategory(value);
+		const value = ev.currentTarget.value as ArticleCategory;
+		changeCategory(value);
 	};
 
 	return (

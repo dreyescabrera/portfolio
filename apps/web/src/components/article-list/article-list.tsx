@@ -8,10 +8,11 @@ export type ArticleCategory =
 	| 'Web Development'
 	| 'Software Engineering'
 	| 'Adventures & Learnings'
-	| 'Growth & Reflections';
+	| 'Growth & Reflections'
+	| 'All';
 
 type ArticleListProps = {
-	categories?: ArticleCategory[];
+	categories?: Exclude<ArticleCategory, 'All'>[];
 	limit?: number;
 	showSeeAll?: boolean;
 };

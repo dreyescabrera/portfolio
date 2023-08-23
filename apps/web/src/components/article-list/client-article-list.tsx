@@ -1,62 +1,77 @@
-import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr';
-import { graphql } from '@/services/graphql';
 import { ArticleCategory } from './article-list';
 import { ArticleLink } from './article-link';
-
-//duplicated the query because I think nextjs caches the old ones result
-const articlesQuery = graphql(`
-	query GetArticlesTitlesAndCategory($categories: StringFilterInput, $limit: Int) {
-		articles(filters: { category: $categories }, pagination: { limit: $limit }) {
-			data {
-				attributes {
-					title
-					slug
-					createdAt
-					category
-				}
-			}
-		}
-	}
-`);
+import { ArticleListItem } from '@/app/articles/page';
 
 type ClientArticleListProps = {
-	category: ArticleCategory | undefined;
+	category: ArticleCategory;
+	articles: ArticleListItem[];
+	locale: 'es' | 'en';
 };
 
-export const ClientArticleList = ({ category }: ClientArticleListProps) => {
-	const { data } = useSuspenseQuery(articlesQuery, {
-		variables: { categories: { eq: category } },
-		context: {
-			fetchOptions: {
-				method: 'POST',
-			},
-		},
-	});
+export const ClientArticleList = ({ articles, locale, category }: ClientArticleListProps) => {
+	const localeArticles = articles.filter((article) => article.locale === locale);
 
-	const thereIsArticles = Boolean(data?.articles?.data.length);
+	if (category === 'All') {
+		const thereIsArticles = localeArticles.length > 0;
+		if (!thereIsArticles) {
+			return (
+				<div className="rounded-md border border-solid bg-gray-100 p-5 text-gray-800 dark:border-secondary/30 dark:bg-transparent dark:text-lightGray/75">
+					<p className="mb-3 text-lg">
+						Oops. There should be a list of articles here. There is none. I guess I should start
+						writing.
+					</p>
+				</div>
+			);
+		}
 
-	if (thereIsArticles) {
 		return (
 			<ul>
-				{data.articles?.data.map(({ attributes }) => (
+				{localeArticles.map((article) => (
 					<ArticleLink
-						key={attributes?.slug as string}
-						createdAt={attributes?.createdAt as string}
-						slug={attributes?.slug as string}
+						key={article.slug}
+						createdAt={article?.createdAt as string}
+						slug={article.slug}
 					>
-						{attributes?.title}
+						{article?.title}
 					</ArticleLink>
 				))}
 			</ul>
 		);
 	}
 
+	const parsedCategoriesArticles = localeArticles.map((article) => {
+		const parsedCategory = article.category.replaceAll('_', ' ');
+		return { ...article, category: parsedCategory };
+	});
+
+	const categoryFilteredArticles = parsedCategoriesArticles.filter(
+		(article) => article.category === category
+	);
+
+	const thereIsArticles = categoryFilteredArticles.length > 0;
+
+	if (!thereIsArticles) {
+		return (
+			<div className="rounded-md border border-solid bg-gray-100 p-5 text-gray-800 dark:border-secondary/30 dark:bg-transparent dark:text-lightGray/75">
+				<p className="mb-3 text-lg">
+					Oops. There should be a list of articles here. There is none. I guess I should start
+					writing.
+				</p>
+			</div>
+		);
+	}
+
 	return (
-		<div className="rounded-md border border-solid bg-gray-100 p-5 text-gray-800 dark:border-secondary/30 dark:bg-transparent dark:text-lightGray/75">
-			<p className="mb-3 text-lg">
-				Oops. There should be a list of articles here. There is none. I guess I should start
-				writing.
-			</p>
-		</div>
+		<ul>
+			{categoryFilteredArticles.map((article) => (
+				<ArticleLink
+					key={article.slug}
+					createdAt={article?.createdAt as string}
+					slug={article.slug}
+				>
+					{article?.title}
+				</ArticleLink>
+			))}
+		</ul>
 	);
 };
