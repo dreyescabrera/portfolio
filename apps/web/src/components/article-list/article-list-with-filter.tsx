@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { SectionTitle } from '@/components/common';
 import { ArticleCategory } from './article-list';
 import { CategoryButton } from './category-button';
-import { ApolloWrapper } from '@/lib/apollo-provider';
-import { Suspense } from 'react';
-import { Skeleton } from './skeleton';
+// import { ApolloWrapper } from '@/lib/apollo-provider';
+// import { Suspense } from 'react';
+// import { Skeleton } from './skeleton';
 import { CategoryDropDown } from './category-dropdown';
 import { ClientArticleList } from './client-article-list';
 import type { ArticleListItem } from '@/app/articles/page';
@@ -57,11 +57,7 @@ export const ArticleListWithFilter = ({ articles }: ArticleListWithFilterProps) 
 				</div>
 			</div>
 			<CategoryDropDown currentCategory={category} changeCategory={changeCategory} />
-			<ApolloWrapper>
-				<Suspense fallback={<Skeleton />}>
-					<ClientArticleList articles={articles} category={category} locale="en" />
-				</Suspense>
-			</ApolloWrapper>
+			<ClientArticleList articles={articles} category={category} locale="en" />
 		</div>
 	);
 };
