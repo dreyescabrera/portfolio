@@ -67,7 +67,7 @@ export function Hero() {
 							animation="fromRight"
 							shouldShow={dialogueStatus === 'Let me show you.'}
 							callback={onDelete}
-							href="#projects"
+							href="/work"
 						>
 							Projects
 						</HeroButtton>
@@ -76,7 +76,7 @@ export function Hero() {
 							animation="fromRight"
 							shouldShow={dialogueStatus === "That's great to hear!"}
 							callback={onDelete}
-							href="#contact"
+							href="/contact"
 						>
 							Contact
 						</HeroButtton>
