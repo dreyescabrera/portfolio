@@ -1,5 +1,5 @@
-import { ChangeEventHandler } from 'react';
-import { ArticleCategory } from './article-list';
+import type { ChangeEventHandler } from 'react';
+import type { ArticleCategory } from './article-list';
 
 type CategoryDropDownProps = {
 	changeCategory: (newCategory: ArticleCategory) => void;
@@ -25,7 +25,7 @@ export const CategoryDropDown = ({ currentCategory, changeCategory }: CategoryDr
 				onChange={changeHandler}
 				className="block w-full rounded-md border border-gray-300 bg-transparent p-2.5 text-sm text-gray-900 outline-none focus:border-secondary focus:ring-secondary dark:border-gray-800 dark:bg-quaternary dark:text-lightGray dark:focus:border-secondary dark:focus:ring-secondary"
 			>
-				<option selected={currentCategory === undefined}>All</option>
+				<option selected={currentCategory === 'All'}>All</option>
 				<option selected={currentCategory === 'Software Engineering'}>Software Engineering</option>
 				<option selected={currentCategory === 'Web Development'}>Web Development</option>
 				<option selected={currentCategory === 'Adventures & Learnings'}>

@@ -2,6 +2,7 @@
 
 import { LazyMotion, AnimatePresence, m } from 'framer-motion';
 import type { FormAlert } from '@/hooks/use-emailing';
+
 const loadFeatures = () => import('@/lib/framer-motion').then((res) => res.default);
 
 type FormAlertProps = {

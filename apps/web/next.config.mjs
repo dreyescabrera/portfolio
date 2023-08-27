@@ -6,9 +6,8 @@ const withBundleAnalyzer = bundleAnalyzer({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	/* eslint-disable */
-	// @ts-expect-error
 	webpack: (config) => {
+		/* eslint-disable */
 		// Explanation ->
 		// https://github.com/kkomelin/isomorphic-dompurify/issues/54#issuecomment-1458603825
 		config.externals = [...config.externals, 'canvas', 'jsdom'];
@@ -17,5 +16,4 @@ const nextConfig = {
 	},
 };
 
-// @ts-expect-error
 export default withBundleAnalyzer(nextConfig);

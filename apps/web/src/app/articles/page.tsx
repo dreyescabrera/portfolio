@@ -1,59 +1,29 @@
-import type { Metadata } from 'next';
-import { ArticleListWithFilter } from '@/components/article-list';
+import { type ArticleCategory, ArticleListWithFilter } from '@/components/article-list';
 import { PageSection, PageWrapper, SectionTitle, TextContent } from '@/components/common';
 import { getClient } from '@/lib/client';
-import { graphql } from '@/services/graphql';
-
-const allLocalesArticleTitlesQuery = graphql(`
-	query GetAllLocalesArticleTitles {
-		articles(locale: "all") {
-			data {
-				attributes {
-					title
-					slug
-					category
-					createdAt
-					locale
-				}
-			}
-		}
-	}
-`);
-
-export type ArticleCategoryRaw =
-	| 'Web_Development'
-	| 'Software_Engineering'
-	| 'Adventures_&_Learnings'
-	| 'Growth_&_Reflections';
-
-export type ArticleListItem = {
-	title: string;
-	slug: string;
-	createdAt?: string;
-	category: ArticleCategoryRaw;
-	locale: 'es' | 'en';
-};
+import { AllLocalesArticleTitlesQuery, type ArticleListItem } from './queries';
+import type { Metadata } from 'next';
 
 export default async function ArticleHomePage() {
 	const client = getClient();
 	const {
-		data: { articles },
+		data: { articles: articlesData },
 	} = await client.query({
-		query: allLocalesArticleTitlesQuery,
+		query: AllLocalesArticleTitlesQuery,
 	});
 
-	const articlesAttributes = articles?.data || [];
+	const articlesAttributes = articlesData?.data || [];
 
-	const articlesData: ArticleListItem[] = [];
+	const articles: ArticleListItem[] = [];
 
 	articlesAttributes.forEach((article) => {
 		if (!article.attributes) return null;
 
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		const { __typename, ...articleData } = article.attributes;
-		const unionTypedCategory = articleData.category as unknown as ArticleCategoryRaw;
+		const unionTypedCategory = articleData.category as unknown as ArticleCategory;
 
-		articlesData.push({
+		articles.push({
 			...articleData,
 			category: unionTypedCategory,
 		} as ArticleListItem);
@@ -69,7 +39,7 @@ export default async function ArticleHomePage() {
 					to learn it.
 				</TextContent>
 			</PageSection>
-			<ArticleListWithFilter articles={articlesData} />
+			<ArticleListWithFilter articles={articles} />
 		</PageWrapper>
 	);
 }

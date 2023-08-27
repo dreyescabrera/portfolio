@@ -2,18 +2,23 @@
 
 import { useState } from 'react';
 import { SectionTitle } from '@/components/common';
-import { ArticleCategory } from './article-list';
 import { CategoryButton } from './category-button';
-// import { ApolloWrapper } from '@/lib/apollo-provider';
-// import { Suspense } from 'react';
-// import { Skeleton } from './skeleton';
 import { CategoryDropDown } from './category-dropdown';
 import { ClientArticleList } from './client-article-list';
-import type { ArticleListItem } from '@/app/articles/page';
+import type { ArticleCategory } from './article-list';
+import type { ArticleListItem } from '@/app/articles/queries';
 
 type ArticleListWithFilterProps = {
 	articles: ArticleListItem[];
 };
+
+const articleCategories = [
+	'All',
+	'Software Engineering',
+	'Web Development',
+	'Adventures & Learnings',
+	'Growth & Reflections',
+] as const;
 
 export const ArticleListWithFilter = ({ articles }: ArticleListWithFilterProps) => {
 	const [category, setCategory] = useState<ArticleCategory>('All');
@@ -29,31 +34,14 @@ export const ArticleListWithFilter = ({ articles }: ArticleListWithFilterProps) 
 					<SectionTitle variant="h3">Filter by category</SectionTitle>
 				</span>
 				<div className="hidden sm:flex">
-					<CategoryButton
-						currentCategory={category}
-						category={'All'}
-						changeCategory={changeCategory}
-					/>
-					<CategoryButton
-						currentCategory={category}
-						category={'Software Engineering'}
-						changeCategory={changeCategory}
-					/>
-					<CategoryButton
-						currentCategory={category}
-						category={'Web Development'}
-						changeCategory={changeCategory}
-					/>
-					<CategoryButton
-						currentCategory={category}
-						category={'Adventures & Learnings'}
-						changeCategory={changeCategory}
-					/>
-					<CategoryButton
-						currentCategory={category}
-						category={'Growth & Reflections'}
-						changeCategory={changeCategory}
-					/>
+					{articleCategories.map((articleCategory) => (
+						<CategoryButton
+							key={articleCategory}
+							currentCategory={category}
+							category={articleCategory}
+							changeCategory={changeCategory}
+						/>
+					))}
 				</div>
 			</div>
 			<CategoryDropDown currentCategory={category} changeCategory={changeCategory} />

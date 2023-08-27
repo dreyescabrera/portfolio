@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ArticleLink } from './article-link';
 import { getClient } from '@/lib/client';
 import { graphql } from '@/services/graphql';
-import { AnchorButton } from '../common';
+import { ArticleNotFound } from './article-not-found';
 
 export type ArticleCategory =
 	| 'Web Development'
@@ -73,15 +73,5 @@ export const ArticleList = async ({ categories, limit, showSeeAll = true }: Arti
 		);
 	}
 
-	return (
-		<div className="rounded-md border border-solid bg-gray-100 p-5 text-gray-800 dark:border-secondary/30 dark:bg-transparent dark:text-lightGray">
-			<p className="mb-3 text-lg">
-				Oops. There should be a list of articles here. There is none. I guess I should start
-				writing.
-			</p>
-			<AnchorButton variant="secondary" href="/articles">
-				See articles page
-			</AnchorButton>
-		</div>
-	);
+	return <ArticleNotFound withLink />;
 };

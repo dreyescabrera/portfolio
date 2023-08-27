@@ -1,9 +1,10 @@
 'use client';
 
-import { Suspense, lazy, InputHTMLAttributes, type ReactNode } from 'react';
+import type { InputHTMLAttributes, ReactNode } from 'react';
+import dynamic from 'next/dynamic';
 import { useEmailing } from '@/hooks/use-emailing';
 import { Button } from '@/components/common';
-const FormAlert = lazy(() => import('./form-alert'));
+const FormAlert = dynamic(() => import('./form-alert'), { ssr: false });
 
 export const Form = () => {
 	const { form, formAlert, sendEmail } = useEmailing();
@@ -15,9 +16,7 @@ export const Form = () => {
 			id="form"
 			onSubmit={sendEmail}
 		>
-			<Suspense fallback="">
-				<FormAlert formAlert={formAlert} />
-			</Suspense>
+			<FormAlert formAlert={formAlert} />
 			<Label>
 				Your Name
 				<Input type="text" name="user_name" placeholder="Dana" required />
