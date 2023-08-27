@@ -1,22 +1,25 @@
 import { GoogleAnalytics } from '@/components/analytics/google-analytics';
 import { PageLayout } from '@/components/page-layout';
-import { Raleway, Outfit } from 'next/font/google';
-import type { Metadata } from 'next';
+import { outfit, raleway } from './fonts';
 import './globals.css';
+import type { Metadata } from 'next';
 
 const GA_TRACKING_ID = process.env.GA_TRACKING_ID;
 
-const raleway = Raleway({
-	subsets: ['latin'],
-	display: 'swap',
-	variable: '--font-raleway',
-});
-
-const outfit = Outfit({
-	subsets: ['latin'],
-	display: 'swap',
-	variable: '--font-outfit',
-});
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+	return (
+		<html
+			style={{ scrollbarGutter: 'stable' }}
+			lang="en"
+			className={`${outfit.variable} ${raleway.variable}`}
+		>
+			<GoogleAnalytics GA_TRACKING_ID={GA_TRACKING_ID as string} />
+			<body>
+				<PageLayout>{children}</PageLayout>
+			</body>
+		</html>
+	);
+}
 
 export const metadata: Metadata = {
 	title: {
@@ -43,18 +46,3 @@ export const metadata: Metadata = {
 		locale: 'en_US',
 	},
 };
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-	return (
-		<html
-			style={{ scrollbarGutter: 'stable' }}
-			lang="en"
-			className={`${outfit.variable} ${raleway.variable}`}
-		>
-			<GoogleAnalytics GA_TRACKING_ID={GA_TRACKING_ID as string} />
-			<body>
-				<PageLayout>{children}</PageLayout>
-			</body>
-		</html>
-	);
-}

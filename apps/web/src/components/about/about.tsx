@@ -12,10 +12,10 @@ export function About() {
 				Atlanta, USA.
 			</TextContent>
 			<TextContent>
-				One year ago, I found a passion for developing when I took a course of JavaScript, as I was
-				seeking a purpose that really catches me, facing my ever first algorithms, layouts and so
-				on. Since then, I have been working on mastering my ability of solving user&apos;s problems
-				with optimized and clean code within my web apps.
+				I am passionate about turning ideas into usable and efficient products through software.
+				Every day I prepare myself 1% more to be able to deliver a product that exceeds user
+				expectations, while adhering to best practices and principles of software maintainability
+				and scalability.
 			</TextContent>
 
 			<section className="mt-8 flex flex-col items-center gap-10 lg:flex-row lg:justify-around">
@@ -25,12 +25,12 @@ export function About() {
 					<SectionTitle variant="h3">Frontend Developer</SectionTitle>
 					<BulletedContent>
 						Every day I am working on my side projects, currently focused on technologies such as
-						JavaScript, ReactJS and Tailwind CSS, thinking how I can create a product you&apos;d
+						TypeScript, Next.js and Tailwind CSS, thinking how I can create a product you&apos;d
 						need or wish to have.
 					</BulletedContent>
 					<BulletedContent>
 						I am working on learning modern frontend frameworks, such as ReactJS and the libraries
-						around it, soon to come the whole MERN Stack.
+						around it.
 					</BulletedContent>
 					<BulletedContent>
 						I develop highly efficient, responsive and performant websites and web apps, always
