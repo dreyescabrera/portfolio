@@ -2,18 +2,14 @@ import { ProfileImage } from '@/components/common/profile-image';
 import { MediaButton } from './media-button';
 import { ThemeSwitch } from './theme-switch';
 import { NavItem } from './nav-item';
+import { getCookieTheme } from '@/utils';
 import { navData } from '@/data/nav';
-import { useSidebarMobileContext } from '@/contexts/side-bar-mobile';
 
 export const Sidebar = () => {
-	const { isSidebarOpen } = useSidebarMobileContext();
+	const theme = getCookieTheme();
 
 	return (
-		<aside
-			className={`sticky top-0 z-20 col-start-1 col-end-5 row-span-full flex h-screen flex-col items-center justify-start gap-5 overflow-auto bg-black px-6 py-8 transition-transform duration-500 md:col-span-1 md:translate-x-0 md:transition-none ${
-				isSidebarOpen ? 'translate-x-0' : '-translate-x-full '
-			}`}
-		>
+		<aside className="flex h-full flex-col items-center justify-start gap-5 overflow-auto bg-black px-6 py-8">
 			<ProfileImage shape="circle" />
 			<h2 className="font-luxury text-3xl font-bold text-lightGray md:text-2xl 2xl:text-3xl 3xl:text-5xl">
 				Diego Reyes
@@ -34,7 +30,7 @@ export const Sidebar = () => {
 					))}
 				</ul>
 			</nav>
-			<ThemeSwitch />
+			<ThemeSwitch initialTheme={theme} />
 		</aside>
 	);
 };

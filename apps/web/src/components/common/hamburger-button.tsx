@@ -1,11 +1,13 @@
 'use client';
 
-import { useSidebarMobileContext } from '@/contexts/side-bar-mobile';
+type HamburgerButtonProps = {
+	toggleSidebar: () => void;
+	isActive: boolean;
+};
 
-export const HamburgerButton = () => {
-	const { toggleSidebar, isSidebarOpen } = useSidebarMobileContext();
-	const rotateStyles = isSidebarOpen ? 'rotate-45 translate-y-1' : '';
-	const invertedRotateStyles = isSidebarOpen ? 'rotate-[-45deg] -translate-y-1.5' : '';
+export const HamburgerButton = ({ isActive, toggleSidebar }: HamburgerButtonProps) => {
+	const rotateStyles = isActive ? 'rotate-45 translate-y-1' : '';
+	const invertedRotateStyles = isActive ? 'rotate-[-45deg] -translate-y-1.5' : '';
 
 	return (
 		<button

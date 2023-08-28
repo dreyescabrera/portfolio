@@ -1,21 +1,25 @@
 import { GoogleAnalytics } from '@/components/analytics/google-analytics';
-import { PageLayout } from '@/components/page-layout';
+import { PageClientLayout } from '@/components/page-client-layout';
+import { Sidebar } from '@/components/sidebar';
 import { outfit, raleway } from './fonts';
+import { getCookieTheme } from '@/utils';
 import './globals.css';
 import type { Metadata } from 'next';
 
 const GA_TRACKING_ID = process.env.GA_TRACKING_ID;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+	const theme = getCookieTheme();
+
 	return (
 		<html
 			style={{ scrollbarGutter: 'stable' }}
 			lang="en"
-			className={`${outfit.variable} ${raleway.variable}`}
+			className={`${outfit.variable} ${raleway.variable} ${theme}`}
 		>
 			<GoogleAnalytics GA_TRACKING_ID={GA_TRACKING_ID as string} />
 			<body>
-				<PageLayout>{children}</PageLayout>
+				<PageClientLayout renderSidebar={<Sidebar />}>{children}</PageClientLayout>
 			</body>
 		</html>
 	);

@@ -1,45 +1,43 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Icon } from '@/components/common/icon';
+import { useState } from 'react';
+import { setCookieTheme, deleteCookieTheme } from '@/utils';
+import { Icon } from '@/components/common';
 
-export const ThemeSwitch = () => {
-	const [isDark, setIsDark] = useState<boolean>(false);
+export type Theme = 'light' | 'dark';
+
+type ThemeSwitchProps = {
+	initialTheme: Theme;
+};
+
+export const ThemeSwitch = ({ initialTheme }: ThemeSwitchProps) => {
+	const [theme, setTheme] = useState<Theme>(initialTheme);
 
 	const switchTheme = () => {
-		if (document.documentElement.classList.contains('dark')) {
+		if (theme === 'dark') {
 			document.documentElement.classList.remove('dark');
-			localStorage.setItem('theme', 'light');
-			setIsDark(false);
+			setTheme('light');
+			deleteCookieTheme();
 			return;
 		}
 		document.documentElement.classList.add('dark');
-		localStorage.setItem('theme', 'dark');
-		setIsDark(true);
+		setTheme('dark');
+		setCookieTheme('dark');
 	};
-
-	useEffect(() => {
-		const userTheme = localStorage.getItem('theme');
-		const systemTheme = matchMedia('(prefers-color-scheme: dark)').matches;
-		if (userTheme === 'dark' || (!userTheme && systemTheme)) {
-			document.documentElement.classList.add('dark');
-			setIsDark(true);
-		}
-	}, []);
 
 	return (
 		<div className="mt-2 flex items-center justify-center gap-2 xs:mt-6 md:self-start">
 			<Icon type="sun" styles="w-6 h-full text-white" />
-			<div
-				className="h-6 w-14 cursor-pointer overflow-hidden  rounded-full bg-red-50 p-0.5"
+			<button
+				className="h-6 w-14 cursor-pointer overflow-hidden rounded-full bg-red-50 p-0.5"
 				onClickCapture={switchTheme}
 			>
-				<div
-					className={`h-full w-5 rounded-full bg-terciary bg-gradient-to-r from-terciary to-primary transition-transform duration-500 ease-in-out ${
-						isDark ? 'translate-x-8 rotate-180' : ''
+				<span
+					className={`block h-full w-5 rounded-full bg-terciary bg-gradient-to-r from-terciary to-primary transition-transform duration-500 ease-in-out ${
+						theme === 'dark' ? 'translate-x-8 rotate-180' : ''
 					}`}
-				></div>
-			</div>
+				></span>
+			</button>
 			<Icon type="moon" styles="w-6 h-full text-white" />
 		</div>
 	);
