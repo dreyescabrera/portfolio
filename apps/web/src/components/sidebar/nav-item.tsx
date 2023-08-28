@@ -1,10 +1,10 @@
 'use client';
 
-import { useSidebarMobileContext } from '@/contexts/side-bar-mobile';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useSidebarMobileContext } from '@/contexts/side-bar-mobile';
+import { Icon, type IconType } from '../common';
 import type { ReactNode } from 'react';
-import { Icon, IconType } from '../common';
 
 type NavItemProps = {
 	path: string;
@@ -38,7 +38,9 @@ export const NavItem = ({ path, children, icon }: NavItemProps) => {
 			className={`group inline-flex items-center font-casual capitalize hover:transition-colors hover:duration-200 ${activeTextStyles}`}
 			onClick={closeSidebar}
 		>
-			{icon && <Icon type={icon} styles={`w-6 mr-4 shrink-0 aspect-square ${activeIconStyles}`} />}
+			{icon && (
+				<Icon type={icon} styles={`w-6 2xl:w-7 mr-4 shrink-0 aspect-square ${activeIconStyles}`} />
+			)}
 			{children}
 		</Link>
 	);

@@ -1,4 +1,4 @@
-import { IconType } from '@/components/common';
+import type { IconType } from '@/components/common';
 
 type NavItem = {
 	text: string;

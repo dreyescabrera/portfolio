@@ -15,7 +15,7 @@ export const Sidebar = () => {
 			}`}
 		>
 			<ProfileImage shape="circle" />
-			<h2 className="font-luxury text-3xl font-bold text-lightGray md:text-2xl 3xl:text-4xl">
+			<h2 className="font-luxury text-3xl font-bold text-lightGray md:text-2xl 2xl:text-3xl 3xl:text-5xl">
 				Diego Reyes
 			</h2>
 			<ul className="flex space-x-5">
@@ -24,7 +24,7 @@ export const Sidebar = () => {
 				<MediaButton link="https://www.linkedin.com/in/diegoreyescabrera/" socialMedia="linkedin" />
 			</ul>
 			<nav className="pt-2 md:self-start lg:pt-8">
-				<ul className="flex flex-col gap-5 text-lg font-semibold tracking-wide text-midGray md:text-xl 3xl:text-2xl">
+				<ul className="flex flex-col gap-5 text-lg font-semibold tracking-wide text-midGray md:text-xl  3xl:text-2xl">
 					{navData.map(({ path, text, iconName }) => (
 						<li key={path}>
 							<NavItem path={path} icon={iconName}>

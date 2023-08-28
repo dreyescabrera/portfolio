@@ -1,4 +1,4 @@
-import { Icon, IconType } from '@/components/common/icon';
+import { Icon, type IconType } from '@/components/common/icon';
 
 type MediaButtonProps = {
 	socialMedia: IconType;
@@ -16,8 +16,8 @@ export function MediaButton({ socialMedia, link }: MediaButtonProps) {
 				aria-label={`Visit my ${socialMedia}`}
 				title={capitalizedWord}
 			>
-				<span className="transition-100 flex aspect-square w-10 items-center justify-center rounded-full bg-darkGray transition-transform hover:scale-105 3xl:w-12">
-					<Icon type={socialMedia} styles="w-6 3xl:w-7 aspect-square text-lightGray" />
+				<span className="transition-100 flex aspect-square w-10 items-center justify-center rounded-full bg-darkGray transition-transform hover:scale-105 2xl:w-12 3xl:w-14">
+					<Icon type={socialMedia} styles="w-6 2xl:w-7 3xl:w-7 aspect-square text-lightGray" />
 				</span>
 			</a>
 		</li>

@@ -1,7 +1,7 @@
 import { SectionTitle } from '@/components/common/section-title';
 import { TextContent } from '@/components/common/text-content';
 import { skills } from '@/data/skills';
-import { Icon, IconType } from '@/components/common/icon';
+import { Icon, type IconType } from '@/components/common/icon';
 import { PageSection } from '../common';
 
 type SkillsItemProps = {

@@ -1,7 +1,7 @@
 'use client';
 
 import type { ReactNode, ButtonHTMLAttributes } from 'react';
-import { primaryColors, secondaryColors, ButtonVariant } from './anchor-button';
+import { primaryColors, secondaryColors, type ButtonVariant } from './anchor-button';
 
 type HTMLButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 

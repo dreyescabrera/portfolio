@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { sanitize } from 'isomorphic-dompurify';
-import { Icon, IconType } from '@/components/common/icon';
+import { Icon, type IconType } from '@/components/common/icon';
 import { AnchorButton } from '../common/anchor-button';
 
 type ProjectCardProps = {

@@ -1,9 +1,9 @@
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
 import { AnchorButton, PageSection, PageWrapper } from '@/components/common';
-import { Metadata } from 'next';
 import { GetFullArticleQuery, GetSlugsQuery } from './queries';
 import { getClient } from '@/lib/client';
+import type { Metadata } from 'next';
 
 type ArticlePageProps = {
 	params: {

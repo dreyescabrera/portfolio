@@ -13,7 +13,7 @@ export const ProfileImage = ({ shape }: ProfileImageProps) => {
 					alt="Profile Image"
 					width={150}
 					height={150}
-					className="aspect-square w-[130px] rounded-full object-cover object-top shadow-[0_0_0_10px] shadow-darkGray min-[375px]:w-[150px] 3xl:w-52"
+					className="aspect-square w-[130px] rounded-full object-cover object-top shadow-[0_0_0_10px] shadow-darkGray min-[375px]:w-36 2xl:w-44 3xl:w-52"
 				/>
 			);
 

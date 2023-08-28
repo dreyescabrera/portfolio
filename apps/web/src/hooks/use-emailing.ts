@@ -1,6 +1,6 @@
 'use client';
 
-import { MouseEventHandler, useRef, useState } from 'react';
+import { type MouseEventHandler, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
 export type FormAlert = {

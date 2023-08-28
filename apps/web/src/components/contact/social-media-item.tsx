@@ -1,4 +1,4 @@
-import { Icon, IconType } from '@/components/common/icon';
+import { Icon, type IconType } from '@/components/common/icon';
 
 type SocialMediaItemProps = {
 	name: string;
