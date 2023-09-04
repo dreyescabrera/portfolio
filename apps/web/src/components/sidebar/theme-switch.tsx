@@ -1,28 +1,12 @@
 'use client';
 
-import { useState } from 'react';
-import { setCookieTheme, deleteCookieTheme } from '@/utils';
 import { Icon } from '@/components/common';
 
 export type Theme = 'light' | 'dark';
 
-type ThemeSwitchProps = {
-	initialTheme: Theme;
-};
-
-export const ThemeSwitch = ({ initialTheme }: ThemeSwitchProps) => {
-	const [theme, setTheme] = useState<Theme>(initialTheme);
-
+export const ThemeSwitch = () => {
 	const switchTheme = () => {
-		if (theme === 'dark') {
-			document.documentElement.classList.remove('dark');
-			setTheme('light');
-			deleteCookieTheme();
-			return;
-		}
-		document.documentElement.classList.add('dark');
-		setTheme('dark');
-		setCookieTheme('dark');
+		document.documentElement.classList.toggle('dark');
 	};
 
 	return (
@@ -33,9 +17,7 @@ export const ThemeSwitch = ({ initialTheme }: ThemeSwitchProps) => {
 				onClickCapture={switchTheme}
 			>
 				<span
-					className={`block h-full w-5 rounded-full bg-terciary bg-gradient-to-r from-terciary to-primary transition-transform duration-500 ease-in-out ${
-						theme === 'dark' ? 'translate-x-8 rotate-180' : ''
-					}`}
+					className={`block h-full w-5 rounded-full bg-terciary bg-gradient-to-r from-terciary to-primary transition-transform duration-500 ease-in-out dark:translate-x-8 dark:rotate-180`}
 				></span>
 			</button>
 			<Icon type="moon" styles="w-6 h-full text-white" />

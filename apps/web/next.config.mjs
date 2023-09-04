@@ -14,9 +14,6 @@ const nextConfig = {
 		return config;
 		/* eslint-disable */
 	},
-	experimental: {
-		serverActions: true,
-	},
 };
 
 export default withBundleAnalyzer(nextConfig);

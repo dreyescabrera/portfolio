@@ -1,13 +1,10 @@
 import { ProfileImage } from '@/components/common/profile-image';
 import { MediaButton } from './media-button';
-import { ThemeSwitch } from './theme-switch';
 import { NavItem } from './nav-item';
-import { getCookieTheme } from '@/utils';
 import { navData } from '@/data/nav';
+// import { ThemeSwitch } from './theme-switch';
 
 export const Sidebar = () => {
-	const theme = getCookieTheme();
-
 	return (
 		<aside className="flex h-full flex-col items-center justify-start gap-5 overflow-auto bg-black px-6 py-8">
 			<ProfileImage shape="circle" />
@@ -30,7 +27,7 @@ export const Sidebar = () => {
 					))}
 				</ul>
 			</nav>
-			<ThemeSwitch initialTheme={theme} />
+			{/* <ThemeSwitch /> */}
 		</aside>
 	);
 };

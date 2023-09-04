@@ -5,12 +5,7 @@ module.exports = {
 		'./src/components/**/*.{js,jsx,ts,tsx}',
 		'./src/app/**/*.{js,jsx,ts,tsx}',
 		'./src/hooks/*.{js,ts}',
-		'./app/*.{js,jsx,ts,tsx}',
-		'./app/**/*.{js,ts,jsx,tsx,mdx}',
-		'./app/components/**/*.{js,jsx,ts,tsx}',
-		'./app/hooks/*.{js,ts}',
 	],
-	darkMode: 'class',
 	theme: {
 		extend: {
 			screens: {
