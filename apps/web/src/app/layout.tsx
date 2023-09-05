@@ -1,3 +1,4 @@
+import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 import { GoogleAnalytics } from '@/components/analytics/google-analytics';
 import { PageClientLayout } from '@/components/page-client-layout';
 import { Sidebar } from '@/components/sidebar';
@@ -17,6 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			<GoogleAnalytics GA_TRACKING_ID={GA_TRACKING_ID as string} />
 			<body>
 				<PageClientLayout renderSidebar={<Sidebar />}>{children}</PageClientLayout>
+				<VercelAnalytics />
 			</body>
 		</html>
 	);
